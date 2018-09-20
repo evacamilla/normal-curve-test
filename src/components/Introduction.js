@@ -4,6 +4,11 @@ class Introduction extends Component {
   state = {
     showWelcome: true
   };
+
+  componentDidMount(){
+      //set state in app.js to "Introduktion"
+      this.props.changeChapter('Introduktion');
+  }
   render() {
     return (
       <div>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Menu from './components/Menu.js';
 import Header from './components/Header.js';
@@ -16,8 +15,9 @@ class App extends Component {
     chapter: 'Introduktion'
   };
 
-  changeChapter = chapterName => {
-    this.setState({ chapter: chapterName });
+  changeChapter = (chapterName) => {
+    console.log(chapterName);
+    //this.setState({chapter: chapterName });
   };
 
   toggleMenu = () => {
@@ -39,10 +39,9 @@ class App extends Component {
             <Header toggleMenu={this.toggleMenu} chapter={this.state.chapter} />
 
             <Switch>
-              <Route exact path="/" component={Introduction} />
-              <Route exact path="/introduktion" component={Introduction} />
+              <Route exact path="/introduktion" component={(props) => <Introduction {...props} changeChapter={this.changeChapter} />} />
               <Route exact path="/sefilmen" component={Video} />
-              <Route exact path="/svarapadinafragor" component={Question} />
+              <Route exact path="/fyllidinasvar" component={Question} />
               <Route exact path="/result" component={Result} />
             </Switch>
 
