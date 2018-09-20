@@ -7,8 +7,8 @@ function Header(props){
         <header className="App-header">
         {//TODO: göra egen hamburgaren istället för font-awesome om vi ändå bara ska ha hamburgaren?
         }
-        <i class="fas fa-bars" onClick={props.toggleMenu}></i>
-        <p>{props.category}</p>
+        <i className="fas fa-bars" onClick={props.toggleMenu}></i>
+        <p>{props.chapter}</p>
         </header>
     );
 }

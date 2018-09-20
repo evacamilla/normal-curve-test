@@ -3,8 +3,8 @@ import React from 'react';
 function Footer(){
     return(
         <footer>
-          <button className="btn" onClick="">Tillbaka</button>
-          <button className="btn" onClick="">Nästa</button>
+          <button className="btn">Tillbaka</button>
+          <button className="btn">Nästa</button>
         </footer>
     );
 }

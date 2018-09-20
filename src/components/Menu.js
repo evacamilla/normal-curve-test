@@ -10,10 +10,10 @@ function Menu(props){
                 //Dålig lösning onclick toggle menu?
             }
             <ul>
-                <li><NavLink onClick={props.toggleMenu} activeClassName="linkIsActive" exact={true} to="/introduktion">Introduktion</NavLink></li> 
-                <li><NavLink onClick={props.toggleMenu} activeClassName="linkIsActive" exact={true} to="/sefilmen">Se filmen</NavLink></li>
-                <li><NavLink onClick={props.toggleMenu} activeClassName="linkIsActive" exact={true} to="/svarapadinafragor">Svara på dina frågor</NavLink></li> 
-                <li><NavLink onClick={props.toggleMenu} activeClassName="linkIsActive" exact={true} to="/resultat">Resultat</NavLink></li>
+                <li><NavLink onClick={(event) => {props.toggleMenu(); props.changeChapter("Introduktion");}} activeClassName="linkIsActive" exact={true} to="/introduktion">Introduktion</NavLink></li> 
+                <li><NavLink onClick={(event) => {props.toggleMenu(); props.changeChapter("Se filmen");}} activeClassName="linkIsActive" exact={true} to="/sefilmen">Se filmen</NavLink></li>
+                <li><NavLink onClick={(event) => {props.toggleMenu(); props.changeChapter("Frågorna");}} activeClassName="linkIsActive" exact={true} to="/svarapadinafragor">Svara på dina frågor</NavLink></li> 
+                <li><NavLink onClick={(event) => {props.toggleMenu(); props.changeChapter("Resultat");}} activeClassName="linkIsActive" exact={true} to="/resultat">Resultat</NavLink></li>
             </ul>
         </div>
     );

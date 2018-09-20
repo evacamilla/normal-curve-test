@@ -12,7 +12,11 @@ import { BrowserRouter,
 class App extends Component {
   state = {
     toggleMenu: false,
-    category: "Introduktion"
+    chapter: "Introduktion"
+  }
+
+  changeChapter = (chapterName) => {
+    this.setState({chapter: chapterName});
   }
 
   toggleMenu = () => {
@@ -24,11 +28,11 @@ class App extends Component {
       <div className="App">
       {this.state.toggleMenu ? 
         <div>
-          <Menu toggleMenu={this.toggleMenu} />
+          <Menu changeChapter={this.changeChapter} toggleMenu={this.toggleMenu} />
         </div> 
         : 
         <div>
-          <Header toggleMenu={this.toggleMenu} category={this.state.category}/>
+          <Header toggleMenu={this.toggleMenu} chapter={this.state.chapter}/>
           
             <Switch>
               <Route exact path="/" component={Introduction} />
