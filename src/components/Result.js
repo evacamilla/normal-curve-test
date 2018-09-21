@@ -1,25 +1,21 @@
 import React, { Component } from 'react';
+import BtnChangePage from './BtnChangePage.js';
 
 class Result extends Component {
   state = {
     chapter: 'Resultat'
   };
-  
+
   componentDidMount = () => {
     this.props.changeChapter(this.state.chapter);
-  }
-  
+  };
+
   render() {
     return (
       <div>
-        <h1>Nedstämdhet</h1>
-        <p>
-          Avser en sänkning av det emotionella grundläget (till skillnad från
-          situationsutlösta affekter). Omfattar dysterhet, tungsinne och
-          nedstämdhet, som manifesterar sig i mimik, kroppshållning och
-          rörelsemönster. Bedömningen baseras på utpräglingsgrad och
-          avledbarhet. Förhöjd grundstämning.
-        </p>
+        <h1>Resultat</h1>
+        <p>Du är godgänd</p>
+        <BtnChangePage />
       </div>
     );
   }

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-
+import BtnChangePage from './BtnChangePage.js';
 class Question extends Component {
   state = {
     chapter: 'Resultat'
   };
-  
+
   componentWillMount = () => {
     this.props.changeChapter(this.state.chapter);
-  }
+  };
 
   render() {
     return (
@@ -20,6 +20,7 @@ class Question extends Component {
           rörelsemönster. Bedömningen baseras på utpräglingsgrad och
           avledbarhet. Förhöjd grundstämning.
         </p>
+        <BtnChangePage />
       </div>
     );
   }
