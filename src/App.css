@@ -18,6 +18,12 @@
   to { transform: rotate(360deg); }
 }
 
+/*** LINKS ***/
+.link-is-active {
+  color: red;
+}
+
+/*** BUTTONS ***/
 .big-btn {
   font-size: 1.4em;
   border:1px solid red;

@@ -9,7 +9,7 @@ function Menu(props) {
         <li>
           <NavLink
             onClick={props.toggleMenu}
-            activeClassName="linkIsActive"
+            activeClassName="link-is-active"
             exact={true}
             to="/introduktion"
           >
@@ -19,7 +19,7 @@ function Menu(props) {
         <li>
           <NavLink
             onClick={props.toggleMenu}
-            activeClassName="linkIsActive"
+            activeClassName="link-is-active"
             exact={true}
             to="/sefilmen"
           >
@@ -29,7 +29,7 @@ function Menu(props) {
         <li>
           <NavLink
             onClick={props.toggleMenu}
-            activeClassName="linkIsActive"
+            activeClassName="link-is-active"
             exact={true}
             to="/fyllidinasvar"
           >
@@ -39,7 +39,7 @@ function Menu(props) {
         <li>
           <NavLink
             onClick={props.toggleMenu}
-            activeClassName="linkIsActive"
+            activeClassName="link-is-active"
             exact={true}
             to="/resultat"
           >
@@ -52,3 +52,4 @@ function Menu(props) {
 }
 
 export default Menu;
+
