@@ -8,7 +8,6 @@
 }
 
 .App-header {
-  border: 1px solid black;
   height: 150px;
   padding: 20px;
 }
@@ -17,4 +16,11 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.big-btn {
+  font-size: 1.4em;
+  border:1px solid red;
+  width: 150px;
+  height: 80px;
 }
