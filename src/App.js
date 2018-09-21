@@ -17,7 +17,7 @@ class App extends Component {
 
   changeChapter = (chapterName) => {
     console.log(chapterName);
-    this.setState({chapter: chapterName });
+    //this.setState({chapter: chapterName });
 
   }
 
