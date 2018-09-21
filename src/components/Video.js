@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-function Video() {
-  return (
-    <div>
-      <p>VIDEO</p>
-    </div>
-  );
+class Video extends Component {
+  state = {
+    chapter: 'Video'
+  };
+
+  componentDidMount = () => {
+      this.props.changeChapter(this.state.chapter);
+  }
+
+  render() {
+    return (
+      <div>
+        <p>VIDEO</p>
+      </div>
+    );
+}
 }
 
 export default Video;

@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 
 class Result extends Component {
-  state = {};
+  state = {
+    chapter: 'Resultat'
+  };
+  
+  componentDidMount = () => {
+    this.props.changeChapter(this.state.chapter);
+  }
+  
   render() {
     return (
       <div>

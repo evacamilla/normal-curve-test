@@ -2,10 +2,9 @@
 
 - Bara att fylla i det som ska göras, ideer
 
+ 21/9
 - chapter namnet i app.js state:
-nu sätts chapter namnet(introduktion, se filmen, frågorna...) när man klickar respektive länk i menyn men om man uppdaterar sidan eller går in via sid-url:en sätts statet tillbaka till ursprungsläget: introduktion.
-vi kanske kan göra så att chapter namnet sätts när en komponent renderas/visas istället(component did mount)
-ska vi koppla ihop headern och komponenterna istället? inte ha det i app.js?
+funkar inte att setState i component did mount nu
 
 - buttons: föregående/nästa
 hur göra dom bra..?

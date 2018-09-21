@@ -17,8 +17,9 @@ class App extends Component {
 
   changeChapter = (chapterName) => {
     console.log(chapterName);
-    //this.setState({chapter: chapterName });
-  };
+    this.setState({chapter: chapterName });
+
+  }
 
   toggleMenu = () => {
     this.setState({ toggleMenu: !this.state.toggleMenu });
@@ -40,9 +41,9 @@ class App extends Component {
 
             <Switch>
               <Route exact path="/introduktion" component={(props) => <Introduction {...props} changeChapter={this.changeChapter} />} />
-              <Route exact path="/sefilmen" component={Video} />
-              <Route exact path="/fyllidinasvar" component={Question} />
-              <Route exact path="/result" component={Result} />
+        <Route exact path="/sefilmen" component={(props) => <Video {...props} changeChapter={this.changeChapter} />} />
+              <Route exact path="/fyllidinasvar" component={(props) => <Question {...props} changeChapter={this.changeChapter} />} />
+              <Route exact path="/result" component={(props) => <Result {...props} changeChapter={this.changeChapter} />} />
             </Switch>
 
             <Footer />

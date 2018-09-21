@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 
 class Introduction extends Component {
   state = {
-    showWelcome: true
+    showWelcome: true,
+    chapter: 'Introduktion'
   };
 
-  componentDidMount(){
-      //set state in app.js to "Introduktion"
-      this.props.changeChapter('Introduktion');
+  componentDidMount = () => {
+      this.props.changeChapter(this.state.chapter);
   }
+
   render() {
     return (
       <div>
