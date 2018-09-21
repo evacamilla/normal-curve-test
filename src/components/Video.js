@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import BtnChangePage from './BtnChangePage.js';
 class Video extends Component {
   state = {
-    chapter: 'Video'
+    chapter: 'Se filmen'
   };
 
   componentDidMount = () => {

@@ -21,7 +21,7 @@ class Result extends Component {
   render() {
     return (
       <div>
-        <h1>Resultat</h1>
+        <h1>{this.state.chapter}</h1>
         
         { this.state.filledInAnswers ? 
         //if user filled out all the answers
@@ -35,6 +35,7 @@ class Result extends Component {
           </div> 
           : 
           //if user did not pass
+          //ska vara switch-länk till /introduktion ist för button?
           <div> 
             <p>Du är inte godkänd</p> 
             <Button text={'Gör om kursen'} onClick={this.answersOverview} className={'big-btn'} />
@@ -42,9 +43,10 @@ class Result extends Component {
         }
         </div>
           : //if user didnt fill out all the answers(came in to page with URL, deny access?)
+          //ska vara switch-länk till /introduktion ist för button?
         <div>
           Du måste göra klart kursen för att kunna se dina resultat
-          <Button text={'ggew'} onClick={this.answersOverview} />
+          <Button text={'Gå till kursen'} onClick={this.answersOverview} className={'big-btn'} />
         </div>
       }
       </div>
