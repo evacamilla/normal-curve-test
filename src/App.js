@@ -15,10 +15,14 @@ class App extends Component {
     chapter: 'Introduktion'
   };
 
-  changeChapter = chapterName => {
-    console.log(chapterName);
-    //this.setState({chapter: chapterName });
-  };
+  changeChapter = (chapterName) => {
+    //this is for only setting state once
+    if (chapterName === this.state.chapter){
+      return;
+    } else {
+      this.setState({chapter: chapterName });
+    }
+  }
 
   toggleMenu = () => {
     this.setState({ toggleMenu: !this.state.toggleMenu });

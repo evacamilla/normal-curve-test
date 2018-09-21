@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import BtnChangePage from './BtnChangePage.js';
 class Question extends Component {
   state = {
-    chapter: 'Resultat'
+    chapter: 'Fyll i dina svar'
   };
 
   componentWillMount = () => {

@@ -5,9 +5,6 @@ function Menu(props) {
   return (
     <div>
       <i className="fas fa-bars" onClick={props.toggleMenu} />
-      {
-        //Dålig lösning onclick toggle menu?
-      }
       <ul>
         <li>
           <NavLink
@@ -21,10 +18,7 @@ function Menu(props) {
         </li>
         <li>
           <NavLink
-            onClick={event => {
-              props.toggleMenu();
-              props.changeChapter('Se filmen');
-            }}
+            onClick={props.toggleMenu}
             activeClassName="linkIsActive"
             exact={true}
             to="/sefilmen"
@@ -34,10 +28,7 @@ function Menu(props) {
         </li>
         <li>
           <NavLink
-            onClick={event => {
-              props.toggleMenu();
-              props.changeChapter('Frågorna');
-            }}
+            onClick={props.toggleMenu}
             activeClassName="linkIsActive"
             exact={true}
             to="/fyllidinasvar"
@@ -47,10 +38,7 @@ function Menu(props) {
         </li>
         <li>
           <NavLink
-            onClick={event => {
-              props.toggleMenu();
-              props.changeChapter('Resultat');
-            }}
+            onClick={props.toggleMenu}
             activeClassName="linkIsActive"
             exact={true}
             to="/resultat"
