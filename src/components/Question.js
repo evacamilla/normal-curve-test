@@ -20,7 +20,6 @@ class Question extends Component {
           rörelsemönster. Bedömningen baseras på utpräglingsgrad och
           avledbarhet. Förhöjd grundstämning.
         </p>
-        <BtnChangePage />
       </div>
     );
   }

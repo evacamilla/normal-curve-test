@@ -15,7 +15,6 @@ class Result extends Component {
       <div>
         <h1>Resultat</h1>
         <p>Du är godgänd</p>
-        <BtnChangePage />
       </div>
     );
   }
