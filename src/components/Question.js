@@ -10,9 +10,21 @@ class Question extends Component {
   };
 
   render() {
+    allafragor = [
+      {
+        heading: 'Nedstämdhet',
+        question:
+          'Avser uppgift om sänkt grundstämning oavsett om den tar sig uttryck eller ej.  Omfattar känsloravsorgsenhet,olycklighet,hopplöshetochhjälplöshet.  Bedömningenbaseraspåintensitet,varaktighetochi  vilkengradsinnesstäm-ningenpåverkasavyttreomständigheter.Förhöjdsinnesstämningskattas”0”'
+      },
+      {
+        heading: 'Sänkt grundstämming',
+        question: 'Avser en sänkning av det emotionella... '
+      }
+    ];
+
     return (
       <div>
-        <h1>Nedstämdhet</h1>
+        <h1>{allafragor[0]}</h1>
         <p>
           Avser en sänkning av det emotionella grundläget (till skillnad från
           situationsutlösta affekter). Omfattar dysterhet, tungsinne och
