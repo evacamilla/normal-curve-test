@@ -15,11 +15,10 @@ class App extends Component {
     chapter: 'Introduktion'
   };
 
-  changeChapter = (chapterName) => {
+  changeChapter = chapterName => {
     console.log(chapterName);
     //this.setState({chapter: chapterName });
-
-  }
+  };
 
   toggleMenu = () => {
     this.setState({ toggleMenu: !this.state.toggleMenu });
@@ -40,12 +39,42 @@ class App extends Component {
             <Header toggleMenu={this.toggleMenu} chapter={this.state.chapter} />
 
             <Switch>
-              <Route exact path="/introduktion" component={(props) => <Introduction {...props} changeChapter={this.changeChapter} />} />
-        <Route exact path="/sefilmen" component={(props) => <Video {...props} changeChapter={this.changeChapter} />} />
-              <Route exact path="/fyllidinasvar" component={(props) => <Question {...props} changeChapter={this.changeChapter} />} />
-              <Route exact path="/result" component={(props) => <Result {...props} changeChapter={this.changeChapter} />} />
+              <Route
+                exact
+                path="/"
+                component={props => (
+                  <Introduction {...props} changeChapter={this.changeChapter} />
+                )}
+              />
+              <Route
+                exact
+                path="/introduktion"
+                component={props => (
+                  <Introduction {...props} changeChapter={this.changeChapter} />
+                )}
+              />
+              <Route
+                exact
+                path="/sefilmen"
+                component={props => (
+                  <Video {...props} changeChapter={this.changeChapter} />
+                )}
+              />
+              <Route
+                exact
+                path="/fyllidinasvar"
+                component={props => (
+                  <Question {...props} changeChapter={this.changeChapter} />
+                )}
+              />
+              <Route
+                exact
+                path="/resultat"
+                component={props => (
+                  <Result {...props} changeChapter={this.changeChapter} />
+                )}
+              />
             </Switch>
-
             <Footer />
           </div>
         )}

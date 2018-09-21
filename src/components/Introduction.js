@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import BtnChangePage from './BtnChangePage.js';
 class Introduction extends Component {
   state = {
     showWelcome: true,
@@ -7,8 +7,8 @@ class Introduction extends Component {
   };
 
   componentDidMount = () => {
-      this.props.changeChapter(this.state.chapter);
-  }
+    this.props.changeChapter(this.state.chapter);
+  };
 
   render() {
     return (
@@ -40,6 +40,7 @@ class Introduction extends Component {
             </p>
           </div>
         )}
+        <BtnChangePage />
       </div>
     );
   }
