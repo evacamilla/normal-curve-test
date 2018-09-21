@@ -1,10 +1,14 @@
 import React from 'react';
 
-function BtnChanngePage() {
+function BtnChanngePage(props) {
   return (
     <div>
-      <button className="btn btn-next">Nästa Sida</button>
-      <button className="btn btn-prev">Föregående Sida</button>
+      <button onClick={props.previousPage} className="btn btn-prev">
+        Föregående Sida
+      </button>
+      <button onClick={props.nextPage} className="btn btn-next">
+        Nästa Sida
+      </button>
     </div>
   );
 }

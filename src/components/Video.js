@@ -9,11 +9,22 @@ class Video extends Component {
     this.props.changeChapter(this.state.chapter);
   };
 
+  previousPage = () => {
+    console.log(' prev from Video');
+  };
+
+  nextPage = () => {
+    console.log('next from Video');
+  };
+
   render() {
     return (
       <div>
         <p>VIDEO</p>
-        <BtnChangePage />
+        <BtnChangePage
+          nextPage={this.nextPage}
+          previousPage={this.previousPage}
+        />
       </div>
     );
   }

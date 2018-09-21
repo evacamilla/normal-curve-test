@@ -10,6 +10,14 @@ class Introduction extends Component {
     this.props.changeChapter(this.state.chapter);
   };
 
+  previousPage = () => {
+    console.log('prev from INTRODUCTION');
+  };
+
+  nextPage = () => {
+    console.log('next from INTRODUCTION');
+  };
+
   render() {
     return (
       <div>
@@ -40,7 +48,10 @@ class Introduction extends Component {
             </p>
           </div>
         )}
-        <BtnChangePage />
+        <BtnChangePage
+          previousPage={this.previousPage}
+          nextPage={this.nextPage}
+        />
       </div>
     );
   }
