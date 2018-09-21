@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import BtnChangePage from './BtnChangePage.js';
+import Button from './Button.js';
+
 class Introduction extends Component {
   state = {
     showWelcome: true,
@@ -10,14 +12,16 @@ class Introduction extends Component {
     this.props.changeChapter(this.state.chapter);
   };
 
-  previousPage = () => {
-    console.log('prev from INTRODUCTION');
-  };
-
   nextPage = () => {
-    console.log('next from INTRODUCTION');
+    //set URL/go to ../sefilmen
+    //bättre lösning!?
+    window.location.assign("/sefilmen");
+    //browserHistory.push('/sefilmen');
   };
 
+  toggleShowWelcome = () => {
+    this.setState({showWelcome: !this.state.showWelcome});
+  }
   render() {
     return (
       <div>
@@ -33,6 +37,7 @@ class Introduction extends Component {
               målgruppen eller ej?
               <br />
             </p>
+            <Button onClick={this.toggleShowWelcome} className={'btn btn-next'} text={'Nästa sida'} />
           </div>
         ) : (
           <div>
@@ -46,12 +51,12 @@ class Introduction extends Component {
               Skriv ut: En bild på pdf med textad länk Texten kan "flyta" med
               bilden
             </p>
+            <BtnChangePage
+              previousPage={this.toggleShowWelcome}
+              nextPage={this.nextPage}
+            />
           </div>
         )}
-        <BtnChangePage
-          previousPage={this.previousPage}
-          nextPage={this.nextPage}
-        />
       </div>
     );
   }
