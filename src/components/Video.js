@@ -14,7 +14,7 @@ class Video extends Component {
   };
 
   nextPage = () => {
-    console.log('next from Video');
+    window.location.assign('/fyllidinasvar');
   };
 
   render() {
