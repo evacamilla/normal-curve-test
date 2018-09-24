@@ -8,9 +8,9 @@ class Question extends Component {
     questionIndex: 0
   };
 
-  //componentDidMount = () => {
-  //this.props.changeChapter(this.state.chapter);
-  //};
+  componentDidMount = () => {
+    this.props.changeChapter(this.state.chapter);
+  };
 
   showOneQuestion = index => {
     this.setState({ heading: allaFragor[index].heading });
@@ -42,6 +42,39 @@ let allaFragor = [
   {
     heading: 'Sänkt grundstämming',
     question: 'Avser en sänkning av det emotionella... '
+  },
+  {
+    heading: 'Rubrik 3',
+    question: 'Fråga 3 '
+  },
+  {
+    heading: '4 Sänkt grundstämming',
+    question: '4 Avser en sänkning av det emotionella... '
+  },
+  {
+    heading: '5 Sänkt grundstämming',
+    question: '5 Avser en sänkning av det emotionella... '
+  },
+  {
+    heading: '6 Nedstämdhet',
+    question:
+      '6 Avser uppgift om sänkt grundstämning oavsett om den tar sig uttryck eller ej.  Omfattar känsloravsorgsenhet,olycklighet,hopplöshetochhjälplöshet.  Bedömningenbaseraspåintensitet,varaktighetochi  vilkengradsinnesstäm-ningenpåverkasavyttreomständigheter.Förhöjdsinnesstämningskattas”0”'
+  },
+  {
+    heading: '7 Sänkt grundstämming',
+    question: '7 Avser en sänkning av det emotionella... '
+  },
+  {
+    heading: '8 Sänkt grundstämming',
+    question: ' Avser en sänkning av det emotionella... '
+  },
+  {
+    heading: '9 Sänkt grundstämming',
+    question: '9 Avser en sänkning av det emotionella... '
+  },
+  {
+    heading: '10 Sänkt grundstämming',
+    question: '10 Avser en sänkning av det emotionella... '
   }
 ];
 export default Question;
