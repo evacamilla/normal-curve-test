@@ -3,9 +3,7 @@ import Button from './Button.js';
 
 class Result extends Component {
   state = {
-    chapter: 'Resultat',
-    filledInAnswers: false,
-    passedTest: false
+    chapter: 'Resultat'
   };
 
   componentDidMount = () => {
@@ -21,10 +19,10 @@ class Result extends Component {
       <div>
         <h1>{this.state.chapter}</h1>
 
-        {this.state.filledInAnswers ? (
+        {this.props.filledInAllAnswers ? (
           //if user filled out all the answers
           <div>
-            {this.state.passedTest ? (
+            {this.props.passedTest ? (
               //if user did pass the test
               <div>
                 <p>Du är godkänd</p>

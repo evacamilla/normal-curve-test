@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import BtnChangePage from './BtnChangePage.js';
+
 class Question extends Component {
   state = {
     chapter: 'Fyll i dina svar',
@@ -14,18 +15,37 @@ class Question extends Component {
 
   showNextQuestion = () => {
     let i = this.state.questionIndex + 1;
-    this.setState({ heading: allaFragor[i].heading });
-    this.setState({ question: allaFragor[i].question });
-    this.setState({ questionIndex: this.state.questionIndex + 1 });
-    console.log(i);
+    if(i <= 9){
+      this.setState({ heading: allaFragor[i].heading });
+      this.setState({ question: allaFragor[i].question });
+      this.setState({ questionIndex: this.state.questionIndex + 1 });
+      console.log(i);
+    } 
   };
 
+  completeTest = () => {
+    if(this.props.filledInAllAnswers){
+      window.location.assign("/resultat")
+    } else {
+      console.log('du måste fylla i alla svar');
+    }
+  }
+
   render() {
+    let blabla = '';
+
+    if (this.state.questionIndex <= 8) {
+    blabla = (<button onClick={this.showNextQuestion}>Nästa</button>);
+      
+    } else {
+     blabla = (<button onClick={this.completeTest}>Lämna in svar</button>);
+    }
+    
     return (
       <div>
         <h1>{this.state.heading}</h1>
         <p>{this.state.question}</p>
-        <button onClick={this.showNextQuestion}>Nästa</button>
+        {blabla}
       </div>
     );
   }

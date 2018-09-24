@@ -12,7 +12,9 @@ import { BrowserRouter, Route, Switch, NavLink } from 'react-router-dom';
 class App extends Component {
   state = {
     toggleMenu: false,
-    chapter: 'Introduktion'
+    chapter: 'Introduktion',
+    filledInAllAnswers: false,
+    passedTest: false
   };
 
   changeChapter = (chapterName) => {
@@ -68,14 +70,14 @@ class App extends Component {
                 exact
                 path="/fyllidinasvar"
                 component={props => (
-                  <Question {...props} changeChapter={this.changeChapter} />
+                  <Question {...props} filledInAllAnswers={this.state.filledInAllAnswers} changeChapter={this.changeChapter} />
                 )}
               />
               <Route
                 exact
                 path="/resultat"
                 component={props => (
-                  <Result {...props} changeChapter={this.changeChapter} />
+                  <Result {...props} passedTest={this.state.passedTest} filledInAllAnswers={this.state.filledInAllAnswers} changeChapter={this.changeChapter} />
                 )}
               />
             </Switch>
