@@ -35,13 +35,13 @@ class Question extends Component {
 
 let allaFragor = [
   {
-    heading: 'Nedstämdhet',
+    heading: '1 Nedstämdhet',
     question:
-      'Avser uppgift om sänkt grundstämning oavsett om den tar sig uttryck eller ej.  Omfattar känsloravsorgsenhet,olycklighet,hopplöshetochhjälplöshet.  Bedömningenbaseraspåintensitet,varaktighetochi  vilkengradsinnesstäm-ningenpåverkasavyttreomständigheter.Förhöjdsinnesstämningskattas”0”'
+      '1 Avser uppgift om sänkt grundstämning oavsett om den tar sig uttryck eller ej.  Omfattar känsloravsorgsenhet,olycklighet,hopplöshetochhjälplöshet.  Bedömningenbaseraspåintensitet,varaktighetochi  vilkengradsinnesstäm-ningenpåverkasavyttreomständigheter.Förhöjdsinnesstämningskattas”0”'
   },
   {
-    heading: 'Sänkt grundstämming',
-    question: 'Avser en sänkning av det emotionella... '
+    heading: '2 Sänkt grundstämming',
+    question: '3 Avser en sänkning av det emotionella... '
   },
   {
     heading: 'Rubrik 3',
