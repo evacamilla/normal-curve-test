@@ -12,14 +12,12 @@ class Question extends Component {
     this.props.changeChapter(this.state.chapter);
   };
 
-  showOneQuestion = index => {
-    this.setState({ heading: allaFragor[index].heading });
-  };
-
   showNextQuestion = () => {
-    let i = this.state.questionIndex;
+    let i = this.state.questionIndex + 1;
     this.setState({ heading: allaFragor[i].heading });
+    this.setState({ question: allaFragor[i].question });
     this.setState({ questionIndex: this.state.questionIndex + 1 });
+    console.log(i);
   };
 
   render() {

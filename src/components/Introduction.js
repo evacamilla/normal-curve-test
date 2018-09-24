@@ -17,6 +17,18 @@ class Introduction extends Component {
   }
 
   render() {
+    let something = {};
+    if(window.innerWidth < 968) {
+       something = (
+        <div>under 768</div>
+      );
+    }
+    else {
+        something = (<div>över 768</div>);
+    }
+
+    return something;
+
     return (
       <div>
         {this.state.showWelcome ? (
