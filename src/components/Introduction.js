@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import BtnChangePage from './BtnChangePage.js';
 import Button from './Button.js';
+import { BrowserRouter, Route, Switch, NavLink } from 'react-router-dom';
 
 class Introduction extends Component {
   state = {
@@ -12,16 +12,10 @@ class Introduction extends Component {
     this.props.changeChapter(this.state.chapter);
   };
 
-  nextPage = () => {
-    //set URL/go to ../sefilmen
-    //bättre lösning!?
-    window.location.assign("/sefilmen");
-    //browserHistory.push('/sefilmen');
-  };
-
   toggleShowWelcome = () => {
     this.setState({showWelcome: !this.state.showWelcome});
   }
+
   render() {
     return (
       <div>
@@ -51,10 +45,16 @@ class Introduction extends Component {
               Skriv ut: En bild på pdf med textad länk Texten kan "flyta" med
               bilden
             </p>
-            <BtnChangePage
-              previousPage={this.toggleShowWelcome}
-              nextPage={this.nextPage}
-            />
+            <Button onClick={this.toggleShowWelcome} className={'btn btn-prev'} text={'Föregående sida'} />
+            
+            <button>
+              <NavLink
+              exact={true}
+              to="/sefilmen"
+              >
+              Nästa sida
+              </NavLink>
+            </button>
           </div>
         )}
       </div>

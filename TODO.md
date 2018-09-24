@@ -14,3 +14,7 @@ kan vi ha dom mer så allmäna och typ skicka in funktioner o dyl som props elle
 
 - navigeringen i menyn:
 fyll i svaren kapitlet, ska det stå fråga 1/2/3 i kapitelraden eller ska det stå i rubriken vilket nummer
+
+- lägga in video
+
+- skriva instruktionstexterna
