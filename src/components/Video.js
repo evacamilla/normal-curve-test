@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import BtnChangePage from './BtnChangePage.js';
+import { BrowserRouter, Route, Switch, NavLink } from 'react-router-dom';
+
 class Video extends Component {
   state = {
     chapter: 'Se filmen'
@@ -9,22 +10,28 @@ class Video extends Component {
     this.props.changeChapter(this.state.chapter);
   };
 
-  previousPage = () => {
-    console.log(' prev from Video');
-  };
-
-  nextPage = () => {
-    window.location.assign('/fyllidinasvar');
-  };
-
   render() {
     return (
       <div>
         <p>VIDEO</p>
-        <BtnChangePage
-          nextPage={this.nextPage}
-          previousPage={this.previousPage}
-        />
+    
+        <button>
+          <NavLink
+          exact={true}
+          to="/introduktion"
+          >
+          Föregående sida
+          </NavLink>
+        </button>
+
+        <button>
+          <NavLink
+          exact={true}
+          to="/fyllidinasvar"
+          >
+          Nästa sida
+          </NavLink>
+        </button>
       </div>
     );
   }
