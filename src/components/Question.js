@@ -32,20 +32,20 @@ class Question extends Component {
   }
 
   render() {
-    let blabla = '';
+    let button = '';
 
     if (this.state.questionIndex <= 8) {
-    blabla = (<button onClick={this.showNextQuestion}>Nästa</button>);
+      button = (<button onClick={this.showNextQuestion}>Nästa</button>);
       
     } else {
-     blabla = (<button onClick={this.completeTest}>Lämna in svar</button>);
+     button = (<button onClick={this.completeTest}>Lämna in svar</button>);
     }
     
     return (
       <div>
         <h1>{this.state.heading}</h1>
         <p>{this.state.question}</p>
-        {blabla}
+        {button}
       </div>
     );
   }

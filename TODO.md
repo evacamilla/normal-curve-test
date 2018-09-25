@@ -15,6 +15,8 @@ kan vi ha dom mer så allmäna och typ skicka in funktioner o dyl som props elle
 
 - [x] jobba mer i branches
 
+- buttons i question ska ha en föregående button och ett till conditional i hur den renderar, alltså om man är på fråga 1 ska föregående button ha en annan funktion/va en Link(man ska hamna på steg 1)
+
 - bestämma hur jobba med css, tex css grid eller bootstrap? sass?
 
 - strukturera question, lägga in frågorna i objekt?
