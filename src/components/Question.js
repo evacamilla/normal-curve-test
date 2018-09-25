@@ -52,11 +52,15 @@ class Question extends Component {
     let answersDiv = [];
     let id = 1;
 
-    for (let answer of answers) {
-      li = <li id={id}>{answer}</li>;
+    answers.forEach(function(answer, index) {
+      li = (
+        <li key={index} id={id}>
+          {answer}
+        </li>
+      );
       answersDiv.push(li);
       id += 1;
-    }
+    });
 
     return (
       <div>
