@@ -4,17 +4,12 @@ import { BrowserRouter, Route, Switch, NavLink } from 'react-router-dom';
 
 class Introduction extends Component {
   state = {
-    showWelcome: true,
     chapter: 'Introduktion'
   };
 
   componentDidMount = () => {
     this.props.changeChapter(this.state.chapter);
   };
-
-  toggleShowWelcome = () => {
-    this.setState({showWelcome: !this.state.showWelcome});
-  }
 
   render() {
     // let something = {};
@@ -31,7 +26,7 @@ class Introduction extends Component {
 
     return (
       <div>
-        {this.state.showWelcome ? (
+        {this.props.showWelcome ? (
           <div>
             <h1>Välkommen!</h1>
             <p>
@@ -43,7 +38,7 @@ class Introduction extends Component {
               målgruppen eller ej?
               <br />
             </p>
-            <Button onClick={this.toggleShowWelcome} className={'btn btn-next'} text={'Nästa sida'} />
+            <Button onClick={this.props.toggleShowWelcome} className={'btn btn-next'} text={'Nästa sida'} />
           </div>
         ) : (
           <div>
@@ -57,7 +52,7 @@ class Introduction extends Component {
               Skriv ut: En bild på pdf med textad länk Texten kan "flyta" med
               bilden
             </p>
-            <Button onClick={this.toggleShowWelcome} className={'btn btn-prev'} text={'Föregående sida'} />
+            <Button onClick={this.props.toggleShowWelcome} className={'btn btn-prev'} text={'Föregående sida'} />
             
             <button>
               <NavLink

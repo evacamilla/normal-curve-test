@@ -14,7 +14,8 @@ class App extends Component {
     toggleMenu: false,
     chapter: 'Introduktion',
     filledInAllAnswers: false,
-    passedTest: false
+    passedTest: false,
+    showWelcome: true
   };
 
   changeChapter = (chapterName) => {
@@ -30,6 +31,20 @@ class App extends Component {
     this.setState({ toggleMenu: !this.state.toggleMenu });
   };
 
+  //göra om till mer dynamiska funktioner/ta bort toggleShowElcome 
+  //om vi ändå behöver ha dom två nedanför
+  toggleShowWelcome = () => {
+    this.setState({showWelcome: !this.state.showWelcome});
+  }
+
+  showStepOne = () => {
+    this.setState({showWelcome: false});
+  }
+
+  showWelcome = () => {
+    this.setState({showWelcome: true});
+  }
+
   render() {
     return (
       <div className="App">
@@ -38,6 +53,7 @@ class App extends Component {
             <Menu
               changeChapter={this.changeChapter}
               toggleMenu={this.toggleMenu}
+              showWelcome={this.showWelcome}
             />
           </div>
         ) : (
@@ -56,14 +72,14 @@ class App extends Component {
                 exact
                 path="/introduktion"
                 component={props => (
-                  <Introduction {...props} changeChapter={this.changeChapter} />
+                  <Introduction {...props} showWelcome={this.state.showWelcome} toggleShowWelcome={this.toggleShowWelcome} changeChapter={this.changeChapter} />
                 )}
               />
               <Route
                 exact
                 path="/sefilmen"
                 component={props => (
-                  <Video {...props} changeChapter={this.changeChapter} />
+                  <Video {...props} showStepOne={this.showStepOne} changeChapter={this.changeChapter} />
                 )}
               />
               <Route

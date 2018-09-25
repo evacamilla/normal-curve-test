@@ -8,7 +8,7 @@ function Menu(props) {
       <ul>
         <li>
           <NavLink
-            onClick={props.toggleMenu}
+            onClick={() => {props.toggleMenu(); props.showWelcome();}}
             activeClassName="link-is-active"
             exact={true}
             to="/introduktion"

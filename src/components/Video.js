@@ -19,6 +19,7 @@ class Video extends Component {
           <NavLink
           exact={true}
           to="/introduktion"
+          onClick={this.props.showStepOne}
           >
           Föregående sida
           </NavLink>

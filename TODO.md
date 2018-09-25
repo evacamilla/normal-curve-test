@@ -6,6 +6,8 @@
 Vi vill komma till introduktion steg 1 view, alltså showWelcome är false.. Försökt med lifting state men blev för globalt tyckte vi, då kom man till steg 1 viewen och inte till välkommen när  man gick från tex meny-länken när showWelcome var satt till false i app.js.
 Vi vill se om det går med react router att skicka med nåt i urlen och på så sätt manipulera statet i instroduktion fr video.
 Ett alternativ är att bryta upp Introduktion i två komponenter med två url.. men är de verkligen bra? Om vi tex vill visa dom tsm i desktopläge...
+25/9
+nu har vi lyft upp de i app js state. men behöver kunna göra showWelcome till true när typ man inte kör komponenten längre, som ett slags grundläge... Kanske nåt med componentdidmount men tvärtom??
 
 - [x] buttons: föregående/nästa
 hur göra dom bra..?
