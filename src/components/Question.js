@@ -35,16 +35,10 @@ class Question extends Component {
     let button = '';
 
     if (this.state.questionIndex <= 8) {
-<<<<<<< HEAD
       button = (<button onClick={this.showNextQuestion}>Nästa</button>);
       
     } else {
      button = (<button onClick={this.completeTest}>Lämna in svar</button>);
-=======
-      blabla = <button onClick={this.showNextQuestion}>Nästa</button>;
-    } else {
-      blabla = <button onClick={this.completeTest}>Lämna in svar</button>;
->>>>>>> 26fbdab9e47d0d993f81d7cf91170f5665714ba5
     }
 
     return (
