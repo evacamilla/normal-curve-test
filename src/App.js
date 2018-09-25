@@ -18,32 +18,32 @@ class App extends Component {
     showWelcome: true
   };
 
-  changeChapter = (chapterName) => {
+  changeChapter = chapterName => {
     //this is for only setting state once
-    if (chapterName === this.state.chapter){
+    if (chapterName === this.state.chapter) {
       return;
     } else {
-      this.setState({chapter: chapterName });
+      this.setState({ chapter: chapterName });
     }
-  }
+  };
 
   toggleMenu = () => {
     this.setState({ toggleMenu: !this.state.toggleMenu });
   };
 
-  //göra om till mer dynamiska funktioner/ta bort toggleShowElcome 
+  //göra om till mer dynamiska funktioner/ta bort toggleShowElcome
   //om vi ändå behöver ha dom två nedanför
   toggleShowWelcome = () => {
-    this.setState({showWelcome: !this.state.showWelcome});
-  }
+    this.setState({ showWelcome: !this.state.showWelcome });
+  };
 
   showStepOne = () => {
-    this.setState({showWelcome: false});
-  }
+    this.setState({ showWelcome: false });
+  };
 
   showWelcome = () => {
-    this.setState({showWelcome: true});
-  }
+    this.setState({ showWelcome: true });
+  };
 
   render() {
     return (
@@ -65,35 +65,57 @@ class App extends Component {
                 exact
                 path="/"
                 component={props => (
-                  <Introduction {...props} changeChapter={this.changeChapter} />
+                  <Introduction
+                    {...props}
+                    showWelcome={this.state.showWelcome}
+                    changeChapter={this.changeChapter}
+                  />
                 )}
               />
               <Route
                 exact
                 path="/introduktion"
                 component={props => (
-                  <Introduction {...props} showWelcome={this.state.showWelcome} toggleShowWelcome={this.toggleShowWelcome} changeChapter={this.changeChapter} />
+                  <Introduction
+                    {...props}
+                    showWelcome={this.state.showWelcome}
+                    toggleShowWelcome={this.toggleShowWelcome}
+                    changeChapter={this.changeChapter}
+                  />
                 )}
               />
               <Route
                 exact
                 path="/sefilmen"
                 component={props => (
-                  <Video {...props} showStepOne={this.showStepOne} changeChapter={this.changeChapter} />
+                  <Video
+                    {...props}
+                    showStepOne={this.showStepOne}
+                    changeChapter={this.changeChapter}
+                  />
                 )}
               />
               <Route
                 exact
                 path="/fyllidinasvar"
                 component={props => (
-                  <Question {...props} filledInAllAnswers={this.state.filledInAllAnswers} changeChapter={this.changeChapter} />
+                  <Question
+                    {...props}
+                    filledInAllAnswers={this.state.filledInAllAnswers}
+                    changeChapter={this.changeChapter}
+                  />
                 )}
               />
               <Route
                 exact
                 path="/resultat"
                 component={props => (
-                  <Result {...props} passedTest={this.state.passedTest} filledInAllAnswers={this.state.filledInAllAnswers} changeChapter={this.changeChapter} />
+                  <Result
+                    {...props}
+                    passedTest={this.state.passedTest}
+                    filledInAllAnswers={this.state.filledInAllAnswers}
+                    changeChapter={this.changeChapter}
+                  />
                 )}
               />
             </Switch>
