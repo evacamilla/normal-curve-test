@@ -88,13 +88,13 @@ class Question extends Component {
         </div> 
         :
         <div>
-          <h1>{this.state.heading}</h1>
-          <p>{this.state.question}</p>
-          <p>{this.state.question}</p>
-          {this.state.chosenAnswer}
-          <div onClick={this.temporaryAnswer}>{answersDiv}</div>
-
-          {button}
+        <h1>{this.state.heading}</h1>
+        <p>{this.state.question}</p>
+        <p>{this.state.question}</p>
+        <p>Du har valt alternativ: {this.state.chosenAnswer}</p>
+        <div onClick={this.temporaryAnswer}>{answersDiv}</div>
+          
+        {button}
         </div>
         }
       </div>
