@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import BtnChangePage from './BtnChangePage.js';
+import { Link } from 'react-router-dom';
 
 class Question extends Component {
   state = {
     chapter: 'Fyll i dina svar',
+    showInstructions: true,
     heading: allaFragor[0].heading,
     question: allaFragor[0].question,
     answers: allaFragor[0].answers,
@@ -38,8 +40,11 @@ class Question extends Component {
     this.setState({ chosenAnswer: event.target.id });
   };
 
+  toggleShowInstructions = () => {
+    this.setState({showInstructions: !this.state.showInstructions})
+  }
+
   render() {
-    let answers = this.state.answers;
     let button = '';
 
     if (this.state.questionIndex <= 8) {
@@ -48,8 +53,9 @@ class Question extends Component {
       button = <button onClick={this.completeTest}>Lämna in svar</button>;
     }
 
-    let li = '';
+    let answers = this.state.answers;
     let answersDiv = [];
+    let li = '';
     let id = 1;
 
     answers.forEach(function(answer, index) {
@@ -64,13 +70,33 @@ class Question extends Component {
 
     return (
       <div>
-        <h1>{this.state.heading}</h1>
-        <p>{this.state.question}</p>
-        <p>{this.state.question}</p>
-        {this.state.chosenAnswer}
-        <div onClick={this.temporaryAnswer}>{answersDiv}</div>
+        {this.state.showInstructions ? 
+        <div>
+          <h1>Instruktioner om steg 2</h1>
+          <p>användaren ska fylla i sina svar digitalt. Förklara varför.<br />
+          visa graf i form av bild</p>
 
-        {button}
+          <button>
+            <Link
+            exact={true}
+            to="/sefilmen"
+            >
+            Föregående sida
+            </Link>
+          </button>
+          <button onClick={this.toggleShowInstructions}>Nästa</button>
+        </div> 
+        :
+        <div>
+          <h1>{this.state.heading}</h1>
+          <p>{this.state.question}</p>
+          <p>{this.state.question}</p>
+          {this.state.chosenAnswer}
+          <div onClick={this.temporaryAnswer}>{answersDiv}</div>
+
+          {button}
+        </div>
+        }
       </div>
     );
   }
