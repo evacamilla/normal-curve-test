@@ -67,7 +67,7 @@ class Question extends Component {
         <h1>{this.state.heading}</h1>
         <p>{this.state.question}</p>
         <p>{this.state.question}</p>
-        {this.state.chosenAnswer}
+        <p>Du har valt alternativ: {this.state.chosenAnswer}</p>
         <div onClick={this.temporaryAnswer}>{answersDiv}</div>
 
         {button}
