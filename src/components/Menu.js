@@ -3,12 +3,15 @@ import { BrowserRouter, Route, Switch, NavLink } from 'react-router-dom';
 
 function Menu(props) {
   return (
-    <div>
+    <nav>
       <i className="fas fa-bars" onClick={props.toggleMenu} />
       <ul>
         <li>
           <NavLink
-            onClick={() => {props.toggleMenu(); props.showWelcome();}}
+            onClick={() => {
+              props.toggleMenu();
+              props.showWelcome();
+            }}
             activeClassName="link-is-active"
             exact={true}
             to="/introduktion"
@@ -47,9 +50,8 @@ function Menu(props) {
           </NavLink>
         </li>
       </ul>
-    </div>
+    </nav>
   );
 }
 
 export default Menu;
-
