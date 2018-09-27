@@ -1,3 +1,19 @@
+/*** Rules ***/
+
+/*** Typography ***/
+/*
+Paragraph = 
+max characters
+line hight
+font size on p, h2,h1....
+fonts...
+
+
+*/
+
+li {
+  list-style: none;
+}
 .App {
   text-align: center;
 }
@@ -7,10 +23,7 @@
   padding: 20px;
 }
 
-/*** LINKS ***/
-.link-is-active {
-  color: red;
-}
+$active: blue;
 
 /*** BUTTONS ***/
 .big-btn {
@@ -29,16 +42,25 @@ header {
 
 nav {
   ul {
-    list-style: none;
     li {
+      .link-is-active {
+        color: $active;
+      }
+
       a {
         text-decoration: none;
         color: black;
-
-        .link-is-active {
-          color: red;
-        }
       }
     }
   }
+}
+.introduction {
+  border: 2px solid red;
+  h1 {
+  }
+  p {
+  }
+}
+.myDiv {
+  display: inline-block;
 }
