@@ -7,15 +7,16 @@ max characters
 line hight
 font size on p, h2,h1....
 fonts...
-
+text-align
 
 */
 
 li {
   list-style: none;
 }
+
 .App {
-  text-align: center;
+  margin: 10px;
 }
 
 .App-header {
@@ -34,9 +35,12 @@ $active: blue;
 }
 
 header {
-  .fa-fa-bars {
+  .fa-bars {
+    display: inline-block;
+    font-size: 30px;
   }
   .chapter-title {
+    text-align: right;
   }
 }
 
@@ -61,6 +65,19 @@ nav {
   p {
   }
 }
-.myDiv {
-  display: inline-block;
+
+.question-wrapper {
+  border:4px solid black;
+  h1 {
+  }
+  p {
+
+  }
+  li {
+    border:1px solid red;
+    .question-point {
+      border:1px solid red;
+      display: inline-block;
+    }
+  }
 }
