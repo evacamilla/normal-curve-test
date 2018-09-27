@@ -27,7 +27,7 @@ class Introduction extends Component {
     return (
       <div>
         {this.props.showWelcome ? (
-          <div>
+          <div className="introduction">
             <h1>Välkommen!</h1>
             <p>
               Här är en kortare text om vad själva kursen går ut på.
@@ -38,10 +38,14 @@ class Introduction extends Component {
               målgruppen eller ej?
               <br />
             </p>
-            <Button onClick={this.props.toggleShowWelcome} className={'btn btn-next'} text={'Nästa sida'} />
+            <Button
+              onClick={this.props.toggleShowWelcome}
+              className={'btn btn-next'}
+              text={'Nästa sida'}
+            />
           </div>
         ) : (
-          <div>
+          <div className="introduction">
             <h1>Steg 1</h1>
             <p>
               Instruktioner om steg 1. <br />- användaren ska skriva ut pdf{' '}
@@ -52,14 +56,15 @@ class Introduction extends Component {
               Skriv ut: En bild på pdf med textad länk Texten kan "flyta" med
               bilden
             </p>
-            <Button onClick={this.props.toggleShowWelcome} className={'btn btn-prev'} text={'Föregående sida'} />
-            
+            <Button
+              onClick={this.props.toggleShowWelcome}
+              className={'btn btn-prev'}
+              text={'Föregående sida'}
+            />
+
             <button>
-              <NavLink
-              exact={true}
-              to="/sefilmen"
-              >
-              Nästa sida
+              <NavLink exact={true} to="/sefilmen">
+                Nästa sida
               </NavLink>
             </button>
           </div>

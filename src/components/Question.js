@@ -41,8 +41,8 @@ class Question extends Component {
   };
 
   toggleShowInstructions = () => {
-    this.setState({showInstructions: !this.state.showInstructions})
-  }
+    this.setState({ showInstructions: !this.state.showInstructions });
+  };
 
   render() {
     let button = '';
@@ -61,6 +61,7 @@ class Question extends Component {
     answers.forEach(function(answer, index) {
       li = (
         <li key={index} id={id}>
+          <div className="myDiv">{id}</div>
           {answer}
         </li>
       );
@@ -70,33 +71,32 @@ class Question extends Component {
 
     return (
       <div>
-        {this.state.showInstructions ? 
-        <div>
-          <h1>Instruktioner om steg 2</h1>
-          <p>användaren ska fylla i sina svar digitalt. Förklara varför.<br />
-          visa graf i form av bild</p>
+        {this.state.showInstructions ? (
+          <div className="introduction">
+            <h1>Instruktioner om steg 2</h1>
+            <p>
+              användaren ska fylla i sina svar digitalt. Förklara varför.
+              <br />
+              visa graf i form av bild
+            </p>
 
-          <button>
-            <Link
-            exact={true}
-            to="/sefilmen"
-            >
-            Föregående sida
-            </Link>
-          </button>
-          <button onClick={this.toggleShowInstructions}>Nästa</button>
-        </div> 
-        :
-        <div>
-        <h1>{this.state.heading}</h1>
-        <p>{this.state.question}</p>
-        <p>{this.state.question}</p>
-        <p>Du har valt alternativ: {this.state.chosenAnswer}</p>
-        <div onClick={this.temporaryAnswer}>{answersDiv}</div>
-          
-        {button}
-        </div>
-        }
+            <button>
+              <Link exact={true} to="/sefilmen">
+                Föregående sida
+              </Link>
+            </button>
+            <button onClick={this.toggleShowInstructions}>Nästa</button>
+          </div>
+        ) : (
+          <div className="question">
+            <h1>{this.state.heading}</h1>
+            <p>{this.state.question}</p>
+            <p>Du har valt alternativ: {this.state.chosenAnswer}</p>
+            <div onClick={this.temporaryAnswer}>{answersDiv}</div>
+
+            {button}
+          </div>
+        )}
       </div>
     );
   }
