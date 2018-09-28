@@ -68,6 +68,7 @@ class App extends Component {
                   <Introduction
                     {...props}
                     showWelcome={this.state.showWelcome}
+                    toggleShowWelcome={this.toggleShowWelcome}
                     changeChapter={this.changeChapter}
                   />
                 )}
