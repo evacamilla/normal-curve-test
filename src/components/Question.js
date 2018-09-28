@@ -70,7 +70,7 @@ class Question extends Component {
     answers.forEach(function(answer, index) {
       li = (
         <li key={index} id={index}>
-          <div className="myDiv">{index}</div>
+          <div id={index} className="question-point">{index}</div>
           {answer}
         </li>
       );
@@ -89,7 +89,7 @@ class Question extends Component {
               visa graf i form av bild
             </p>
 
-            <Link exact={true} to="/sefilmen">
+            <Link exact to="/sefilmen">
               <Button text="Föregående sida" className="btn btn-prev" />
             </Link>
 
