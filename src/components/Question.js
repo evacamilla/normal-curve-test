@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import BtnChangePage from './BtnChangePage.js';
+import Button from './Button.js';
 import { Link } from 'react-router-dom';
 
 class Question extends Component {
@@ -29,6 +29,20 @@ class Question extends Component {
       this.setState({ questionIndex: this.state.questionIndex + 1 });
       console.log(i);
     }
+  }; 
+  
+  showPreviousQuestion = () => {
+    if(this.state.questionIndex === 0){
+      this.setState({showInstructions: true});
+    } else {
+      let i = this.state.questionIndex - 1;
+      this.setState({ questionId: allaFragor[i].id });
+      this.setState({ heading: allaFragor[i].heading });
+      this.setState({ question: allaFragor[i].question });
+      this.setState({ answers: allaFragor[i].answers });
+      this.setState({ questionIndex: this.state.questionIndex - 1 });
+      console.log(i);
+    }
   };
 
   completeTest = () => {
@@ -49,14 +63,6 @@ class Question extends Component {
   };
 
   render() {
-    let button = '';
-
-    if (this.state.questionIndex <= 8) {
-      button = <button onClick={this.showNextQuestion}>Nästa</button>;
-    } else {
-      button = <button onClick={this.completeTest}>Lämna in svar</button>;
-    }
-
     let answers = this.state.answers;
     let answersDiv = [];
     let li = '';
@@ -83,12 +89,11 @@ class Question extends Component {
               visa graf i form av bild
             </p>
 
-            <button>
-              <Link exact={true} to="/sefilmen">
-                Föregående sida
-              </Link>
-            </button>
-            <button onClick={this.toggleShowInstructions}>Nästa</button>
+            <Link exact={true} to="/sefilmen">
+              <Button text="Föregående sida" className="btn btn-prev" />
+            </Link>
+
+            <Button text="Nästa" className="btn btn-next" onClick={this.toggleShowInstructions} />
           </div>
         ) : (
 
@@ -101,7 +106,14 @@ class Question extends Component {
 
             <div className="question-answers" onClick={this.temporaryAnswer}>{answersDiv}</div>
 
-            {button}
+            <Button text="Föregående" className="btn btn-prev" onClick={this.showPreviousQuestion}/>
+
+            {(this.state.questionIndex <= 8) ? 
+            <Button text="Nästa" className="btn btn-next" onClick={this.showNextQuestion}/>
+            : 
+            <Button text="Lämna in" className="btn" onClick={this.completeTest}/>
+            }
+
           </div>
         )}
       </div>
