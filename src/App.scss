@@ -22,6 +22,13 @@ Frutiger SLL) eller Verdana.
 */
 
 /*** Typography ***/
+
+p {
+  font-size: 1rem;
+  line-height: 120%;
+  text-align: left;
+  max-width: 65ch;
+}
 /*
 Paragraph = 
 max characters = 65
@@ -35,10 +42,6 @@ letter-spacing?
 
 body {
   color: $darkBlue;
-}
-
-li {
-  list-style: none;
 }
 
 .App {
@@ -55,6 +58,14 @@ a {
   color: $linkColor;
 }
 
+a:hover {
+  color: $orange;
+}
+
+li {
+  list-style: none;
+}
+
 /*** BUTTONS ***/
 .big-btn {
   font-size: 1.4em;
@@ -64,15 +75,16 @@ a {
 }
 
 header {
-  .fa-bars {
-    display: inline-block;
-    font-size: 30px;
-    color: $linkColor;
-  }
   .chapter-title {
     text-align: right;
     color: $darkGrey;
   }
+}
+
+.fa-bars {
+  display: inline-block;
+  font-size: 30px;
+  color: $linkColor;
 }
 
 nav {
