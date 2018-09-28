@@ -85,12 +85,19 @@ header {
     text-align: right;
     color: $darkGrey;
   }
+  .logo-container {
+    img {
+      max-width: 100%;
+      display:inline-block;
+    }
+    width:80px;
+  }
 }
 
 .fa-bars {
-  display: inline-block;
   font-size: 30px;
   color: $linkColor;
+  display:inline-block;
 }
 
 nav {
