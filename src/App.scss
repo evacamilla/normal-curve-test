@@ -1,3 +1,22 @@
+/*** Colors ***/
+$activeColor: #00aaef;
+$linkColor: #034ea2;
+$greyBackground: #f5f2ed;
+
+$darkBlue: #002d5a;
+$lightBlue: #00aeef;
+$red: #9a0932;
+$pink: #e1056d;
+$darkGreen: #406618;
+$lightGreen: #78be00;
+$orange: #eb9100;
+$yellow: #ffd400;
+$lightGrey: #e0ded9;
+$mediumGrey: #a79d96;
+$darkGrey: #685c53;
+
+
+
 /*** Rules ***/
 /*
 På webben använder vi Georgia, Frutiger (inte
@@ -12,8 +31,13 @@ line hight
 font size on p, h2,h1....
 fonts...
 text-align
+letter-spacing?
 
 */
+
+body {
+  color: $darkBlue;
+}
 
 li {
   list-style: none;
@@ -28,6 +52,7 @@ li {
   padding: 20px;
 }
 
+<<<<<<< HEAD
 $activeColor: #00aaef;
 $linkColor: #034ea2;
 $greyBackground: #f5f2ed;
@@ -43,11 +68,14 @@ $lightGrey: #e0ded9;
 $mediumGrey: #a79d96;
 $darkGrey: #685c53;
 
+=======
+>>>>>>> f0d1c333d45abd6ba61ec881e98e2d159c11fe9d
 /**General styles**/
 a {
   color: $linkColor;
 }
 
+<<<<<<< HEAD
 h1,
 h2,
 h3,
@@ -56,6 +84,10 @@ h5,
 h6,
 p {
   color: $darkBlue;
+=======
+a:hover {
+  color: $orange;
+>>>>>>> f0d1c333d45abd6ba61ec881e98e2d159c11fe9d
 }
 
 /*** BUTTONS ***/
@@ -74,6 +106,7 @@ header {
   }
   .chapter-title {
     text-align: right;
+    color: $darkGrey;
   }
 }
 
@@ -83,13 +116,13 @@ nav {
       .link-is-active {
         color: $activeColor;
       }
-
       a {
         text-decoration: none;
       }
     }
   }
 }
+
 .introduction {
   border: 2px solid $red;
   h1 {
@@ -110,5 +143,12 @@ nav {
       border: 1px solid $red;
       display: inline-block;
     }
+  }
+}
+
+footer {
+  background-color: $darkBlue;
+  h1 {
+    color: white;
   }
 }
