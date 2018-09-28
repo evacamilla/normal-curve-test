@@ -24,12 +24,37 @@ li {
   padding: 20px;
 }
 
-$active: blue;
+
+$activeColor: #00aaef;
+$linkColor: #034ea2;
+$greyBackground: #f5f2ed;
+$darkBlue: #002d5a;
+$lightBlue: #00aeef;
+$red: #9a0932;
+$pink: #e1056d;
+$darkGreen: #406618;
+$lightGreen: #78be00;
+$orange: #eb9100;
+$yellow: #ffd400;
+$lightGrey: #e0ded9;
+$mediumGrey: #a79d96;
+$darkGrey: #685c53;
+
+
+/**General styles**/
+a {
+  color: $linkColor;
+}
+
+h1,h2, h3, h4, h5, h6, p {
+  color: $darkBlue;
+}
+
 
 /*** BUTTONS ***/
 .big-btn {
   font-size: 1.4em;
-  border: 1px solid red;
+  border: 1px solid $red;
   width: 150px;
   height: 80px;
 }
@@ -38,28 +63,29 @@ header {
   .fa-bars {
     display: inline-block;
     font-size: 30px;
+    color: $linkColor;
   }
   .chapter-title {
     text-align: right;
   }
 }
 
+
 nav {
   ul {
     li {
       .link-is-active {
-        color: $active;
+        color: $activeColor;
       }
 
       a {
         text-decoration: none;
-        color: black;
       }
     }
   }
 }
 .introduction {
-  border: 2px solid red;
+  border: 2px solid $red;
   h1 {
   }
   p {
@@ -67,16 +93,16 @@ nav {
 }
 
 .question-wrapper {
-  border:4px solid black;
+  border:4px solid $darkGreen;
   h1 {
   }
   p {
 
   }
   li {
-    border:1px solid red;
+    border:1px solid $red;
     .question-point {
-      border:1px solid red;
+      border:1px solid $red;
       display: inline-block;
     }
   }

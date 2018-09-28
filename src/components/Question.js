@@ -41,6 +41,7 @@ class Question extends Component {
 
   temporaryAnswer = event => {
     this.setState({ chosenAnswer: event.target.id });
+    console.log(event.target);
   };
 
   toggleShowInstructions = () => {
@@ -93,7 +94,7 @@ class Question extends Component {
 
           <div className="question-wrapper">
             <div className="question">
-              <h1>{this.state.questionId + " " + this.state.heading}</h1>
+              <h1>{this.state.questionId + ". " + this.state.heading}</h1>
               <p>{this.state.question}</p>
             </div>
             <p>Du har valt alternativ: {this.state.chosenAnswer}</p>
