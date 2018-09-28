@@ -21,6 +21,12 @@ På webben använder vi Georgia, Frutiger (inte
 Frutiger SLL) eller Verdana. 
 */
 
+
+/**
+Lägga in cursors
+*/
+
+
 /*** Typography ***/
 
 p {
@@ -116,8 +122,13 @@ nav {
   }
   li {
     border: 1px solid $red;
+    &:hover{
+      background-color: $lightGreen;
+      transform: scale(1.03);
+      z-index: 2;
+      position:relative;
+    }
     .question-point {
-      border: 1px solid $red;
       display: inline-block;
     }
   }

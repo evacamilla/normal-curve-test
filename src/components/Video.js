@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class Video extends Component {
   state = {
@@ -16,7 +16,7 @@ class Video extends Component {
     
         <button>
           <NavLink
-          exact={true}
+          exact
           to="/introduktion"
           onClick={this.props.showStepOne}
           >
@@ -26,7 +26,7 @@ class Video extends Component {
 
         <button>
           <NavLink
-          exact={true}
+          exact
           to="/fyllidinasvar"
           >
           Nästa sida

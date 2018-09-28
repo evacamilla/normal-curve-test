@@ -25,7 +25,7 @@ class Result extends Component {
               //if user did pass the test
               <div>
                 <p>Du är godkänd</p>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Standard_deviation_diagram.svg/400px-Standard_deviation_diagram.svg.png" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Standard_deviation_diagram.svg/400px-Standard_deviation_diagram.svg.png" alt="ditt resultat visat i en normalfördelningskurva" />
                 <Button
                   text={'Se överblick'}
                   onClick={this.answersOverview}

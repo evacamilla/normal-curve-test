@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function Menu(props) {
   return (
@@ -13,7 +13,7 @@ function Menu(props) {
               props.showWelcome();
             }}
             activeClassName="link-is-active"
-            exact={true}
+            exact 
             to="/introduktion"
           >
             Introduktion
@@ -23,7 +23,7 @@ function Menu(props) {
           <NavLink
             onClick={props.toggleMenu}
             activeClassName="link-is-active"
-            exact={true}
+            exact
             to="/sefilmen"
           >
             Se filmen
@@ -33,7 +33,7 @@ function Menu(props) {
           <NavLink
             onClick={props.toggleMenu}
             activeClassName="link-is-active"
-            exact={true}
+            exact
             to="/fyllidinasvar"
           >
             Fyll i dina svar
@@ -43,7 +43,7 @@ function Menu(props) {
           <NavLink
             onClick={props.toggleMenu}
             activeClassName="link-is-active"
-            exact={true}
+            exact
             to="/resultat"
           >
             Resultat

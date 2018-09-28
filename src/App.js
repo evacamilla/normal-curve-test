@@ -7,7 +7,7 @@ import Introduction from './components/Introduction.js';
 import Question from './components/Question.js';
 import Result from './components/Result.js';
 import Video from './components/Video.js';
-import { BrowserRouter, Route, Switch, NavLink } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
   state = {

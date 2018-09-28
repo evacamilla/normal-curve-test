@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Button from './Button.js';
-import { BrowserRouter, Route, Switch, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class Introduction extends Component {
   state = {
@@ -63,7 +63,7 @@ class Introduction extends Component {
             />
 
             <button>
-              <NavLink exact={true} to="/sefilmen">
+              <NavLink to="/sefilmen">
                 Nästa sida
               </NavLink>
             </button>
