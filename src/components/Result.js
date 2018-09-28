@@ -17,7 +17,6 @@ class Result extends Component {
   render() {
     return (
       <div>
-        <h1>{this.state.chapter}</h1>
 
         {this.props.filledInAllAnswers ? (
           //if user filled out all the answers
