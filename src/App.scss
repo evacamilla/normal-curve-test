@@ -1,9 +1,13 @@
 /*** Rules ***/
+/*
+På webben använder vi Georgia, Frutiger (inte
+Frutiger SLL) eller Verdana. 
+*/
 
 /*** Typography ***/
 /*
 Paragraph = 
-max characters
+max characters = 65
 line hight
 font size on p, h2,h1....
 fonts...
@@ -24,7 +28,6 @@ li {
   padding: 20px;
 }
 
-
 $activeColor: #00aaef;
 $linkColor: #034ea2;
 $greyBackground: #f5f2ed;
@@ -40,16 +43,20 @@ $lightGrey: #e0ded9;
 $mediumGrey: #a79d96;
 $darkGrey: #685c53;
 
-
 /**General styles**/
 a {
   color: $linkColor;
 }
 
-h1,h2, h3, h4, h5, h6, p {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
   color: $darkBlue;
 }
-
 
 /*** BUTTONS ***/
 .big-btn {
@@ -69,7 +76,6 @@ header {
     text-align: right;
   }
 }
-
 
 nav {
   ul {
@@ -93,16 +99,15 @@ nav {
 }
 
 .question-wrapper {
-  border:4px solid $darkGreen;
+  border: 4px solid $darkGreen;
   h1 {
   }
   p {
-
   }
   li {
-    border:1px solid $red;
+    border: 1px solid $red;
     .question-point {
-      border:1px solid $red;
+      border: 1px solid $red;
       display: inline-block;
     }
   }
