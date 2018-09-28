@@ -13,7 +13,6 @@ class Video extends Component {
   render() {
     return (
       <div>
-        <p>VIDEO</p>
     
         <button>
           <NavLink
