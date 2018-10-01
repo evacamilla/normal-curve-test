@@ -88,7 +88,6 @@ header {
   .logo-container {
     img {
       max-width: 100%;
-      display:inline-block;
     }
     width:80px;
   }
@@ -97,7 +96,6 @@ header {
 .fa-bars {
   font-size: 30px;
   color: $linkColor;
-  display:inline-block;
 }
 
 nav {
@@ -136,7 +134,6 @@ nav {
       position:relative;
     }
     .question-point {
-      display: inline-block;
     }
   }
 }
