@@ -71,6 +71,10 @@ li {
 }
 
 /*** BUTTONS ***/
+.btn{
+  cursor: pointer;
+}
+
 .big-btn {
   font-size: 1.4em;
   border: 1px solid $red;
@@ -78,24 +82,32 @@ li {
   height: 80px;
 }
 
-header {
-  .chapter-title {
+.header {
+  border: 1px solid blue;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  .logo-container {
+    grid-column: 1 / 2;
+    grid-row: 1;
+    img {
+      width: 100%;
+    }
+  }
+  .hamburger-div {
+    grid-column: 8 / 9;
+    grid-row: 1;
+    cursor: pointer;
+    img {
+      width: 100%;
+    }
+  }
+  .chapter-title-div {
+    grid-row: 2;
+    grid-column: 6 / 9;
+    border: 1px solid red;
     text-align: right;
     color: $darkGrey;
   }
-  .logo-container {
-    img {
-      max-width: 100%;
-      display: inline-block;
-    }
-    width: 80px;
-  }
-}
-
-.fa-bars {
-  font-size: 30px;
-  color: $linkColor;
-  display: inline-block;
 }
 
 nav {
@@ -141,10 +153,10 @@ nav {
       background-color: $lightGreen;
       transform: scale(1.03);
       z-index: 2;
-      position: relative;
+      position:relative;
+      cursor: pointer;
     }
     .question-point {
-      display: inline-block;
     }
   }
 }
