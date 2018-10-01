@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from '../images/logos/stockholmsLansLandsting_textUnder.png';
 import hamburger from '../images/hamburger.png';
+import { NavLink } from 'react-router-dom';
 
 
 function Header(props) {
@@ -10,7 +11,12 @@ function Header(props) {
         //TODO: göra egen hamburgaren istället för font-awesome om vi ändå bara ska ha hamburgaren?
       }
       <div className="logo-container">
-        <img src={logo} alt="Stockholms läns landstings logga"/>
+        <NavLink
+          exact 
+          to="/introduktion"
+        >
+          <img src={logo} alt="Stockholms läns landstings logga"/>
+        </NavLink> 
       </div>
       <div className="hamburger-div">
         <img src={hamburger} alt="" onClick={props.toggleMenu}/>

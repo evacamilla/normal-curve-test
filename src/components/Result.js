@@ -3,7 +3,8 @@ import Button from './Button.js';
 
 class Result extends Component {
   state = {
-    chapter: 'Resultat'
+    chapter: 'Resultat',
+    result: 0
   };
 
   componentDidMount = () => {
@@ -14,9 +15,10 @@ class Result extends Component {
     console.log('answers overview');
   };
 
+
   render() {
     return (
-      <div>
+      <main>
 
         {this.props.filledInAllAnswers ? (
           //if user filled out all the answers
@@ -57,7 +59,7 @@ class Result extends Component {
             />
           </div>
         )}
-      </div>
+      </main>
     );
   }
 }
