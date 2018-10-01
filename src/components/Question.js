@@ -11,8 +11,7 @@ class Question extends Component {
     question: allaFragor[0].question,
     answers: allaFragor[0].answers,
     questionIndex: 0,
-    totalPoints: 0,
-    chosenAnswer: 0
+    totalPoints: 0
   };
 
   componentDidMount = () => {
@@ -27,7 +26,6 @@ class Question extends Component {
       this.setState({ question: allaFragor[i].question });
       this.setState({ answers: allaFragor[i].answers });
       this.setState({ questionIndex: this.state.questionIndex + 1 });
-      console.log(i);
     }
   };
 
@@ -41,7 +39,6 @@ class Question extends Component {
       this.setState({ question: allaFragor[i].question });
       this.setState({ answers: allaFragor[i].answers });
       this.setState({ questionIndex: this.state.questionIndex - 1 });
-      console.log(i);
     }
   };
 
@@ -54,8 +51,9 @@ class Question extends Component {
   };
 
   temporaryAnswer = event => {
-    this.setState({ chosenAnswer: event.target.id });
-    console.log(event.target);
+    this.props.allAnswers[this.state.questionIndex] = event.target.id;
+    allaFragor[this.state.questionIndex].chosenAnswer = event.target.id;
+    console.log(this.props.allAnswers[this.state.questionIndex]);
   };
 
   toggleShowInstructions = () => {
@@ -69,19 +67,22 @@ class Question extends Component {
 
     answers.forEach(function(answer, index) {
       li = (
-        <li key={index} id={index}>
+        <li key={index} >
           <div id={index} className="question-point">
             {index}
           </div>
-          {answer}
+          <div id={index} className="question-answers-text">
+            {answer}
+          </div>
         </li>
       );
       answersDiv.push(li);
       index += 1;
     });
 
+    console.log(this.props.allAnswers);
     return (
-      <div>
+      <main>
         {this.state.showInstructions ? (
           <div className="introduction">
             <h1>Instruktioner om steg 2</h1>
@@ -91,15 +92,20 @@ class Question extends Component {
               visa graf i form av bild
             </p>
 
-            <Link exact to="/sefilmen">
-              <Button text="Föregående sida" className="btn btn-prev" />
-            </Link>
-
-            <Button
-              text="Nästa"
-              className="btn btn-next"
-              onClick={this.toggleShowInstructions}
-            />
+            <div className="btn-wrapper">
+              <div className="btn-prev-div">
+                <Link exact to="/sefilmen">
+                  <Button text="Föregående" className="btn btn-prev" />
+                </Link>
+              </div>
+              <div className="btn-next-div">
+                  <Button
+                    text="Nästa"
+                    className="btn btn-next"
+                    onClick={this.toggleShowInstructions}
+                  />
+              </div>
+            </div>
           </div>
         ) : (
           <div className="question-wrapper">
@@ -107,37 +113,46 @@ class Question extends Component {
               <h1>{this.state.questionId + '. ' + this.state.heading}</h1>
               <p>{this.state.question}</p>
             </div>
-            <p>Du har valt alternativ: {this.state.chosenAnswer}</p>
 
             <div className="question-answers" onClick={this.temporaryAnswer}>
               {answersDiv}
             </div>
 
-            <Button
-              text="Föregående"
-              className="btn btn-prev"
-              onClick={this.showPreviousQuestion}
-            />
+            <div className="btn-wrapper">
+              <div className="btn-prev-div">
+                <Button
+                  text="Föregående"
+                  className="btn btn-prev"
+                  onClick={this.showPreviousQuestion}
+                />
+              </div>
 
-            {this.state.questionIndex <= 8 ? (
-              <Button
-                text="Nästa"
-                className="btn btn-next"
-                onClick={this.showNextQuestion}
-              />
-            ) : (
-              <Button
-                text="Lämna in"
-                className="btn"
-                onClick={this.completeTest}
-              />
+              {this.state.questionIndex <= 8 ? (
+
+              <div className="btn-next-div">
+                <Button
+                  text="Nästa"
+                  className="btn btn-next"
+                  onClick={this.showNextQuestion}
+                />
+              </div>
+              ) : (
+                <div className="btn-next-div">
+                  <Button
+                    text="Lämna in"
+                    className="btn"
+                    onClick={this.completeTest}
+                  />
+                </div>
             )}
+            </div>
           </div>
         )}
-      </div>
+      </main>
     );
   }
 }
+
 
 let allaFragor = [
   {

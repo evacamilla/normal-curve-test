@@ -13,9 +13,10 @@ class App extends Component {
   state = {
     toggleMenu: false,
     chapter: 'Introduktion',
-    filledInAllAnswers: false,
-    passedTest: false,
-    showWelcome: true
+    filledInAllAnswers: true,
+    passedTest: true,
+    showWelcome: true,
+    allAnswers: []
   };
 
   changeChapter = chapterName => {
@@ -103,6 +104,7 @@ class App extends Component {
                   <Question
                     {...props}
                     filledInAllAnswers={this.state.filledInAllAnswers}
+                    allAnswers={this.state.allAnswers}
                     changeChapter={this.changeChapter}
                   />
                 )}

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import Button from './Button.js';
 import { NavLink } from 'react-router-dom';
 import VideoImage from '../images/Skärmavbild 2018-10-01 kl. 09.53.29.png';
+
 class Video extends Component {
   state = {
     chapter: 'Se filmen'
@@ -12,22 +14,25 @@ class Video extends Component {
 
   render() {
     return (
-      <div>
+      <main>
         <div className="VideoImage-container">
           <img src={VideoImage} alt="" />
         </div>
-        <button>
-          <NavLink exact to="/introduktion" onClick={this.props.showStepOne}>
-            Föregående sida
-          </NavLink>
-        </button>
 
-        <button>
-          <NavLink exact to="/fyllidinasvar">
-            Nästa sida
-          </NavLink>
-        </button>
-      </div>
+          <div className="btn-wrapper">
+            <div className="btn-prev-div">
+              <NavLink exact to="/introduktion" onClick={this.props.showStepOne}>
+                <Button text="Föregående" className="btn btn-prev" />
+              </NavLink>
+            </div>
+
+            <div className="btn-next-div">
+              <NavLink exact to="/fyllidinasvar">
+                <Button text="Nästa" className="btn btn-next" />
+              </NavLink>
+            </div>
+          </div>
+      </main>
     );
   }
 }

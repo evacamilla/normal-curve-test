@@ -25,7 +25,7 @@ class Introduction extends Component {
     // return something;
 
     return (
-      <div>
+      <main>
         {this.props.showWelcome ? (
           <div className="introduction">
             <h1>Välkommen!</h1>
@@ -38,11 +38,15 @@ class Introduction extends Component {
               målgruppen eller ej?
               <br />
             </p>
-            <Button
-              onClick={this.props.toggleShowWelcome}
-              className={'btn btn-next'}
-              text={'Nästa sida'}
-            />
+            <div className="btn-wrapper">
+              <div className="btn-next-div">
+                <Button
+                  onClick={this.props.toggleShowWelcome}
+                  className={'btn btn-next'}
+                  text={'Nästa'}
+                />
+              </div>
+            </div>
           </div>
         ) : (
           <div className="introduction">
@@ -56,20 +60,25 @@ class Introduction extends Component {
               Skriv ut: En bild på pdf med textad länk Texten kan "flyta" med
               bilden
             </p>
-            <Button
-              onClick={this.props.toggleShowWelcome}
-              className={'btn btn-prev'}
-              text={'Föregående sida'}
-            />
 
-            <button>
-              <NavLink to="/sefilmen">
-                Nästa sida
-              </NavLink>
-            </button>
+          <div className="btn-wrapper">
+              <div className="btn-prev-div">
+                <Button
+                  onClick={this.props.toggleShowWelcome}
+                  className={'btn btn-prev'}
+                  text={'Föregående'}
+                />
+              </div>
+
+              <div className="btn-next-div">
+                <NavLink to="/sefilmen">
+                  <Button text="Nästa" className="btn btn-next" />
+                </NavLink>
+              </div>
+            </div>
           </div>
         )}
-      </div>
+      </main>
     );
   }
 }
