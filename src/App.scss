@@ -73,6 +73,10 @@ li {
 }
 
 /*** BUTTONS ***/
+.btn{
+  cursor: pointer;
+}
+
 .big-btn {
   font-size: 1.4em;
   border: 1px solid $red;
@@ -87,7 +91,6 @@ li {
   .logo-container {
     grid-column: 1 / 2;
     grid-row: 1;
-    border: 1px solid red;
     img {
       width: 100%;
     }
@@ -95,7 +98,7 @@ li {
   .hamburger-div {
     grid-column: 8 / 9;
     grid-row: 1;
-    border: 1px solid green;
+    cursor: pointer;
     img {
       width: 100%;
     }
@@ -143,6 +146,7 @@ nav {
       transform: scale(1.03);
       z-index: 2;
       position:relative;
+      cursor: pointer;
     }
     .question-point {
     }

@@ -13,7 +13,7 @@ function Header(props) {
         <img src={logo} alt="Stockholms läns landstings logga"/>
       </div>
       <div className="hamburger-div">
-        <img src={hamburger} alt=""/>
+        <img src={hamburger} alt="" onClick={props.toggleMenu}/>
       </div>
       <div className="chapter-title-div">
         <h2 className="chapter-title">{props.chapter}</h2>
