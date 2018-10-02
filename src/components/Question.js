@@ -43,10 +43,10 @@ class Question extends Component {
   };
 
   completeTest = () => {
-    if (this.props.filledInAllAnswers) {
-      window.location.assign('/resultat');
+    if (this.props.allAnswers.length >= 1) {
+      this.props.sumAllAnswers();
     } else {
-      console.log('du måste fylla i alla svar');
+      console.log('Alla frågor äe ej ifyllda!!!');
     }
   };
 
@@ -67,7 +67,7 @@ class Question extends Component {
 
     answers.forEach(function(answer, index) {
       li = (
-        <li key={index} >
+        <li key={index}>
           <div id={index} className="question-point">
             {index}
           </div>
@@ -80,7 +80,7 @@ class Question extends Component {
       index += 1;
     });
 
-    console.log(this.props.allAnswers);
+    // console.log(this.props.allAnswers);
     return (
       <main>
         {this.state.showInstructions ? (
@@ -92,6 +92,14 @@ class Question extends Component {
               visa graf i form av bild
             </p>
 
+            <div className="btn-next-div">
+              <Button
+                text="Lämna in"
+                className="btn"
+                onClick={this.completeTest}
+              />
+            </div>
+
             <div className="btn-wrapper">
               <div className="btn-prev-div">
                 <Link exact to="/sefilmen">
@@ -99,11 +107,11 @@ class Question extends Component {
                 </Link>
               </div>
               <div className="btn-next-div">
-                  <Button
-                    text="Nästa"
-                    className="btn btn-next"
-                    onClick={this.toggleShowInstructions}
-                  />
+                <Button
+                  text="Nästa"
+                  className="btn btn-next"
+                  onClick={this.toggleShowInstructions}
+                />
               </div>
             </div>
           </div>
@@ -128,14 +136,13 @@ class Question extends Component {
               </div>
 
               {this.state.questionIndex <= 8 ? (
-
-              <div className="btn-next-div">
-                <Button
-                  text="Nästa"
-                  className="btn btn-next"
-                  onClick={this.showNextQuestion}
-                />
-              </div>
+                <div className="btn-next-div">
+                  <Button
+                    text="Nästa"
+                    className="btn btn-next"
+                    onClick={this.showNextQuestion}
+                  />
+                </div>
               ) : (
                 <div className="btn-next-div">
                   <Button
@@ -144,7 +151,7 @@ class Question extends Component {
                     onClick={this.completeTest}
                   />
                 </div>
-            )}
+              )}
             </div>
           </div>
         )}
@@ -152,7 +159,6 @@ class Question extends Component {
     );
   }
 }
-
 
 let allaFragor = [
   {

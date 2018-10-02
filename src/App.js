@@ -16,7 +16,8 @@ class App extends Component {
     filledInAllAnswers: true,
     passedTest: true,
     showWelcome: true,
-    allAnswers: []
+    allAnswers: [],
+    totalPoints: 1454775847364543
   };
 
   changeChapter = chapterName => {
@@ -44,6 +45,14 @@ class App extends Component {
 
   showWelcome = () => {
     this.setState({ showWelcome: true });
+  };
+
+  sumAllAnswers = () => {
+    //ta in alla värden från allAnswers[]. Plussa alla värden. Setstate på statet totalPoints  med totalsumman av allAnswers
+    this.state.allAnswers.forEach(function(allAnswer) {
+      // Convertera till Int
+      console.log('HEj');
+    });
   };
 
   render() {
@@ -106,6 +115,7 @@ class App extends Component {
                     filledInAllAnswers={this.state.filledInAllAnswers}
                     allAnswers={this.state.allAnswers}
                     changeChapter={this.changeChapter}
+                    sumAllAnswers={this.sumAllAnswers}
                   />
                 )}
               />
@@ -118,6 +128,7 @@ class App extends Component {
                     passedTest={this.state.passedTest}
                     filledInAllAnswers={this.state.filledInAllAnswers}
                     changeChapter={this.changeChapter}
+                    totalPoints={this.state.totalPoints}
                   />
                 )}
               />
