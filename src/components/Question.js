@@ -43,6 +43,7 @@ class Question extends Component {
   };
 
   completeTest = () => {
+    //ska sättas till 10
     if (this.props.allAnswers.length >= 1) {
       this.props.sumAllAnswers();
     } else {
@@ -64,10 +65,12 @@ class Question extends Component {
     let answers = this.state.answers;
     let answersDiv = [];
     let li = '';
+    let index = 0;
 
-    answers.forEach(function(answer, index) {
+    //gör om till map?
+    for(let answer of answers) {
       li = (
-        <li key={index}>
+        <li key={index} id={index} onClick={this.temporaryAnswer}>
           <div id={index} className="question-point">
             {index}
           </div>
@@ -78,9 +81,8 @@ class Question extends Component {
       );
       answersDiv.push(li);
       index += 1;
-    });
+    }
 
-    // console.log(this.props.allAnswers);
     return (
       <main>
         {this.state.showInstructions ? (
@@ -102,7 +104,7 @@ class Question extends Component {
 
             <div className="btn-wrapper">
               <div className="btn-prev-div">
-                <Link exact to="/sefilmen">
+                <Link to="/sefilmen">
                   <Button text="Föregående" className="btn btn-prev" />
                 </Link>
               </div>
@@ -122,7 +124,7 @@ class Question extends Component {
               <p>{this.state.question}</p>
             </div>
 
-            <div className="question-answers" onClick={this.temporaryAnswer}>
+            <div className="question-answers">
               {answersDiv}
             </div>
 

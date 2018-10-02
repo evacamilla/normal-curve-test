@@ -13,11 +13,11 @@ class App extends Component {
   state = {
     toggleMenu: false,
     chapter: 'Introduktion',
-    filledInAllAnswers: true,
+    filledInAllAnswers: false,
     passedTest: true,
     showWelcome: true,
     allAnswers: [],
-    totalPoints: 23258309
+    totalPoints: 0
   };
 
   changeChapter = chapterName => {
@@ -51,19 +51,12 @@ class App extends Component {
     let sum = 0;
 
     this.state.allAnswers.forEach(function(answer) {
-      let answer2 = parseInt(answer, 10);
-      sum += answer2;
-      console.log(answer2);
+      answer = parseInt(answer, 10);
+      sum += answer;
     });
 
     this.setState({totalPoints: sum});
-
-    return <Redirect to="/resultat" />
-  };
-
-  test = () => {
-    console.log('hej');
-    return <Redirect to="/sefilmen" />;
+    return <Redirect to="/resultat" from="/" />;
   }
 
   render() {
@@ -79,11 +72,8 @@ class App extends Component {
           </div>
         ) : (
           <div>
-
-            <button onClick={this.test}>test</button>
             <Header toggleMenu={this.toggleMenu} chapter={this.state.chapter} />
-
-            {this.state.totalPoints}
+            Totalpoäng: {this.state.totalPoints}
             <Switch>
               <Route 
                 exact
