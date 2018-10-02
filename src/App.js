@@ -47,19 +47,24 @@ class App extends Component {
     this.setState({ showWelcome: true });
   };
 
-    sumAllAnswers = () => {
-      let sum = 0;
+  sumAllAnswers = () => {
+    let sum = 0;
 
-      this.state.allAnswers.forEach(function(answer) {
-        let answer2 = parseInt(answer, 10);
-        sum += answer2;
-        console.log(answer2);
-      });
+    this.state.allAnswers.forEach(function(answer) {
+      let answer2 = parseInt(answer, 10);
+      sum += answer2;
+      console.log(answer2);
+    });
 
-      this.setState({totalPoints: sum});
+    this.setState({totalPoints: sum});
 
-      return <Redirect to="/resultat" />
+    return <Redirect to="/resultat" />
   };
+
+  test = () => {
+    console.log('hej');
+    return <Redirect to="/sefilmen" />;
+  }
 
   render() {
     return (
@@ -74,12 +79,13 @@ class App extends Component {
           </div>
         ) : (
           <div>
+
+            <button onClick={this.test}>test</button>
             <Header toggleMenu={this.toggleMenu} chapter={this.state.chapter} />
 
             {this.state.totalPoints}
             <Switch>
               <Route
-                exact
                 path="/"
                 component={props => (
                   <Introduction
@@ -91,7 +97,6 @@ class App extends Component {
                 )}
               />
               <Route
-                exact
                 path="/introduktion"
                 component={props => (
                   <Introduction
@@ -103,7 +108,6 @@ class App extends Component {
                 )}
               />
               <Route
-                exact
                 path="/sefilmen"
                 component={props => (
                   <Video
@@ -114,7 +118,6 @@ class App extends Component {
                 )}
               />
               <Route
-                exact
                 path="/fyllidinasvar"
                 component={props => (
                   <Question
@@ -127,7 +130,6 @@ class App extends Component {
                 )}
               />
               <Route
-                exact
                 path="/resultat"
                 component={props => (
                   <Result

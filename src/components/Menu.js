@@ -13,7 +13,6 @@ function Menu(props) {
               props.showWelcome();
             }}
             activeClassName="link-is-active"
-            exact 
             to="/introduktion"
           >
             Introduktion
@@ -23,7 +22,6 @@ function Menu(props) {
           <NavLink
             onClick={props.toggleMenu}
             activeClassName="link-is-active"
-            exact
             to="/sefilmen"
           >
             Se filmen
@@ -33,7 +31,6 @@ function Menu(props) {
           <NavLink
             onClick={props.toggleMenu}
             activeClassName="link-is-active"
-            exact
             to="/fyllidinasvar"
           >
             Fyll i dina svar
@@ -43,7 +40,6 @@ function Menu(props) {
           <NavLink
             onClick={props.toggleMenu}
             activeClassName="link-is-active"
-            exact
             to="/resultat"
           >
             Resultat
