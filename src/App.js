@@ -85,7 +85,8 @@ class App extends Component {
 
             {this.state.totalPoints}
             <Switch>
-              <Route
+              <Route 
+                exact
                 path="/"
                 component={props => (
                   <Introduction
@@ -97,6 +98,7 @@ class App extends Component {
                 )}
               />
               <Route
+                exact
                 path="/introduktion"
                 component={props => (
                   <Introduction
@@ -108,6 +110,7 @@ class App extends Component {
                 )}
               />
               <Route
+                exact
                 path="/sefilmen"
                 component={props => (
                   <Video
@@ -118,6 +121,7 @@ class App extends Component {
                 )}
               />
               <Route
+                exact
                 path="/fyllidinasvar"
                 component={props => (
                   <Question
@@ -130,6 +134,7 @@ class App extends Component {
                 )}
               />
               <Route
+                exact
                 path="/resultat"
                 component={props => (
                   <Result
