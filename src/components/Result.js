@@ -3,8 +3,7 @@ import Button from './Button.js';
 
 class Result extends Component {
   state = {
-    chapter: 'Resultat',
-    result: 0
+    chapter: 'Resultat'
   };
 
   componentDidMount = () => {

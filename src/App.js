@@ -7,7 +7,7 @@ import Introduction from './components/Introduction.js';
 import Question from './components/Question.js';
 import Result from './components/Result.js';
 import Video from './components/Video.js';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 class App extends Component {
   state = {
@@ -17,7 +17,7 @@ class App extends Component {
     passedTest: true,
     showWelcome: true,
     allAnswers: [],
-    totalPoints: 1454775847364543
+    totalPoints: 23258309
   };
 
   changeChapter = chapterName => {
@@ -47,12 +47,18 @@ class App extends Component {
     this.setState({ showWelcome: true });
   };
 
-  sumAllAnswers = () => {
-    //ta in alla värden från allAnswers[]. Plussa alla värden. Setstate på statet totalPoints  med totalsumman av allAnswers
-    this.state.allAnswers.forEach(function(allAnswer) {
-      // Convertera till Int
-      console.log('HEj');
-    });
+    sumAllAnswers = () => {
+      let sum = 0;
+
+      this.state.allAnswers.forEach(function(answer) {
+        let answer2 = parseInt(answer, 10);
+        sum += answer2;
+        console.log(answer2);
+      });
+
+      this.setState({totalPoints: sum});
+
+      return <Redirect to="/resultat" />
   };
 
   render() {
@@ -70,6 +76,7 @@ class App extends Component {
           <div>
             <Header toggleMenu={this.toggleMenu} chapter={this.state.chapter} />
 
+            {this.state.totalPoints}
             <Switch>
               <Route
                 exact
