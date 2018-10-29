@@ -4,12 +4,10 @@ import { NavLink } from 'react-router-dom';
 function Menu(props) {
   return (
     <nav>
-      <i className="fas fa-bars" onClick={props.toggleMenu} />
       <ul>
         <li>
           <NavLink
             onClick={() => {
-              props.toggleMenu();
               props.showWelcome();
             }}
             activeClassName="link-is-active"
@@ -20,7 +18,6 @@ function Menu(props) {
         </li>
         <li>
           <NavLink
-            onClick={props.toggleMenu}
             activeClassName="link-is-active"
             to="/sefilmen"
           >
@@ -38,7 +35,6 @@ function Menu(props) {
         </li>
         <li>
           <NavLink
-            onClick={props.toggleMenu}
             activeClassName="link-is-active"
             to="/resultat"
           >

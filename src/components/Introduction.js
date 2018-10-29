@@ -25,19 +25,22 @@ class Introduction extends Component {
     // return something;
 
     return (
-      <main>
+      <div>
         {this.props.showWelcome ? (
           <div className="introduction">
-            <h1>Välkommen!</h1>
-            <p>
-              Här är en kortare text om vad själva kursen går ut på.
-              <br />
-              (Vem den riktar sig till?)
-              <br />
-              Eventuellt en illustration för stämningens skull, passar
-              målgruppen eller ej?
-              <br />
-            </p>
+            <main>
+              <h1>Välkommen!</h1>
+              <p>
+                Här är en kortare text om vad själva kursen går ut på.
+                <br />
+                (Vem den riktar sig till?)
+                <br />
+                Eventuellt en illustration för stämningens skull, passar
+                målgruppen eller ej?
+                <br />
+              </p>
+            </main>
+
             <div className="btn-wrapper">
               <div className="btn-next-div">
                 <Button
@@ -50,16 +53,18 @@ class Introduction extends Component {
           </div>
         ) : (
           <div className="introduction">
-            <h1>Steg 1</h1>
-            <p>
-              Instruktioner om steg 1. <br />- användaren ska skriva ut pdf{' '}
-              <br />
-              video kommer visas <br />
-              användaren ska under tiden fylla i frågorna i sitt papper.
-              <br />
-              Skriv ut: En bild på pdf med textad länk Texten kan "flyta" med
-              bilden
-            </p>
+            <main>
+              <h1>Steg 1</h1>
+              <p>
+                Instruktioner om steg 1. <br />- användaren ska skriva ut pdf{' '}
+                <br />
+                video kommer visas <br />
+                användaren ska under tiden fylla i frågorna i sitt papper.
+                <br />
+                Skriv ut: En bild på pdf med textad länk Texten kan "flyta" med
+                bilden
+              </p>
+            </main>
 
           <div className="btn-wrapper">
               <div className="btn-prev-div">
@@ -78,7 +83,7 @@ class Introduction extends Component {
             </div>
           </div>
         )}
-      </main>
+      </div>
     );
   }
 }

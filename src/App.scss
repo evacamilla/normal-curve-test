@@ -2,11 +2,13 @@
 $activeColor: #00aaef;
 $linkColor: #034ea2;
 $greyBackground: #f5f2ed;
+$mainPink: #e1056d;
+$mainBackground: #ffffff;
+
 
 $darkBlue: #002d5a;
 $lightBlue: #00aeef;
 $red: #9a0932;
-$pink: #e1056d;
 $darkGreen: #406618;
 $lightGreen: #78be00;
 $orange: #eb9100;
@@ -14,6 +16,7 @@ $yellow: #ffd400;
 $lightGrey: #e0ded9;
 $mediumGrey: #a79d96;
 $darkGrey: #685c53;
+
 
 /*** Rules ***/
 /*
@@ -54,11 +57,7 @@ letter-spacing?
 
 body {
   color: $darkBlue;
-}
-
-.App {
-  margin: 10px;
-  padding: 5px;
+  background: $greyBackground;
 }
 
 main {
@@ -91,7 +90,7 @@ li {
 .btn{
   cursor: pointer;
   padding: 10px;
-  background: $pink;
+  background: $mainPink;
   width: 80px;
 }
 .btn-prev-div {
@@ -109,36 +108,16 @@ li {
   height: 80px;
 }
 
-.header {
+header {
+  background: white;
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  padding: 20px;
-  .logo-container {
-    grid-column: 1 / 3;
-    grid-row: 1;
-    img {
-      width: 100%;
-    }
-  }
-  .hamburger-div {
-    grid-column: 8 / 9;
-    grid-row: 1;
-    cursor: pointer;
-    img {
-      width: 100%;
-    }
-  }
-  .chapter-title-div {
-    grid-row: 2;
-    grid-column: 4 / 9;
-    text-align: right;
-    color: $darkGrey;
-  }
 }
 
 nav {
   ul {
     li {
+      font-family: Verdana, Tahoma, sans-serif;
+      font-size: 14px;
       .link-is-active {
         color: $activeColor;
       }
@@ -147,6 +126,11 @@ nav {
       }
     }
   }
+}
+
+main {
+  border:1px solid green;
+  background: white;
 }
 
 .introduction {

@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 class Question extends Component {
   state = {
     chapter: 'Fyll i dina svar',
-    showInstructions: true,
     questionId: allaFragor[0].id,
     heading: allaFragor[0].heading,
     question: allaFragor[0].question,
@@ -57,10 +56,6 @@ class Question extends Component {
     console.log(this.props.allAnswers[this.state.questionIndex]);
   };
 
-  toggleShowInstructions = () => {
-    this.setState({ showInstructions: !this.state.showInstructions });
-  };
-
   render() {
     let answers = this.state.answers;
     let answersDiv = [];
@@ -84,40 +79,7 @@ class Question extends Component {
     }
 
     return (
-      <main>
-        {this.state.showInstructions ? (
-          <div className="introduction">
-            <h1>Instruktioner om steg 2</h1>
-            <p>
-              användaren ska fylla i sina svar digitalt. Förklara varför.
-              <br />
-              visa graf i form av bild
-            </p>
-
-            <div className="btn-next-div">
-              <Button
-                text="Lämna in"
-                className="btn"
-                onClick={this.completeTest}
-              />
-            </div>
-
-            <div className="btn-wrapper">
-              <div className="btn-prev-div">
-                <Link to="/sefilmen">
-                  <Button text="Föregående" className="btn btn-prev" />
-                </Link>
-              </div>
-              <div className="btn-next-div">
-                <Button
-                  text="Nästa"
-                  className="btn btn-next"
-                  onClick={this.toggleShowInstructions}
-                />
-              </div>
-            </div>
-          </div>
-        ) : (
+      <div>
           <div className="question-wrapper">
             <div className="question">
               <h1>{this.state.questionId + '. ' + this.state.heading}</h1>
@@ -129,6 +91,13 @@ class Question extends Component {
             </div>
 
             <div className="btn-wrapper">
+            {this.state.questionIndex == 0 ? (
+                <div className="btn-prev-div">
+                  <Link to="/sefilmen">
+                    Tillbaka
+                  </Link>
+                </div>
+              ) : (
               <div className="btn-prev-div">
                 <Button
                   text="Föregående"
@@ -136,6 +105,7 @@ class Question extends Component {
                   onClick={this.showPreviousQuestion}
                 />
               </div>
+              )}
 
               {this.state.questionIndex <= 8 ? (
                 <div className="btn-next-div">
@@ -156,8 +126,7 @@ class Question extends Component {
               )}
             </div>
           </div>
-        )}
-      </main>
+      </div>
     );
   }
 }

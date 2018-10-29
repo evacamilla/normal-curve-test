@@ -11,9 +11,8 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 
 class App extends Component {
   state = {
-    toggleMenu: false,
     chapter: 'Introduktion',
-    filledInAllAnswers: false,
+    filledInAllAnswers: true,
     passedTest: true,
     showWelcome: true,
     allAnswers: [],
@@ -27,10 +26,6 @@ class App extends Component {
     } else {
       this.setState({ chapter: chapterName });
     }
-  };
-
-  toggleMenu = () => {
-    this.setState({ toggleMenu: !this.state.toggleMenu });
   };
 
   //göra om till mer dynamiska funktioner/ta bort toggleShowElcome
@@ -62,18 +57,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.state.toggleMenu ? (
-          <div>
-            <Menu
-              changeChapter={this.changeChapter}
-              toggleMenu={this.toggleMenu}
-              showWelcome={this.showWelcome}
-            />
-          </div>
-        ) : (
           <div>
             <Header toggleMenu={this.toggleMenu} chapter={this.state.chapter} />
-            Totalpoäng: {this.state.totalPoints}
             <Switch>
               <Route 
                 exact
@@ -139,7 +124,6 @@ class App extends Component {
             </Switch>
             <Footer />
           </div>
-        )}
       </div>
     );
   }
