@@ -30,8 +30,12 @@ Lägga in cursors
 
 
 * {
-  margin: 0px;
-  padding: 0px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
 }
 
 
@@ -54,27 +58,25 @@ letter-spacing?
 
 */
 
-
 body {
   color: $darkBlue;
   background: $greyBackground;
-}
-
-main {
-  padding: 20px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 /**General styles**/
-h1 {
-  margin: 0 5px 30px 5px;
+h1, h2, h3, h4 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-bottom: 0.6rem;
 }
 
 a {
   color: $linkColor;
+  text-decoration: none;
 }
 
 a:hover {
-  color: $orange;
+  color: $mainPink;
 }
 
 li {
@@ -83,74 +85,139 @@ li {
 
 /*** BUTTONS ***/
 .btn-wrapper {
-  margin-top: 30px;
+  padding-top: 20px;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
+  width: 360px;
+  margin: auto;
 }
+
 .btn{
+  padding: 0px 10px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: #e1056d;
+  background-size: cover;
+  font-family: Verdana;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 11px;
+  filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.2));
   cursor: pointer;
   padding: 10px;
   background: $mainPink;
-  width: 80px;
+  color: white;
 }
 .btn-prev-div {
-  grid-column: 3 / 4;
+  grid-column: 1 / 2;
   grid-row: 1;
 }
 .btn-next-div {
-  grid-column: 6 / 7;
+  grid-column: 8 / 9;
   grid-row: 1;
 }
 
-.big-btn {
-  font-size: 1.4em;
-  width: 150px;
-  height: 80px;
+.btn-prev {
+  background: none;
+  border: none;
+  color: $linkColor;
+  font-size: 1em;
+}
+
+
+.next-btn {
+  .arrow-div{
+    display: inline;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    line-height: 30px;
+    background: white;
+  }
+  img {
+    width: 20px;
+    margin: auto;
+    vertical-align: middle;
+  }
 }
 
 header {
+  height: 50px;
   background: white;
-  display: grid;
-}
-
-nav {
-  ul {
-    li {
-      font-family: Verdana, Tahoma, sans-serif;
-      font-size: 14px;
-      .link-is-active {
-        color: $activeColor;
-      }
-      a {
-        text-decoration: none;
+  border-bottom: 6px solid $mainPink;
+  margin: auto;
+  line-height: 50px;
+  nav {
+    width: 360px;
+    margin: auto;
+    ul {
+      margin: auto;
+      text-align: center;
+      li {
+        margin: 4px;
+        display: inline;
+        font-family: Verdana, Tahoma, sans-serif;
+        font-size: 14px;
+        .link-is-active {
+          color: $activeColor;
+        }
+        a {
+          text-decoration: none;
+        }
       }
     }
   }
 }
 
-main {
-  border:1px solid green;
+.white-background {
+  width: 360px;
+  border-radius: 4px;
   background: white;
+  margin: auto;
+  margin-top: 20px!important;
+}
+
+main {
+  padding: 30px 20px;
 }
 
 .introduction {
   h1 {
+    font-size: 1.2rem;
   }
   p {
   }
+  .blue-background {
+    background: $activeColor;
+    border-radius: 4px;
+    padding: 1rem;
+  }
+  .pdf-div {
+    width: 60px;
+    a {
+      font-size: 0.7rem;
+    }
+  }
 }
+
 /**Video.js**/
-.VideoImage-container {
+.video-div {
   margin: auto;
+  width: 80%;
   img {
     max-width: 100%;
-    max-height: 100%;
   }
 }
 
 .question-wrapper {
-  p {
-    margin: 0 5px 20px 5px;
+  h1 {
+    font-size: 1.2rem;
+  }
+  .question {
+    p {
+      font-size: 12px;
+      margin: 0 5px 20px 5px;
+    }
   }
   li {
     display: grid;
@@ -158,28 +225,41 @@ main {
     grid-template-columns: repeat(8, 1fr);
     margin-bottom: 10px;
     padding: 5px;
-    background: green;
     &:hover {
-      background-color: $lightGreen;
       transform: scale(1.03);
       z-index: 2;
       position:relative;
       cursor: pointer;
+      color: $activeColor;
+    }
+    &:hover .question-point {
+      background: $activeColor;
+      color: white;
     }
     .question-point {
       grid-column: 1 / 2;
-      border: 1px solid red;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      border: 2px solid $greyBackground;
+      font-size: 16px;
     }
     .question-answers-text{
       grid-column: 2 / 9;
-      border:1px solid black;
+      height: 50px;
+      position: relative;
+      
+      p {
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        font-size: 11px;
+      }
     }
     
   }
-}
-
-.question-answers {
-  border:1px solid;
 }
 
 footer {

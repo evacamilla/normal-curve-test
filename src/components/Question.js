@@ -46,7 +46,7 @@ class Question extends Component {
     if (this.props.allAnswers.length >= 1) {
       this.props.sumAllAnswers();
     } else {
-      console.log('Alla frågor äe ej ifyllda!!!');
+      console.log('Alla frågor äe ej ifyllda');
     }
   };
 
@@ -54,6 +54,7 @@ class Question extends Component {
     this.props.allAnswers[this.state.questionIndex] = event.target.id;
     allaFragor[this.state.questionIndex].chosenAnswer = event.target.id;
     console.log(this.props.allAnswers[this.state.questionIndex]);
+    this.showNextQuestion();
   };
 
   render() {
@@ -70,7 +71,9 @@ class Question extends Component {
             {index}
           </div>
           <div id={index} className="question-answers-text">
-            {answer}
+          <p>
+              {answer}
+          </p>
           </div>
         </li>
       );
@@ -79,16 +82,20 @@ class Question extends Component {
     }
 
     return (
-      <div>
           <div className="question-wrapper">
-            <div className="question">
-              <h1>{this.state.questionId + '. ' + this.state.heading}</h1>
-              <p>{this.state.question}</p>
-            </div>
+          <div className="white-background">
+            <main>
 
-            <div className="question-answers">
-              {answersDiv}
-            </div>
+              <div className="question">
+                <h1>{this.state.questionId + '. ' + this.state.heading}</h1>
+                <p>{this.state.question}</p>
+              </div>
+
+              <div className="question-answers">
+                {answersDiv}
+              </div>
+            </main>
+          </div>
 
             <div className="btn-wrapper">
             {this.state.questionIndex == 0 ? (
@@ -100,7 +107,7 @@ class Question extends Component {
               ) : (
               <div className="btn-prev-div">
                 <Button
-                  text="Föregående"
+                  text="Tillbaka"
                   className="btn btn-prev"
                   onClick={this.showPreviousQuestion}
                 />
@@ -126,7 +133,6 @@ class Question extends Component {
               )}
             </div>
           </div>
-      </div>
     );
   }
 }

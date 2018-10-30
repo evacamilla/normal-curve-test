@@ -14,7 +14,6 @@ class App extends Component {
     chapter: 'Introduktion',
     filledInAllAnswers: true,
     passedTest: true,
-    showWelcome: true,
     allAnswers: [],
     totalPoints: 0
   };
@@ -26,20 +25,6 @@ class App extends Component {
     } else {
       this.setState({ chapter: chapterName });
     }
-  };
-
-  //göra om till mer dynamiska funktioner/ta bort toggleShowElcome
-  //om vi ändå behöver ha dom två nedanför
-  toggleShowWelcome = () => {
-    this.setState({ showWelcome: !this.state.showWelcome });
-  };
-
-  showStepOne = () => {
-    this.setState({ showWelcome: false });
-  };
-
-  showWelcome = () => {
-    this.setState({ showWelcome: true });
   };
 
   sumAllAnswers = () => {
@@ -56,9 +41,8 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-          <div>
-            <Header toggleMenu={this.toggleMenu} chapter={this.state.chapter} />
+      <div>
+            <Header chapter={this.state.chapter} />
             <Switch>
               <Route 
                 exact
@@ -66,8 +50,6 @@ class App extends Component {
                 component={props => (
                   <Introduction
                     {...props}
-                    showWelcome={this.state.showWelcome}
-                    toggleShowWelcome={this.toggleShowWelcome}
                     changeChapter={this.changeChapter}
                   />
                 )}
@@ -78,8 +60,6 @@ class App extends Component {
                 component={props => (
                   <Introduction
                     {...props}
-                    showWelcome={this.state.showWelcome}
-                    toggleShowWelcome={this.toggleShowWelcome}
                     changeChapter={this.changeChapter}
                   />
                 )}
@@ -90,7 +70,6 @@ class App extends Component {
                 component={props => (
                   <Video
                     {...props}
-                    showStepOne={this.showStepOne}
                     changeChapter={this.changeChapter}
                   />
                 )}
@@ -123,7 +102,6 @@ class App extends Component {
               />
             </Switch>
             <Footer />
-          </div>
       </div>
     );
   }

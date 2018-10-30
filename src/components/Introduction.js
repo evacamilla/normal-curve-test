@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Button from './Button.js';
+import pdfIcon from '../images/pdf.svg';
 import { NavLink } from 'react-router-dom';
 
 class Introduction extends Component {
@@ -25,65 +26,44 @@ class Introduction extends Component {
     // return something;
 
     return (
-      <div>
-        {this.props.showWelcome ? (
           <div className="introduction">
-            <main>
-              <h1>Välkommen!</h1>
-              <p>
-                Här är en kortare text om vad själva kursen går ut på.
-                <br />
-                (Vem den riktar sig till?)
-                <br />
-                Eventuellt en illustration för stämningens skull, passar
-                målgruppen eller ej?
-                <br />
-              </p>
-            </main>
 
-            <div className="btn-wrapper">
-              <div className="btn-next-div">
-                <Button
-                  onClick={this.props.toggleShowWelcome}
-                  className={'btn btn-next'}
-                  text={'Nästa'}
-                />
-              </div>
-            </div>
-          </div>
-        ) : (
-          <div className="introduction">
+          <div className="white-background">
             <main>
-              <h1>Steg 1</h1>
+              <div className="blue-background">
+                <h1>Välkommen!</h1>
+                <p>
+                  Här är en kortare text om vad själva kursen går ut på.
+                  <br />
+                  (Vem den riktar sig till?)
+                  <br />
+                  Eventuellt en illustration för stämningens skull, passar
+                  målgruppen eller ej?
+                  <br />
+                </p>
+              </div>
+
+              <h2>Instruktioner</h2>
               <p>
-                Instruktioner om steg 1. <br />- användaren ska skriva ut pdf{' '}
+                användaren ska skriva ut pdf
                 <br />
                 video kommer visas <br />
                 användaren ska under tiden fylla i frågorna i sitt papper.
                 <br />
-                Skriv ut: En bild på pdf med textad länk Texten kan "flyta" med
-                bilden
               </p>
-            </main>
 
-          <div className="btn-wrapper">
-              <div className="btn-prev-div">
-                <Button
-                  onClick={this.props.toggleShowWelcome}
-                  className={'btn btn-prev'}
-                  text={'Föregående'}
-                />
+              <div className="pdf-div">
+                <img className="pdf-icon" src={pdfIcon} />
+                <a href="#">Skriv ut pdf</a>
               </div>
 
-              <div className="btn-next-div">
                 <NavLink to="/sefilmen">
-                  <Button text="Nästa" className="btn btn-next" />
+                  <Button text="Starta" className="btn btn-next" />
                 </NavLink>
-              </div>
+
+            </main>
             </div>
           </div>
-        )}
-      </div>
     );
   }
 }
