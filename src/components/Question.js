@@ -58,15 +58,16 @@ class Question extends Component {
   };
 
   render() {
+    //question loop
     let answers = this.state.answers;
-    let answersDiv = [];
+    let answersUl = [];
     let li = '';
     let index = 0;
 
     //gör om till map?
     for(let answer of answers) {
       li = (
-        <li key={index} id={index} onClick={this.temporaryAnswer}>
+        <li className="question-point-li" key={index} id={index} onClick={this.temporaryAnswer}>
           <div id={index} className="question-point">
             {index}
           </div>
@@ -77,9 +78,31 @@ class Question extends Component {
           </div>
         </li>
       );
-      answersDiv.push(li);
+      answersUl.push(li);
       index += 1;
     }
+
+
+    //pagination loop
+    let paginationUl = [];
+    let li2 = '';
+    let number = 1;
+    let index2 = 0;
+
+    for(let i = 0; i <= 9; i++){
+      li = (
+        <div className="underline-div">
+          <li>
+            <div className="number-div">
+              {number}
+            </div>
+          </li>
+        </div>
+      );
+      number ++;
+      paginationUl.push(li);
+    }
+
 
     return (
           <div className="question-wrapper">
@@ -92,10 +115,16 @@ class Question extends Component {
               </div>
 
               <div className="question-answers">
-                {answersDiv}
+                <ul>
+                  {answersUl}
+                </ul>
               </div>
             </main>
           </div>
+
+            <ul className="pagination-wrapper">
+              {paginationUl}
+            </ul>
 
             <div className="btn-wrapper">
             {this.state.questionIndex == 0 ? (
