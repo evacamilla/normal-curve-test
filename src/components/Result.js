@@ -10,13 +10,9 @@ class Result extends Component {
     this.props.changeChapter(this.state.chapter);
   };
 
-  answersOverview = () => {
-    console.log('answers overview');
-  };
-
   render() {
     return (
-      <div>
+      <div className="result-wrapper">
         <div className="white-background">
           <main>
             {this.props.filledInAllAnswers ? (
@@ -27,16 +23,34 @@ class Result extends Component {
                 {this.props.passedTest ? (
                   //if user did pass the test
                   <div>
-                    <p>Du är godkänd</p>
-                    <img
-                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Standard_deviation_diagram.svg/400px-Standard_deviation_diagram.svg.png"
-                      alt="ditt resultat visat i en normalfördelningskurva"
-                    />
-                    <Button
-                      text={'Se överblick'}
-                      onClick={this.answersOverview}
-                      className={'big-btn'}
-                    />
+
+                      <h1>Du är godkänd!</h1>
+                      <div className="graph-div">
+                        <img
+                          src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Standard_deviation_diagram.svg/400px-Standard_deviation_diagram.svg.png"
+                          alt="ditt resultat visat i en normalfördelningskurva"
+                        />
+                        <p>Ovan ser du dina resultat jämfört med normalvärdet av vad andra skattat.</p>
+                      </div>
+
+                      <p>För att bli godkäns krävs att du har en diff på mindre eller lika med 2 mer eller mindre än normalvärdet.</p>
+
+                      <h2>Jämför dina resultat</h2>
+
+                      <div className="result-question-div passed">
+                        <h3>1. Frågerubrfewfe</h3>
+                        <div className="result-number-div">
+                          <span className="chosen-answer">0</span> | <span className="normal-answer">3</span>
+                        </div>
+                      </div>
+
+                      <div className="result-question-div not-passed">
+                        <h3>1. Minskat känslomässigt engagemang</h3>
+                        <div className="result-number-div">
+                          <span className="chosen-answer">0</span> | <span className="normal-answer">3</span>
+                        </div>
+                      </div>
+                  
                   </div>
                 ) : (
                   //if user did not pass

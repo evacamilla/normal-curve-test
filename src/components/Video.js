@@ -15,7 +15,7 @@ class Video extends Component {
 
   render() {
     return (
-      <div>
+      <div className="video-wrapper">
       <div className="white-background">
         <main>
           <div className="video-div">

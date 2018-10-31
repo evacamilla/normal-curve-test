@@ -67,7 +67,11 @@ body {
 /**General styles**/
 h1, h2, h3, h4 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.8rem;
+}
+
+h1 {
+  font-size: 1.2rem;
 }
 
 a {
@@ -178,13 +182,11 @@ header {
 }
 
 main {
-  padding: 30px 20px;
+  padding: 35px 30px;
 }
 
-.introduction {
-  h1 {
-    font-size: 1.2rem;
-  }
+/****INTRODUCTION****/
+.introduction-wrapper {
   p {
   }
   .blue-background {
@@ -201,29 +203,33 @@ main {
 }
 
 /**Video.js**/
-.video-div {
-  margin: auto;
-  width: 80%;
-  img {
-    max-width: 100%;
+.video-wrapper {
+  .video-div {
+    margin: auto;
+    width: 80%;
+    img {
+      max-width: 100%;
+    }
   }
 }
+
+
+/****QUESTION*****/
 
 .question-wrapper {
   h1 {
     font-size: 1.2rem;
   }
   .question {
+    margin-bottom: 1em;
     p {
-      font-size: 12px;
-      margin: 0 5px 20px 5px;
+      font-size: 0.8rem;
     }
   }
   li {
     display: grid;
     grid-gap: 5px;
     grid-template-columns: repeat(8, 1fr);
-    margin-bottom: 10px;
     padding: 5px;
     &:hover {
       transform: scale(1.03);
@@ -247,10 +253,10 @@ main {
       font-size: 16px;
     }
     .question-answers-text{
-      grid-column: 2 / 9;
+      grid-column: 2 / 8;
       height: 50px;
       position: relative;
-      
+      margin-left: 0.5rem;
       p {
         position: absolute;
         top: 50%;
@@ -258,8 +264,76 @@ main {
         font-size: 11px;
       }
     }
-    
   }
+}
+
+
+
+/******RESULT******/
+
+.result-wrapper {
+  h1 {
+    text-align: center;
+  }
+  p {
+    font-size: 0.8em;
+  }
+  .graph-div {
+    width: 100%;
+    margin: auto;
+    margin-bottom: 2em;
+    img {
+      width: 100%;
+    }
+    p {
+      font-size: 0.7em;
+      width: 80%;
+      margin: auto;
+    }
+  }
+  .result-question-div {
+    border:2px solid $darkGreen;
+    width: 90%;
+    height: 40px;
+    position: relative;
+    padding: 0.5em;
+    margin-bottom: 1em;
+    border-radius: 4px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    h3 { 
+      display: inline;
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      max-width: 70%;
+      font-size: 0.8rem;
+    }
+    .result-number-div {
+      display: inline;
+      position: absolute;
+      right: 0.5em;
+      top: 50%;
+      transform: translate(0, -50%);
+      font-size: 1.1rem;
+    }
+  }
+}
+
+
+.passed {
+ border: 2px solid $red;
+}
+
+.not-passed {
+  border: 2px solid $lightGreen;
+}
+
+.chosen-answer {
+  color: $activeColor;
+}
+
+.normal-answer {
+  color: $lightGreen;
 }
 
 footer {
