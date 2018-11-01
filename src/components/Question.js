@@ -88,21 +88,20 @@ class Question extends Component {
     let li2 = '';
     let number = 1;
     let index2 = 0;
+    let setUnderline = "";
 
     for(let i = 0; i <= 9; i++){
-      li = (
-        <div className="underline-div">
-          <li>
-            <div className="number-div">
-              {number}
-            </div>
-          </li>
-        </div>
-      );
+    li = (
+        <li>
+          <div key={i} className="number-div">
+            {number}
+          </div>
+        </li>
+    );
       number ++;
       paginationUl.push(li);
     }
-
+  
 
     return (
           <div className="question-wrapper">
@@ -124,6 +123,7 @@ class Question extends Component {
 
             <ul className="pagination-wrapper">
               {paginationUl}
+              <div className="underline-div"></div>
             </ul>
 
             <div className="btn-wrapper">

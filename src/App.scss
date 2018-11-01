@@ -277,9 +277,12 @@ main {
   justify-content: space-around;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 0.8em;
-  .test {
-    border-bottom: 1px solid $activeColor;
-    padding-bottom: 6px;
+  .underline-div {
+    border: 1px solid $activeColor;
+    width: 20px;
+    position: absolute;
+    bottom: 10px;
+
   }
   li{
     width:20px;
