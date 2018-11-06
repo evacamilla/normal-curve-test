@@ -77,8 +77,6 @@ class Question extends Component {
   };
 
   render() {
-    console.log(this.props.allaFragor);
-
     let animateToggle = '';
     this.state.detailedView
       ? (animateToggle = '')
@@ -89,8 +87,8 @@ class Question extends Component {
     let index = 0;
 
     //gör om till map?
-    for (let answer of answers) {
-      li = (
+    for (let answer of this.state.answers) {
+      let li = (
         <li
           className="question-point-li"
           key={index}
@@ -112,8 +110,10 @@ class Question extends Component {
     //quick view selects:)
     let selectAnswersUl = [];
 
+    //TODO: måste göra så att man ej kan välja första option alltså rubriken!
+    //options med id ska loopas ut, hur göra med rubriken som första?
     for (let i = 0; i <= 9; i++) {
-      select = (
+      let select = (
         <select
           className="question-point-li"
           key={i}
@@ -139,12 +139,14 @@ class Question extends Component {
     let setUnderline = '';
 
     for (let i = 0; i <= 9; i++) {
-      li = (
-        <li key={i} id={i} onClick={this.setQuestion}>
-          <div id={i} className="number-div">
-            {number}
-          </div>
-        </li>
+      let li = (
+        <div className="underline2">
+          <li key={i} id={i} onClick={this.setQuestion}>
+            <div id={i} className="number-div">
+              {number}
+            </div>
+          </li>
+        </div>
       );
       number++;
       paginationUl.push(li);
@@ -181,11 +183,11 @@ class Question extends Component {
 
         <ul className="pagination-wrapper">
           {paginationUl}
-          <hr className="underline" />
+          {/* <hr className="underline" /> */}
         </ul>
 
         <div className="btn-wrapper">
-          {this.state.questionIndex == 0 ? (
+          {this.state.questionIndex === 0 ? (
             <div className="btn-prev-div">
               <Link to="/sefilmen">Tillbaka</Link>
             </div>

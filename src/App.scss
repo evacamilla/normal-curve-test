@@ -5,7 +5,6 @@ $greyBackground: #f5f2ed;
 $mainPink: #e1056d;
 $mainBackground: #ffffff;
 
-
 $darkBlue: #002d5a;
 $lightBlue: #00aeef;
 $red: #9a0932;
@@ -17,7 +16,6 @@ $lightGrey: #e0ded9;
 $mediumGrey: #a79d96;
 $darkGrey: #685c53;
 
-
 /*** Rules ***/
 /*
 På webben använder vi Georgia, Frutiger (inte
@@ -28,16 +26,14 @@ Frutiger SLL) eller Verdana.
 Lägga in cursors
 */
 
-
 * {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
-
 
 /*** Typography ***/
 
@@ -65,7 +61,10 @@ body {
 }
 
 /**General styles**/
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin-bottom: 0.8rem;
 }
@@ -96,7 +95,7 @@ li {
   margin: auto;
 }
 
-.btn{
+.btn {
   padding: 0px 10px;
   border: 1px solid transparent;
   border-radius: 4px;
@@ -106,7 +105,7 @@ li {
   font-size: 11px;
   font-weight: 400;
   line-height: 11px;
-  filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.2));
+  filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.2));
   cursor: pointer;
   padding: 10px;
   background: $mainPink;
@@ -128,9 +127,8 @@ li {
   font-size: 1em;
 }
 
-
 .next-btn {
-  .arrow-div{
+  .arrow-div {
     display: inline;
     width: 30px;
     height: 30px;
@@ -187,7 +185,7 @@ header {
   border-radius: 4px;
   background: white;
   margin: auto;
-  margin-top: 20px!important;
+  margin-top: 20px !important;
 }
 
 main {
@@ -221,7 +219,6 @@ main {
   }
 }
 
-
 /****QUESTION*****/
 
 .question-wrapper {
@@ -242,7 +239,7 @@ main {
     &:hover {
       transform: scale(1.03);
       z-index: 2;
-      position:relative;
+      position: relative;
       cursor: pointer;
       color: $activeColor;
     }
@@ -260,7 +257,7 @@ main {
       border: 2px solid $greyBackground;
       font-size: 16px;
     }
-    .question-answers-text{
+    .question-answers-text {
       grid-column: 2 / 8;
       height: 50px;
       position: relative;
@@ -288,10 +285,10 @@ main {
       height: 19px;
       border: 1px solid #ff2b67;
       border-radius: 50px;
-      background-image: linear-gradient(90deg, #e1056d 3%, #ff2b67 100% );
+      background-image: linear-gradient(90deg, #e1056d 3%, #ff2b67 100%);
       background-position: center center;
       background-size: cover;
-      box-shadow: 0px 1px 2px rgba(0,0,0,0.2);
+      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
       position: absolute;
     }
     .animate-toggle {
@@ -319,15 +316,15 @@ main {
     width: 20px;
     position: absolute;
     bottom: 0;
-
   }
-  li{
-    width:20px;
+  li {
+    width: 20px;
     height: 20px;
-    border:1px solid $activeColor;
+    border: 1px solid $activeColor;
     color: $activeColor;
-    position:relative;
+    position: relative;
     border-radius: 50%;
+    margin-bottom: 5px;
     .number-div {
       position: absolute;
       text-align: center;
@@ -338,7 +335,10 @@ main {
   }
 }
 
-
+.underline2 {
+  border-bottom: 2px solid red;
+  // padding: 5px;
+}
 
 /******RESULT******/
 
@@ -363,7 +363,7 @@ main {
     }
   }
   .result-question-div {
-    border:2px solid $darkGreen;
+    border: 2px solid $darkGreen;
     width: 90%;
     height: 40px;
     position: relative;
@@ -371,7 +371,7 @@ main {
     margin-bottom: 1em;
     border-radius: 4px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    h3 { 
+    h3 {
       display: inline;
       position: absolute;
       top: 50%;
@@ -390,9 +390,8 @@ main {
   }
 }
 
-
 .passed {
- border: 2px solid $red;
+  border: 2px solid $red;
 }
 
 .not-passed {

@@ -36,77 +36,66 @@ class App extends Component {
       sum += answer;
     });
 
-    this.setState({totalPoints: sum});
+    this.setState({ totalPoints: sum });
     return <Redirect to="/resultat" from="/" />;
-  }
+  };
 
   render() {
-    console.log(allaFragor);
-
     return (
       <div>
-            <Header chapter={this.state.chapter} />
-            <Switch>
-              <Route 
-                exact
-                path="/"
-                component={props => (
-                  <Introduction
-                    {...props}
-                    changeChapter={this.changeChapter}
-                  />
-                )}
+        <Header chapter={this.state.chapter} />
+        <Switch>
+          <Route
+            exact
+            path="/"
+            component={props => (
+              <Introduction {...props} changeChapter={this.changeChapter} />
+            )}
+          />
+          <Route
+            exact
+            path="/introduktion"
+            component={props => (
+              <Introduction {...props} changeChapter={this.changeChapter} />
+            )}
+          />
+          <Route
+            exact
+            path="/sefilmen"
+            component={props => (
+              <Video {...props} changeChapter={this.changeChapter} />
+            )}
+          />
+          <Route
+            exact
+            path="/fyllidinasvar"
+            component={props => (
+              <Question
+                {...props}
+                filledInAllAnswers={this.state.filledInAllAnswers}
+                allAnswers={this.state.allAnswers}
+                changeChapter={this.changeChapter}
+                sumAllAnswers={this.sumAllAnswers}
+                allaFragor={this.state.allaFragor}
               />
-              <Route
-                exact
-                path="/introduktion"
-                component={props => (
-                  <Introduction
-                    {...props}
-                    changeChapter={this.changeChapter}
-                  />
-                )}
+            )}
+          />
+          <Route
+            exact
+            path="/resultat"
+            component={props => (
+              <Result
+                {...props}
+                passedTest={this.state.passedTest}
+                filledInAllAnswers={this.state.filledInAllAnswers}
+                changeChapter={this.changeChapter}
+                totalPoints={this.state.totalPoints}
+                allaFragor={this.state.allaFragor}
               />
-              <Route
-                exact
-                path="/sefilmen"
-                component={props => (
-                  <Video
-                    {...props}
-                    changeChapter={this.changeChapter}
-                  />
-                )}
-              />
-              <Route
-                exact
-                path="/fyllidinasvar"
-                component={props => (
-                  <Question
-                    {...props}
-                    filledInAllAnswers={this.state.filledInAllAnswers}
-                    allAnswers={this.state.allAnswers}
-                    changeChapter={this.changeChapter}
-                    sumAllAnswers={this.sumAllAnswers}
-                    allaFragor={this.state.allaFragor}
-                  />
-                )}
-              />
-              <Route
-                exact
-                path="/resultat"
-                component={props => (
-                  <Result
-                    {...props}
-                    passedTest={this.state.passedTest}
-                    filledInAllAnswers={this.state.filledInAllAnswers}
-                    changeChapter={this.changeChapter}
-                    totalPoints={this.state.totalPoints}
-                    allaFragor={this.state.allaFragor}
-                  />
-                )}
-              />
-            </Switch>
-            <Footer />
+            )}
+          />
+        </Switch>
+        <Footer />
       </div>
     );
   }
@@ -263,6 +252,5 @@ let allaFragor = [
     ]
   }
 ];
-
 
 export default App;
