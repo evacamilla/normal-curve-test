@@ -11,6 +11,22 @@ class Result extends Component {
   };
 
   render() {
+    let resultDiv = [];
+    let div = '';
+
+    for(let question of this.props.allaFragor){
+      div = (
+        <div className="result-question-div passed">
+          <h3>{question.heading}</h3>
+          <div className="result-number-div">
+            <span className="chosen-answer">{question.chosenAnswer}</span> | <span className="normal-answer">3</span>
+          </div>
+        </div>
+      );
+
+      resultDiv.push(div);
+    }
+    
     return (
       <div className="result-wrapper">
         <div className="white-background">
@@ -37,19 +53,7 @@ class Result extends Component {
 
                       <h2>Jämför dina resultat</h2>
 
-                      <div className="result-question-div passed">
-                        <h3>1. Frågerubrfewfe</h3>
-                        <div className="result-number-div">
-                          <span className="chosen-answer">0</span> | <span className="normal-answer">3</span>
-                        </div>
-                      </div>
-
-                      <div className="result-question-div not-passed">
-                        <h3>1. Minskat känslomässigt engagemang</h3>
-                        <div className="result-number-div">
-                          <span className="chosen-answer">0</span> | <span className="normal-answer">3</span>
-                        </div>
-                      </div>
+                      {resultDiv}
                   
                   </div>
                 ) : (
