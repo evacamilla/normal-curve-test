@@ -115,7 +115,7 @@ class Question extends Component {
   };
 
   //question loop
-  displayQuestion = () => {
+  displayOneQuestion = () => {
     let answersUl = [];
     let index = 0;
 
@@ -142,15 +142,8 @@ class Question extends Component {
     return answersUl;
   };
 
-  render() {
-    console.log(this.props.allaFragor);
-
-    let animateToggle = '';
-    this.state.detailedView
-      ? (animateToggle = '')
-      : (animateToggle = 'animate-toggle');
-
-    //quick view selects:)
+  
+  displayAllQuestions = () => {
     let selectAnswersUl = [];
 
     //TODO: måste göra så att man ej kan välja första option alltså rubriken!
@@ -175,6 +168,16 @@ class Question extends Component {
       );
       selectAnswersUl.push(select);
     }
+    
+    return selectAnswersUl;
+  }
+
+  render() {
+
+    let animateToggle = '';
+    this.state.detailedView
+      ? (animateToggle = '')
+      : (animateToggle = 'animate-toggle');
 
     return (
       <div className="question-wrapper">
@@ -194,13 +197,12 @@ class Question extends Component {
                 </div>
 
                 <div className="question-answers">
-                  <ul>{this.displayQuestion()}</ul>
+                  <ul>{this.displayOneQuestion()}</ul>
                 </div>
               </div>
             ) : (
               // if detailedView == false show "quick view"
-
-              <div>{selectAnswersUl}</div>
+              <div>{this.displayAllQuestions()}</div>
             )}
           </main>
         </div>
