@@ -89,7 +89,6 @@ class Question extends Component {
     let index = 0;
 
     //gör om till map?
-<<<<<<< HEAD
     for (let answer of answers) {
       li = (
         <li
@@ -98,11 +97,6 @@ class Question extends Component {
           id={index}
           onClick={this.temporaryAnswer}
         >
-=======
-    for(let answer of this.state.answers) {
-      let li = (
-        <li className="question-point-li" key={index} id={index} onClick={this.temporaryAnswer}>
->>>>>>> 96ea5fc7b08ae2a8f3bb3d4e261be1b0bea986f9
           <div id={index} className="question-point">
             {index}
           </div>
@@ -115,11 +109,9 @@ class Question extends Component {
       index += 1;
     }
 
-    
     //quick view selects:)
     let selectAnswersUl = [];
 
-<<<<<<< HEAD
     for (let i = 0; i <= 9; i++) {
       select = (
         <select
@@ -128,13 +120,6 @@ class Question extends Component {
           id={i}
           onClick={this.temporaryAnswer}
         >
-=======
-    //TODO: måste göra så att man ej kan välja första option alltså rubriken!
-    //options med id ska loopas ut, hur göra med rubriken som första?
-    for(let i = 0; i <= 9; i++) {
-      let select = (
-        <select className="question-point-li" key={i} id={i} onClick={this.temporaryAnswer}>
->>>>>>> 96ea5fc7b08ae2a8f3bb3d4e261be1b0bea986f9
           <option>{this.props.allaFragor[i].heading}</option>
           <option id="0">0</option>
           <option id="1">1</option>
@@ -153,13 +138,8 @@ class Question extends Component {
     let number = 1;
     let setUnderline = '';
 
-<<<<<<< HEAD
     for (let i = 0; i <= 9; i++) {
       li = (
-=======
-    for(let i = 0; i <= 9; i++){
-    let li = (
->>>>>>> 96ea5fc7b08ae2a8f3bb3d4e261be1b0bea986f9
         <li key={i} id={i} onClick={this.setQuestion}>
           <div id={i} className="number-div">
             {number}
@@ -191,16 +171,10 @@ class Question extends Component {
                   <ul>{answersUl}</ul>
                 </div>
               </div>
-<<<<<<< HEAD
             ) : (
-              <div>{selectAnswersUl}</div>
-=======
-            ) : (// if detailedView == false show "quick view"
+              // if detailedView == false show "quick view"
 
-              <div>
-                {selectAnswersUl}
-              </div>
->>>>>>> 96ea5fc7b08ae2a8f3bb3d4e261be1b0bea986f9
+              <div>{selectAnswersUl}</div>
             )}
           </main>
         </div>
