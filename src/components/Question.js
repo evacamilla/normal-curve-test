@@ -76,6 +76,45 @@ class Question extends Component {
     this.setState({ questionIndex: this.state.questionIndex + 1 });
   };
 
+  myFunction = () => {
+    let paginationUl = [];
+    let number = 1;
+    let setUnderline = '';
+
+    for (let i = 0; i <= 9; i++) {
+      let li = '';
+
+      if (i === this.state.questionIndex) {
+        console.log(i);
+        console.log(this.state.questionIndex);
+
+        li = (
+          <div className="underline2">
+            <li key={i} id={i} onClick={this.setQuestion}>
+              <div id={i} className="number-div">
+                {number}
+              </div>
+            </li>
+          </div>
+        );
+      } else {
+        li = (
+          <div>
+            <li key={i} id={i} onClick={this.setQuestion}>
+              <div id={i} className="number-div">
+                {number}
+              </div>
+            </li>
+          </div>
+        );
+      }
+
+      number++;
+      paginationUl.push(li);
+    }
+    return paginationUl;
+  };
+
   render() {
     let animateToggle = '';
     this.state.detailedView
@@ -133,25 +172,6 @@ class Question extends Component {
       selectAnswersUl.push(select);
     }
 
-    //pagination loop
-    let paginationUl = [];
-    let number = 1;
-    let setUnderline = '';
-
-    for (let i = 0; i <= 9; i++) {
-      let li = (
-        <div className="underline2">
-          <li key={i} id={i} onClick={this.setQuestion}>
-            <div id={i} className="number-div">
-              {number}
-            </div>
-          </li>
-        </div>
-      );
-      number++;
-      paginationUl.push(li);
-    }
-
     return (
       <div className="question-wrapper">
         <div className="white-background">
@@ -182,7 +202,7 @@ class Question extends Component {
         </div>
 
         <ul className="pagination-wrapper">
-          {paginationUl}
+          {this.myFunction()}
           {/* <hr className="underline" /> */}
         </ul>
 
