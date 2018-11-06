@@ -85,12 +85,11 @@ class Question extends Component {
       : (animateToggle = 'animate-toggle');
 
     //question loop
-    let answers = this.state.answers;
     let answersUl = [];
-    let li = '';
     let index = 0;
 
     //gör om till map?
+<<<<<<< HEAD
     for (let answer of answers) {
       li = (
         <li
@@ -99,6 +98,11 @@ class Question extends Component {
           id={index}
           onClick={this.temporaryAnswer}
         >
+=======
+    for(let answer of this.state.answers) {
+      let li = (
+        <li className="question-point-li" key={index} id={index} onClick={this.temporaryAnswer}>
+>>>>>>> 96ea5fc7b08ae2a8f3bb3d4e261be1b0bea986f9
           <div id={index} className="question-point">
             {index}
           </div>
@@ -111,10 +115,11 @@ class Question extends Component {
       index += 1;
     }
 
-    //easy view selects:)
+    
+    //quick view selects:)
     let selectAnswersUl = [];
-    let select = '';
 
+<<<<<<< HEAD
     for (let i = 0; i <= 9; i++) {
       select = (
         <select
@@ -123,14 +128,21 @@ class Question extends Component {
           id={i}
           onClick={this.temporaryAnswer}
         >
+=======
+    //TODO: måste göra så att man ej kan välja första option alltså rubriken!
+    //options med id ska loopas ut, hur göra med rubriken som första?
+    for(let i = 0; i <= 9; i++) {
+      let select = (
+        <select className="question-point-li" key={i} id={i} onClick={this.temporaryAnswer}>
+>>>>>>> 96ea5fc7b08ae2a8f3bb3d4e261be1b0bea986f9
           <option>{this.props.allaFragor[i].heading}</option>
-          <option>0</option>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          <option>6</option>
+          <option id="0">0</option>
+          <option id="1">1</option>
+          <option id="2">2</option>
+          <option id="3">3</option>
+          <option id="4">4</option>
+          <option id="5">5</option>
+          <option id="6">6</option>
         </select>
       );
       selectAnswersUl.push(select);
@@ -138,12 +150,16 @@ class Question extends Component {
 
     //pagination loop
     let paginationUl = [];
-    let li2 = '';
     let number = 1;
     let setUnderline = '';
 
+<<<<<<< HEAD
     for (let i = 0; i <= 9; i++) {
       li = (
+=======
+    for(let i = 0; i <= 9; i++){
+    let li = (
+>>>>>>> 96ea5fc7b08ae2a8f3bb3d4e261be1b0bea986f9
         <li key={i} id={i} onClick={this.setQuestion}>
           <div id={i} className="number-div">
             {number}
@@ -175,8 +191,16 @@ class Question extends Component {
                   <ul>{answersUl}</ul>
                 </div>
               </div>
+<<<<<<< HEAD
             ) : (
               <div>{selectAnswersUl}</div>
+=======
+            ) : (// if detailedView == false show "quick view"
+
+              <div>
+                {selectAnswersUl}
+              </div>
+>>>>>>> 96ea5fc7b08ae2a8f3bb3d4e261be1b0bea986f9
             )}
           </main>
         </div>
