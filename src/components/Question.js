@@ -44,8 +44,7 @@ class Question extends Component {
   };
 
   completeTest = () => {
-    //ska sättas till 10
-    if (this.props.allAnswers.length >= 1) {
+    if (this.props.allAnswers.length == 10) {
       this.props.sumAllAnswers();
     } else {
       console.log('Alla frågor är ej ifyllda');
@@ -115,13 +114,8 @@ class Question extends Component {
     return paginationUl;
   };
 
-  render() {
-    let animateToggle = '';
-    this.state.detailedView
-      ? (animateToggle = '')
-      : (animateToggle = 'animate-toggle');
-
-    //question loop
+  //question loop
+  displayQuestion = () => {
     let answersUl = [];
     let index = 0;
 
@@ -145,6 +139,16 @@ class Question extends Component {
       answersUl.push(li);
       index += 1;
     }
+    return answersUl;
+  };
+
+  render() {
+    console.log(this.props.allaFragor);
+
+    let animateToggle = '';
+    this.state.detailedView
+      ? (animateToggle = '')
+      : (animateToggle = 'animate-toggle');
 
     //quick view selects:)
     let selectAnswersUl = [];
@@ -190,7 +194,7 @@ class Question extends Component {
                 </div>
 
                 <div className="question-answers">
-                  <ul>{answersUl}</ul>
+                  <ul>{this.displayQuestion()}</ul>
                 </div>
               </div>
             ) : (
@@ -201,10 +205,7 @@ class Question extends Component {
           </main>
         </div>
 
-        <ul className="pagination-wrapper">
-          {this.myFunction()}
-          {/* <hr className="underline" /> */}
-        </ul>
+        <ul className="pagination-wrapper">{this.myFunction()}</ul>
 
         <div className="btn-wrapper">
           {this.state.questionIndex === 0 ? (
