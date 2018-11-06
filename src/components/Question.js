@@ -10,7 +10,9 @@ class Question extends Component {
     question: allaFragor[0].question,
     answers: allaFragor[0].answers,
     questionIndex: 0,
-    totalPoints: 0
+    totalPoints: 0,
+    detailedView: false,
+    animateToggle: ''
   };
 
   componentDidMount = () => {
@@ -46,7 +48,7 @@ class Question extends Component {
     if (this.props.allAnswers.length >= 1) {
       this.props.sumAllAnswers();
     } else {
-      console.log('Alla frågor äe ej ifyllda');
+      console.log('Alla frågor är ej ifyllda');
     }
   };
 
@@ -57,7 +59,25 @@ class Question extends Component {
     this.showNextQuestion();
   };
 
+  toggleView = event=> {
+    this.setState({detailedView: !this.state.detailedView});
+  }
+
+  setQuestion = (event) => {
+    let i = event.target.id;
+
+    this.setState({ questionId: allaFragor[i].id });
+    this.setState({ heading: allaFragor[i].heading });
+    this.setState({ question: allaFragor[i].question });
+    this.setState({ answers: allaFragor[i].answers });
+    this.setState({ questionIndex: this.state.questionIndex + 1 });
+  }
+
   render() {
+    let animateToggle = '';
+    this.state.detailedView ? animateToggle = ''
+    : animateToggle = 'animate-toggle';
+
     //question loop
     let answers = this.state.answers;
     let answersUl = [];
@@ -82,18 +102,37 @@ class Question extends Component {
       index += 1;
     }
 
+    //easy view selects:)
+    let selectAnswersUl = [];
+    let select = '';
+
+    for(let i = 0; i <= 9; i++) {
+      select = (
+        <select className="question-point-li" key={i} id={i} onClick={this.temporaryAnswer}>
+          <option>{allaFragor[i].heading}</option>
+          <option>0</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+        </select>
+      );
+      selectAnswersUl.push(select);
+    }
+
 
     //pagination loop
     let paginationUl = [];
     let li2 = '';
     let number = 1;
-    let index2 = 0;
     let setUnderline = "";
 
     for(let i = 0; i <= 9; i++){
     li = (
-        <li>
-          <div key={i} className="number-div">
+        <li key={i} id={i} onClick={this.setQuestion}>
+          <div className="number-div">
             {number}
           </div>
         </li>
@@ -101,29 +140,45 @@ class Question extends Component {
       number ++;
       paginationUl.push(li);
     }
-  
 
     return (
-          <div className="question-wrapper">
-          <div className="white-background">
-            <main>
+      <div className="question-wrapper">
+        <div className="white-background">
 
-              <div className="question">
-                <h1>{this.state.questionId + '. ' + this.state.heading}</h1>
-                <p>{this.state.question}</p>
-              </div>
-
-              <div className="question-answers">
-                <ul>
-                  {answersUl}
-                </ul>
-              </div>
-            </main>
+          <div onClick={this.toggleView} className="toggle-div">
+            <div className="toggle-background">
+              <div className={"toggle-circle " + animateToggle}></div>
+            </div>
           </div>
+
+          <main>
+
+            {this.state.detailedView ? (
+              <div>
+                <div className="question">
+                  <h1>{this.state.questionId + '. ' + this.state.heading}</h1>
+                  <p>{this.state.question}</p>
+                </div>
+
+                <div className="question-answers">
+                  <ul>
+                    {answersUl}
+                  </ul>
+                </div>
+              </div>
+            ) : (
+
+              <div>
+                {selectAnswersUl}
+              </div>
+            )}
+              
+          </main>
+        </div>
 
             <ul className="pagination-wrapper">
               {paginationUl}
-              <div className="underline-div"></div>
+              <hr className="underline" />
             </ul>
 
             <div className="btn-wrapper">

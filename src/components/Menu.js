@@ -7,18 +7,20 @@ function Menu(props) {
       <ul>
         <li>
           <NavLink
-            activeClassName="link-is-active"
+            activeClassName="link-is-active" 
             to="/introduktion"
           >
             Introduktion
+            <hr />
           </NavLink>
         </li>
-        <li>
+        <li className="two">
           <NavLink
             activeClassName="link-is-active"
             to="/sefilmen"
           >
             Se filmen
+            <hr />
           </NavLink>
         </li>
         <li>
@@ -28,6 +30,7 @@ function Menu(props) {
             to="/fyllidinasvar"
           >
             Fyll i dina svar
+            <hr />
           </NavLink>
         </li>
         <li>
@@ -36,8 +39,10 @@ function Menu(props) {
             to="/resultat"
           >
             Resultat
+            <hr />
           </NavLink>
         </li>
+
       </ul>
     </nav>
   );
