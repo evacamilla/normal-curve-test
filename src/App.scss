@@ -271,7 +271,10 @@ main {
     }
   }
 }
+
 .toggle-div {
+  cursor: pointer;
+  margin: right;
   .toggle-background {
     width: 50px;
     height: 23px;
@@ -318,6 +321,7 @@ main {
     bottom: 0;
   }
   li {
+    cursor: pointer;
     width: 20px;
     height: 20px;
     border: 1px solid $activeColor;

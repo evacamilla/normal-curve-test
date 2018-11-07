@@ -10,7 +10,7 @@ class Result extends Component {
     this.props.changeChapter(this.state.chapter);
   };
 
-  render() {
+  displayResult = () => {
     let resultDiv = [];
     let div = '';
 
@@ -26,6 +26,11 @@ class Result extends Component {
 
       resultDiv.push(div);
     }
+
+    return resultDiv;
+  }
+
+  render() {
     
     return (
       <div className="result-wrapper">
@@ -53,7 +58,7 @@ class Result extends Component {
 
                       <h2>Jämför dina resultat</h2>
 
-                      {resultDiv}
+                      {this.displayResult()}
                   
                   </div>
                 ) : (
