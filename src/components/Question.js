@@ -19,14 +19,25 @@ class Question extends Component {
     this.props.changeChapter(this.state.chapter);
   };
 
+  setQuestion = event => {
+    let i = event.target.id;
+
+    this.setState({ questionIndex: i});
+    this.setState({ questionId: this.props.allaFragor[i].id });
+    this.setState({ heading: this.props.allaFragor[i].heading });
+    this.setState({ question: this.props.allaFragor[i].question });
+    this.setState({ answers: this.props.allaFragor[i].answers });
+  };
+
   showNextQuestion = () => {
-    let i = this.state.questionIndex + 1;
+    let i = parseInt(this.state.questionIndex) + 1;
+
     if (i <= 9) {
       this.setState({ questionId: this.props.allaFragor[i].id });
       this.setState({ heading: this.props.allaFragor[i].heading });
       this.setState({ question: this.props.allaFragor[i].question });
       this.setState({ answers: this.props.allaFragor[i].answers });
-      this.setState({ questionIndex: this.state.questionIndex + 1 });
+      this.setState({ questionIndex: i + 1 });
     }
   };
 
@@ -62,20 +73,6 @@ class Question extends Component {
 
   toggleView = event => {
     this.setState({ detailedView: !this.state.detailedView });
-  };
-
-  setQuestion = event => {
-    let i = event.target.id;
-    console.log("id: " + event.target.id);
-    console.log(" old state: " + this.state.questionIndex);
-
-    this.setState({ questionIndex: i});
-    this.setState({ questionId: this.props.allaFragor[i].id });
-    this.setState({ heading: this.props.allaFragor[i].heading });
-    this.setState({ question: this.props.allaFragor[i].question });
-    this.setState({ answers: this.props.allaFragor[i].answers });
-
-    console.log("new state: " + this.state.questionIndex);
   };
 
   //question loop
@@ -135,7 +132,7 @@ class Question extends Component {
     
     return selectAnswersUl;
   }
-  
+
   myFunction = () => {
     let paginationUl = [];
     let number = 1;
@@ -144,10 +141,7 @@ class Question extends Component {
     for (let i = 0; i <= 9; i++) {
       let li = '';
 
-      if (i === this.state.questionIndex) {
-        console.log(i);
-        console.log(this.state.questionIndex);
-
+      if (i == this.state.questionIndex) {
         li = (
           <div className="underline2">
             <li key={i} id={i} onClick={this.setQuestion}>
@@ -177,10 +171,6 @@ class Question extends Component {
 
 
   render() {
-
-    console.log("new state in render: " + this.state.questionIndex);
-
-
     let animateToggle = '';
     this.state.detailedView
       ? (animateToggle = '')
