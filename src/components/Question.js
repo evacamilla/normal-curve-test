@@ -5,10 +5,6 @@ import { Link } from 'react-router-dom';
 class Question extends Component {
   state = {
     chapter: 'Fyll i dina svar',
-    questionId: this.props.allaFragor[0].id,
-    heading: this.props.allaFragor[0].heading,
-    question: this.props.allaFragor[0].question,
-    answers: this.props.allaFragor[0].answers,
     questionIndex: 0,
     totalPoints: 0,
     detailedView: true,
@@ -16,43 +12,20 @@ class Question extends Component {
   };
 
   componentDidMount = () => {
-    this.props.changeChapter(this.state.chapter);
+    this.props.changeChapter(this.state.chapter)
   };
 
   setQuestion = event => {
     let i = event.target.id;
 
     this.setState({ questionIndex: i});
-    this.setState({ questionId: this.props.allaFragor[i].id });
-    this.setState({ heading: this.props.allaFragor[i].heading });
-    this.setState({ question: this.props.allaFragor[i].question });
-    this.setState({ answers: this.props.allaFragor[i].answers });
   };
 
-  showNextQuestion = () => {
-    let i = parseInt(this.state.questionIndex) + 1;
-
-    if (i <= 9) {
-      this.setState({ questionId: this.props.allaFragor[i].id });
-      this.setState({ heading: this.props.allaFragor[i].heading });
-      this.setState({ question: this.props.allaFragor[i].question });
-      this.setState({ answers: this.props.allaFragor[i].answers });
-      this.setState({ questionIndex: i + 1 });
-    }
-  };
-
-  showPreviousQuestion = () => {
-    if (this.state.questionIndex === 0) {
-      this.setState({ showInstructions: true });
-    } else {
-      let i = this.state.questionIndex - 1;
-      this.setState({ questionId: this.props.allaFragor[i].id });
-      this.setState({ heading: this.props.allaFragor[i].heading });
-      this.setState({ question: this.props.allaFragor[i].question });
-      this.setState({ answers: this.props.allaFragor[i].answers });
-      this.setState({ questionIndex: this.state.questionIndex - 1 });
-    }
-  };
+  handleIncrement () {
+    this.setState((prevState,props) => ({
+      questionIndex: prevState.questionIndex + 1
+    }));
+  }
 
   completeTest = () => {
     if (this.props.allAnswers.length == 10) {
@@ -68,20 +41,27 @@ class Question extends Component {
       event.target.id;
     //old solution storing chosen answer
     this.props.allAnswers[this.state.questionIndex] = event.target.id;
-    this.showNextQuestion();
+    
+    //set state for the next question
+    this.handleIncrement();
+
+    //fäll ut nästa fråga i accordion här
   };
 
   toggleView = event => {
     this.setState({ detailedView: !this.state.detailedView });
+    console.log(this.state.oneQuestion);
   };
 
   //question loop
   displayOneQuestion = () => {
+    console.log('dispayone' + this.state.oneQuestion);
     let answersUl = [];
     let index = 0;
-
+    let answers = this.props.allaFragor[this.state.questionIndex].answers;
+    
     //gör om till map?
-    for (let answer of this.state.answers) {
+    for (let answer of answers) {
       let li = (
         <li
           className="question-point-li"
@@ -103,7 +83,6 @@ class Question extends Component {
     return answersUl;
   };
 
-  
   displayAllQuestions = () => {
     let selectAnswersUl = [];
 
@@ -189,8 +168,12 @@ class Question extends Component {
             {this.state.detailedView ? (
               <div>
                 <div className="question">
-                  <h1>{this.state.questionId + '. ' + this.state.heading}</h1>
-                  <p>{this.state.question}</p>
+                  <h1>
+                    {this.props.allaFragor[this.state.questionIndex].id + '. ' + 
+                    this.props.allaFragor[this.state.questionIndex].heading}
+                  </h1>
+
+                  <p>{this.props.allaFragor[this.state.questionIndex].question}</p>
                 </div>
 
                 <div className="question-answers">
@@ -207,29 +190,10 @@ class Question extends Component {
         <ul className="pagination-wrapper">{this.myFunction()}</ul>
 
         <div className="btn-wrapper">
-          {this.state.questionIndex === 0 ? (
             <div className="btn-prev-div">
               <Link to="/sefilmen">Tillbaka</Link>
             </div>
-          ) : (
-            <div className="btn-prev-div">
-              <Button
-                text="Tillbaka"
-                className="btn btn-prev"
-                onClick={this.showPreviousQuestion}
-              />
-            </div>
-          )}
 
-          {this.state.questionIndex <= 8 ? (
-            <div className="btn-next-div">
-              <Button
-                text="Nästa"
-                className="btn btn-next"
-                onClick={this.showNextQuestion}
-              />
-            </div>
-          ) : (
             <div className="btn-next-div">
               <Button
                 text="Lämna in"
@@ -237,8 +201,8 @@ class Question extends Component {
                 onClick={this.completeTest}
               />
             </div>
-          )}
         </div>
+
       </div>
     );
   }
