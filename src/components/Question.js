@@ -66,52 +66,16 @@ class Question extends Component {
 
   setQuestion = event => {
     let i = event.target.id;
-    console.log(event.target);
+    console.log("id: " + event.target.id);
+    console.log(" old state: " + this.state.questionIndex);
 
+    this.setState({ questionIndex: i});
     this.setState({ questionId: this.props.allaFragor[i].id });
     this.setState({ heading: this.props.allaFragor[i].heading });
     this.setState({ question: this.props.allaFragor[i].question });
     this.setState({ answers: this.props.allaFragor[i].answers });
-    this.setState({ questionIndex: this.state.questionIndex + 1 });
-  };
 
-  myFunction = () => {
-    let paginationUl = [];
-    let number = 1;
-    let setUnderline = '';
-
-    for (let i = 0; i <= 9; i++) {
-      let li = '';
-
-      if (i === this.state.questionIndex) {
-        console.log(i);
-        console.log(this.state.questionIndex);
-
-        li = (
-          <div className="underline2">
-            <li key={i} id={i} onClick={this.setQuestion}>
-              <div id={i} className="number-div">
-                {number}
-              </div>
-            </li>
-          </div>
-        );
-      } else {
-        li = (
-          <div>
-            <li key={i} id={i} onClick={this.setQuestion}>
-              <div id={i} className="number-div">
-                {number}
-              </div>
-            </li>
-          </div>
-        );
-      }
-
-      number++;
-      paginationUl.push(li);
-    }
-    return paginationUl;
+    console.log("new state: " + this.state.questionIndex);
   };
 
   //question loop
@@ -171,8 +135,51 @@ class Question extends Component {
     
     return selectAnswersUl;
   }
+  
+  myFunction = () => {
+    let paginationUl = [];
+    let number = 1;
+    let setUnderline = '';
+
+    for (let i = 0; i <= 9; i++) {
+      let li = '';
+
+      if (i === this.state.questionIndex) {
+        console.log(i);
+        console.log(this.state.questionIndex);
+
+        li = (
+          <div className="underline2">
+            <li key={i} id={i} onClick={this.setQuestion}>
+              <div id={i} className="number-div">
+                {number}
+              </div>
+            </li>
+          </div>
+        );
+      } else {
+        li = (
+          <div>
+            <li key={i} id={i} onClick={this.setQuestion}>
+              <div id={i} className="number-div">
+                {number}
+              </div>
+            </li>
+          </div>
+        );
+      }
+
+      number++;
+      paginationUl.push(li);
+    }
+    return paginationUl;
+  };
+
 
   render() {
+
+    console.log("new state in render: " + this.state.questionIndex);
+
 
     let animateToggle = '';
     this.state.detailedView
