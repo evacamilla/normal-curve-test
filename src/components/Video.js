@@ -16,27 +16,27 @@ class Video extends Component {
   render() {
     return (
       <div className="video-wrapper">
-      <div className="white-background">
-        <main>
-          <div className="video-div">
-            <img src={VideoImage} alt="" />
-          </div>
-        </main>
-      </div>
-
-            <div className="btn-wrapper">
-              <div className="btn-prev-div">
-                <NavLink exact to="/introduktion">
-                  Tillbaka
-                </NavLink>
-              </div>
-
-              <div className="btn-next-div">
-                <NavLink exact to="/fyllidinasvar">
-                  <NextButton  />
-                </NavLink>
-              </div>
+        <div className="white-background">
+          <main>
+            <div className="video-div">
+              <img src={VideoImage} alt="" />
             </div>
+          </main>
+        </div>
+
+        <div className="btn-wrapper">
+          <div className="btn-prev-div">
+            <NavLink exact to="/introduktion">
+              Tillbaka
+            </NavLink>
+          </div>
+
+          <div className="btn-next-div">
+            <NavLink exact to="/fyllidinasvar">
+              <NextButton />
+            </NavLink>
+          </div>
+        </div>
       </div>
     );
   }
