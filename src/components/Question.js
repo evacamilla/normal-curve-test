@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Button from './Button.js';
 import { Link } from 'react-router-dom';
 import DisplayAllQuickQuestion from './DisplayAllQuickQuestion';
+import DisplayUnderlinePagination from './DisplayUnderlinePagination.js';
 import OneQuestion from './OneQuestion';
 import AnswerAlternative from './AnswerAlternative';
 
@@ -62,9 +63,14 @@ class Question extends Component {
     let index = 0;
 
     //gör om till map?
-    for (let answer of this.props.allaFragor[this.state.questionIndex].answers) {
+    for (let answer of this.props.allaFragor[this.state.questionIndex]
+      .answers) {
       let li = (
-        <AnswerAlternative index={index} temporaryAnswer={this.temporaryAnswer} answer={answer}/>
+        <AnswerAlternative
+          index={index}
+          temporaryAnswer={this.temporaryAnswer}
+          answer={answer}
+        />
       );
       answersUl.push(li);
       index += 1;
@@ -95,24 +101,30 @@ class Question extends Component {
     let paginationUl = [];
     let number = 1;
     let setUnderline = '';
-    let className1 = ""
+    let className1 = '';
 
     for (let i = 0; i <= 9; i++) {
       let li = '';
 
       if (i == this.state.questionIndex) {
-          className1 = 'underline2';
+        className1 = 'underline2';
       } else {
         className1 = '';
       }
       li = (
-        <div className={className1}>
-          <li key={i} id={i} onClick={this.setQuestion}>
-            <div id={i} className="number-div">
-              {number}
-            </div>
-          </li>
-        </div>
+        // <div className={className1}>
+        //   <li key={i} id={i} onClick={this.setQuestion}>
+        //     <div id={i} className="number-div">
+        //       {number}
+        //     </div>
+        //   </li>
+        // </div>
+        <DisplayUnderlinePagination
+          counter={i}
+          setQuestion={this.setQuestion}
+          number={number}
+          className={className1}
+        />
       );
 
       number++;
@@ -139,8 +151,15 @@ class Question extends Component {
           <main>
             {this.state.detailedView ? (
               <div>
-
-                <OneQuestion id={this.props.allaFragor[this.state.questionIndex].id} heading={this.props.allaFragor[this.state.questionIndex].heading} question={this.props.allaFragor[this.state.questionIndex].question}/>
+                <OneQuestion
+                  id={this.props.allaFragor[this.state.questionIndex].id}
+                  heading={
+                    this.props.allaFragor[this.state.questionIndex].heading
+                  }
+                  question={
+                    this.props.allaFragor[this.state.questionIndex].question
+                  }
+                />
 
                 <div className="question-answers">
                   <ul>{this.displayAnswerAlternatives()}</ul>
