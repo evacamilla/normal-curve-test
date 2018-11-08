@@ -56,28 +56,6 @@ class Question extends Component {
     this.setState({ detailedView: !this.state.detailedView });
   };
 
-  //question loop
-  displayAnswerAlternatives = () => {
-    let answersUl = [];
-    let index = 0;
-
-    //gör om till map?
-    for (let answer of this.props.allaFragor[this.state.questionIndex]
-      .answers) {
-      let li = (
-        <AnswerAlternative
-          key={index}
-          index={index}
-          temporaryAnswer={this.temporaryAnswer}
-          answer={answer}
-        />
-      );
-      answersUl.push(li);
-      index += 1;
-    }
-    return answersUl;
-  };
-
   myFunction = () => {
     let paginationUl = [];
     let number = 1;
@@ -137,7 +115,16 @@ class Question extends Component {
                 />
 
                 <div className="question-answers">
-                  <ul>{this.displayAnswerAlternatives()}</ul>
+                  <ul>
+                    {this.props.allaFragor[this.state.questionIndex].answers.map((answer, i) => {
+                      return <AnswerAlternative
+                      key={i}
+                      index={i}
+                      temporaryAnswer={this.temporaryAnswer}
+                      answer={answer}
+                    />;
+                    })}
+                  </ul>
                 </div>
               </div>
             ) : (
