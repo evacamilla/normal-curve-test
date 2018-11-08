@@ -67,6 +67,7 @@ class Question extends Component {
       .answers) {
       let li = (
         <AnswerAlternative
+          key={index}
           index={index}
           temporaryAnswer={this.temporaryAnswer}
           answer={answer}
@@ -112,14 +113,8 @@ class Question extends Component {
         className1 = '';
       }
       li = (
-        // <div className={className1}>
-        //   <li key={i} id={i} onClick={this.setQuestion}>
-        //     <div id={i} className="number-div">
-        //       {number}
-        //     </div>
-        //   </li>
-        // </div>
         <DisplayUnderlinePagination
+          key={i}
           counter={i}
           setQuestion={this.setQuestion}
           number={number}
