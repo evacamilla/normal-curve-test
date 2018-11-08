@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Button from './Button.js';
 import { Link } from 'react-router-dom';
 import DisplayAllQuickQuestion from './DisplayAllQuickQuestion';
+import DisplayUnderlinePagination from './DisplayUnderlinePagination.js';
 
 class Question extends Component {
   state = {
@@ -107,24 +108,30 @@ class Question extends Component {
     let paginationUl = [];
     let number = 1;
     let setUnderline = '';
-    let className1 = ""
+    let className1 = '';
 
     for (let i = 0; i <= 9; i++) {
       let li = '';
 
       if (i == this.state.questionIndex) {
-          className1 = 'underline2';
+        className1 = 'underline2';
       } else {
         className1 = '';
       }
       li = (
-        <div className={className1}>
-          <li key={i} id={i} onClick={this.setQuestion}>
-            <div id={i} className="number-div">
-              {number}
-            </div>
-          </li>
-        </div>
+        // <div className={className1}>
+        //   <li key={i} id={i} onClick={this.setQuestion}>
+        //     <div id={i} className="number-div">
+        //       {number}
+        //     </div>
+        //   </li>
+        // </div>
+        <DisplayUnderlinePagination
+          counter={i}
+          setQuestion={this.setQuestion}
+          number={number}
+          className={className1}
+        />
       );
 
       number++;
