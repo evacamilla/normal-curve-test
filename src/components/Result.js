@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Button from './Button.js';
+import ResultDiv from './ResultDiv.js';
 
 class Result extends Component {
   state = {
@@ -16,12 +17,7 @@ class Result extends Component {
 
     for(let question of this.props.allaFragor){
       div = (
-        <div className="result-question-div passed">
-          <h3>{question.heading}</h3>
-          <div className="result-number-div">
-            <span className="chosen-answer">{question.chosenAnswer}</span> | <span className="normal-answer">3</span>
-          </div>
-        </div>
+        <ResultDiv chosenAnswer={question.chosenAnswer} heading={question.heading}/>
       );
 
       resultDiv.push(div);
