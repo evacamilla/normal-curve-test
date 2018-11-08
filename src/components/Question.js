@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Button from './Button.js';
 import { Link } from 'react-router-dom';
 import DisplayAllQuickQuestion from './DisplayAllQuickQuestion';
+import OneQuestion from './OneQuestion';
 
 class Question extends Component {
   state = {
@@ -151,17 +152,8 @@ class Question extends Component {
           <main>
             {this.state.detailedView ? (
               <div>
-                <div className="question">
-                  <h1>
-                    {this.props.allaFragor[this.state.questionIndex].id +
-                      '. ' +
-                      this.props.allaFragor[this.state.questionIndex].heading}
-                  </h1>
 
-                  <p>
-                    {this.props.allaFragor[this.state.questionIndex].question}
-                  </p>
-                </div>
+                <OneQuestion id={this.props.allaFragor[this.state.questionIndex].id} heading={this.props.allaFragor[this.state.questionIndex].heading} question={this.props.allaFragor[this.state.questionIndex].question}/>
 
                 <div className="question-answers">
                   <ul>{this.displayAnswerAlternatives()}</ul>
