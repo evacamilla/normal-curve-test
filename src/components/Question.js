@@ -54,7 +54,6 @@ class Question extends Component {
 
   toggleView = event => {
     this.setState({ detailedView: !this.state.detailedView });
-    console.log(this.state.oneQuestion);
   };
 
   //question loop
@@ -77,25 +76,6 @@ class Question extends Component {
       index += 1;
     }
     return answersUl;
-  };
-
-  displayAllQuestions = () => {
-    let selectAnswersUl = [];
-
-    //TODO: måste göra så att man ej kan välja första option alltså rubriken!
-    //options med id ska loopas ut, hur göra med rubriken som första?
-    for (let i = 0; i <= 9; i++) {
-      let select = (
-        <DisplayAllQuickQuestion
-          heading={this.props.allaFragor[i].heading}
-          temporaryAnswer={this.temporaryAnswer}
-          counter={i}
-        />
-      );
-      selectAnswersUl.push(select);
-    }
-
-    return selectAnswersUl;
   };
 
   myFunction = () => {
@@ -162,7 +142,16 @@ class Question extends Component {
               </div>
             ) : (
               // if detailedView == false show "quick view"
-              <div>{this.displayAllQuestions()}</div>
+
+              this.props.allaFragor.map((question, i) => {
+                console.log(question.heading);
+                return <DisplayAllQuickQuestion
+                  key={i}
+                  heading={question.heading}
+                  temporaryAnswer={this.temporaryAnswer}
+                  counter={i}
+              />;
+              })
             )}
           </main>
         </div>
@@ -182,7 +171,6 @@ class Question extends Component {
             />
           </div>
         </div>
-        <DisplayAllQuickQuestion />
       </div>
     );
   }

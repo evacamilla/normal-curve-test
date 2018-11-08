@@ -41,8 +41,8 @@ class Result extends Component {
                       <h2>Jämför dina resultat</h2>
 
                       {
-                      this.props.allaFragor.map(function(question, i){
-                        return <ResultDiv i={i} chosenAnswer={question.chosenAnswer} heading={question.heading}/>;
+                      this.props.allaFragor.map((question, i) => {
+                        return <ResultDiv key={i} i={i} chosenAnswer={question.chosenAnswer} heading={question.heading}/>;
                       })
                     }
 
