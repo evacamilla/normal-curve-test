@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Button from './Button.js';
 import { Link } from 'react-router-dom';
 import DisplayAllQuickQuestion from './DisplayAllQuickQuestion';
+import OneQuestion from './OneQuestion';
+import AnswerAlternative from './AnswerAlternative';
 
 class Question extends Component {
   state = {
@@ -56,27 +58,13 @@ class Question extends Component {
 
   //question loop
   displayAnswerAlternatives = () => {
-    console.log('dispayone' + this.state.oneQuestion);
     let answersUl = [];
     let index = 0;
-    let answers = this.props.allaFragor[this.state.questionIndex].answers;
 
     //gör om till map?
-    for (let answer of answers) {
+    for (let answer of this.props.allaFragor[this.state.questionIndex].answers) {
       let li = (
-        <li
-          className="question-point-li"
-          key={index}
-          id={index}
-          onClick={this.temporaryAnswer}
-        >
-          <div id={index} className="question-point">
-            {index}
-          </div>
-          <div id={index} className="question-answers-text">
-            <p id={index}>{answer}</p>
-          </div>
-        </li>
+        <AnswerAlternative index={index} temporaryAnswer={this.temporaryAnswer} answer={answer}/>
       );
       answersUl.push(li);
       index += 1;
@@ -151,17 +139,8 @@ class Question extends Component {
           <main>
             {this.state.detailedView ? (
               <div>
-                <div className="question">
-                  <h1>
-                    {this.props.allaFragor[this.state.questionIndex].id +
-                      '. ' +
-                      this.props.allaFragor[this.state.questionIndex].heading}
-                  </h1>
 
-                  <p>
-                    {this.props.allaFragor[this.state.questionIndex].question}
-                  </p>
-                </div>
+                <OneQuestion id={this.props.allaFragor[this.state.questionIndex].id} heading={this.props.allaFragor[this.state.questionIndex].heading} question={this.props.allaFragor[this.state.questionIndex].question}/>
 
                 <div className="question-answers">
                   <ul>{this.displayAnswerAlternatives()}</ul>
