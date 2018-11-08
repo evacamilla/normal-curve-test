@@ -5,14 +5,14 @@ import DisplayAllQuickQuestion from './DisplayAllQuickQuestion';
 import PaginationListItem from './PaginationListItem.js';
 import OneQuestion from './OneQuestion';
 import AnswerAlternative from './AnswerAlternative';
+import ToggleQuestionView from './ToggleQuestionView';
 
 class Question extends Component {
   state = {
     chapter: 'Fyll i dina svar',
     questionIndex: 0,
     totalPoints: 0,
-    detailedView: true,
-    animateToggle: ''
+    detailedView: true
   };
 
   componentDidMount = () => {
@@ -86,22 +86,11 @@ class Question extends Component {
   };
 
   render() {
-    let animateToggle = '';
-    this.state.detailedView
-      ? (animateToggle = '')
-      : (animateToggle = 'animate-toggle');
-
-      let number = 1;
-      let className1 = '';
-
     return (
       <div className="question-wrapper">
         <div className="white-background">
-          <div onClick={this.toggleView} className="toggle-div">
-            <div className="toggle-background">
-              <div className={'toggle-circle ' + animateToggle} />
-            </div>
-          </div>
+
+          <ToggleQuestionView toggleView={this.toggleView} toggleBooleon={this.state.detailedView}/>
 
           <main>
             {this.state.detailedView ? (
