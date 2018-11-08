@@ -1,7 +1,7 @@
 import React from 'react';
-function DisplayUnderlinePagination(props) {
+function PaginationListItem(props) {
+
   return (
-    <div>
       <div className={props.className}>
         <li id={props.counter} onClick={props.setQuestion}>
           <div id={props.counter} className="number-div">
@@ -9,8 +9,7 @@ function DisplayUnderlinePagination(props) {
           </div>
         </li>
       </div>
-    </div>
   );
 }
 
-export default DisplayUnderlinePagination;
+export default PaginationListItem;

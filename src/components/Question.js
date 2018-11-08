@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Button from './Button.js';
 import { Link } from 'react-router-dom';
 import DisplayAllQuickQuestion from './DisplayAllQuickQuestion';
-import DisplayUnderlinePagination from './DisplayUnderlinePagination.js';
+import PaginationListItem from './PaginationListItem.js';
 import OneQuestion from './OneQuestion';
 import AnswerAlternative from './AnswerAlternative';
 
@@ -56,10 +56,9 @@ class Question extends Component {
     this.setState({ detailedView: !this.state.detailedView });
   };
 
-  myFunction = () => {
+  displayPagination = () => {
     let paginationUl = [];
     let number = 1;
-    let setUnderline = '';
     let className1 = '';
 
     for (let i = 0; i <= 9; i++) {
@@ -71,7 +70,7 @@ class Question extends Component {
         className1 = '';
       }
       li = (
-        <DisplayUnderlinePagination
+        <PaginationListItem
           key={i}
           counter={i}
           setQuestion={this.setQuestion}
@@ -91,6 +90,9 @@ class Question extends Component {
     this.state.detailedView
       ? (animateToggle = '')
       : (animateToggle = 'animate-toggle');
+
+      let number = 1;
+      let className1 = '';
 
     return (
       <div className="question-wrapper">
@@ -131,7 +133,6 @@ class Question extends Component {
               // if detailedView == false show "quick view"
 
               this.props.allaFragor.map((question, i) => {
-                console.log(question.heading);
                 return <DisplayAllQuickQuestion
                   key={i}
                   heading={question.heading}
@@ -143,7 +144,7 @@ class Question extends Component {
           </main>
         </div>
 
-        <ul className="pagination-wrapper">{this.myFunction()}</ul>
+        <ul className="pagination-wrapper">{this.displayPagination()}</ul>
 
         <div className="btn-wrapper">
           <div className="btn-prev-div">

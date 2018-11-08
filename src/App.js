@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.scss';
-import Menu from './components/Menu.js';
 import Header from './components/Header.js';
 import Footer from './components/Footer.js';
 import Introduction from './components/Introduction.js';
