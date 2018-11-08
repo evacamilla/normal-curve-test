@@ -2,12 +2,9 @@ import React, { Component } from 'react';
 import Button from './Button.js';
 import { Link } from 'react-router-dom';
 import DisplayAllQuickQuestion from './DisplayAllQuickQuestion';
-<<<<<<< HEAD
 import DisplayUnderlinePagination from './DisplayUnderlinePagination.js';
-=======
 import OneQuestion from './OneQuestion';
 import AnswerAlternative from './AnswerAlternative';
->>>>>>> e5de79c63e18a0843a5bf5c4f30c4b58e322b858
 
 class Question extends Component {
   state = {
@@ -66,9 +63,14 @@ class Question extends Component {
     let index = 0;
 
     //gör om till map?
-    for (let answer of this.props.allaFragor[this.state.questionIndex].answers) {
+    for (let answer of this.props.allaFragor[this.state.questionIndex]
+      .answers) {
       let li = (
-        <AnswerAlternative index={index} temporaryAnswer={this.temporaryAnswer} answer={answer}/>
+        <AnswerAlternative
+          index={index}
+          temporaryAnswer={this.temporaryAnswer}
+          answer={answer}
+        />
       );
       answersUl.push(li);
       index += 1;
@@ -149,8 +151,15 @@ class Question extends Component {
           <main>
             {this.state.detailedView ? (
               <div>
-
-                <OneQuestion id={this.props.allaFragor[this.state.questionIndex].id} heading={this.props.allaFragor[this.state.questionIndex].heading} question={this.props.allaFragor[this.state.questionIndex].question}/>
+                <OneQuestion
+                  id={this.props.allaFragor[this.state.questionIndex].id}
+                  heading={
+                    this.props.allaFragor[this.state.questionIndex].heading
+                  }
+                  question={
+                    this.props.allaFragor[this.state.questionIndex].question
+                  }
+                />
 
                 <div className="question-answers">
                   <ul>{this.displayAnswerAlternatives()}</ul>
