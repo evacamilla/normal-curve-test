@@ -55,7 +55,7 @@ class Question extends Component {
   };
 
   //question loop
-  displayOneQuestion = () => {
+  displayAnswerAlternatives = () => {
     console.log('dispayone' + this.state.oneQuestion);
     let answersUl = [];
     let index = 0;
@@ -107,31 +107,25 @@ class Question extends Component {
     let paginationUl = [];
     let number = 1;
     let setUnderline = '';
+    let className1 = ""
 
     for (let i = 0; i <= 9; i++) {
       let li = '';
 
       if (i == this.state.questionIndex) {
-        li = (
-          <div className="underline2">
-            <li key={i} id={i} onClick={this.setQuestion}>
-              <div id={i} className="number-div">
-                {number}
-              </div>
-            </li>
-          </div>
-        );
+          className1 = 'underline2';
       } else {
-        li = (
-          <div>
-            <li key={i} id={i} onClick={this.setQuestion}>
-              <div id={i} className="number-div">
-                {number}
-              </div>
-            </li>
-          </div>
-        );
+        className1 = '';
       }
+      li = (
+        <div className={className1}>
+          <li key={i} id={i} onClick={this.setQuestion}>
+            <div id={i} className="number-div">
+              {number}
+            </div>
+          </li>
+        </div>
+      );
 
       number++;
       paginationUl.push(li);
@@ -170,7 +164,7 @@ class Question extends Component {
                 </div>
 
                 <div className="question-answers">
-                  <ul>{this.displayOneQuestion()}</ul>
+                  <ul>{this.displayAnswerAlternatives()}</ul>
                 </div>
               </div>
             ) : (
