@@ -11,20 +11,6 @@ class Result extends Component {
     this.props.changeChapter(this.state.chapter);
   };
 
-  displayResult = () => {
-    let resultDiv = [];
-    let div = '';
-
-    for(let question of this.props.allaFragor){
-      div = (
-        <ResultDiv chosenAnswer={question.chosenAnswer} heading={question.heading}/>
-      );
-
-      resultDiv.push(div);
-    }
-
-    return resultDiv;
-  }
 
   render() {
     
@@ -54,7 +40,12 @@ class Result extends Component {
 
                       <h2>Jämför dina resultat</h2>
 
-                      {this.displayResult()}
+                      {
+                      this.props.allaFragor.map(function(question, i){
+                        return <ResultDiv i={i} chosenAnswer={question.chosenAnswer} heading={question.heading}/>;
+                      })
+                    }
+
                   
                   </div>
                 ) : (
