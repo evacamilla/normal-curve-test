@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Button from './Button.js';
 import { Link } from 'react-router-dom';
+import DisplayAllQuickQuestion from './DisplayAllQuickQuestion';
 
 class Question extends Component {
   state = {
@@ -12,17 +13,17 @@ class Question extends Component {
   };
 
   componentDidMount = () => {
-    this.props.changeChapter(this.state.chapter)
+    this.props.changeChapter(this.state.chapter);
   };
 
   setQuestion = event => {
     let i = event.target.id;
 
-    this.setState({ questionIndex: i});
+    this.setState({ questionIndex: i });
   };
 
-  handleIncrement () {
-    this.setState((prevState,props) => ({
+  handleIncrement() {
+    this.setState((prevState, props) => ({
       questionIndex: prevState.questionIndex + 1
     }));
   }
@@ -41,7 +42,7 @@ class Question extends Component {
       event.target.id;
     //old solution storing chosen answer
     this.props.allAnswers[this.state.questionIndex] = event.target.id;
-    
+
     //set state for the next question
     this.handleIncrement();
 
@@ -59,7 +60,7 @@ class Question extends Component {
     let answersUl = [];
     let index = 0;
     let answers = this.props.allaFragor[this.state.questionIndex].answers;
-    
+
     //gör om till map?
     for (let answer of answers) {
       let li = (
@@ -90,27 +91,17 @@ class Question extends Component {
     //options med id ska loopas ut, hur göra med rubriken som första?
     for (let i = 0; i <= 9; i++) {
       let select = (
-        <select
-          className="question-point-li"
-          key={i}
-          id={i}
-          onClick={this.temporaryAnswer}
-        >
-          <option>{this.props.allaFragor[i].heading}</option>
-          <option id="0">0</option>
-          <option id="1">1</option>
-          <option id="2">2</option>
-          <option id="3">3</option>
-          <option id="4">4</option>
-          <option id="5">5</option>
-          <option id="6">6</option>
-        </select>
+        <DisplayAllQuickQuestion
+          heading={this.props.allaFragor[i].heading}
+          temporaryAnswer={this.temporaryAnswer}
+          counter={i}
+        />
       );
       selectAnswersUl.push(select);
     }
-    
+
     return selectAnswersUl;
-  }
+  };
 
   myFunction = () => {
     let paginationUl = [];
@@ -148,7 +139,6 @@ class Question extends Component {
     return paginationUl;
   };
 
-
   render() {
     let animateToggle = '';
     this.state.detailedView
@@ -169,11 +159,14 @@ class Question extends Component {
               <div>
                 <div className="question">
                   <h1>
-                    {this.props.allaFragor[this.state.questionIndex].id + '. ' + 
-                    this.props.allaFragor[this.state.questionIndex].heading}
+                    {this.props.allaFragor[this.state.questionIndex].id +
+                      '. ' +
+                      this.props.allaFragor[this.state.questionIndex].heading}
                   </h1>
 
-                  <p>{this.props.allaFragor[this.state.questionIndex].question}</p>
+                  <p>
+                    {this.props.allaFragor[this.state.questionIndex].question}
+                  </p>
                 </div>
 
                 <div className="question-answers">
@@ -190,19 +183,19 @@ class Question extends Component {
         <ul className="pagination-wrapper">{this.myFunction()}</ul>
 
         <div className="btn-wrapper">
-            <div className="btn-prev-div">
-              <Link to="/sefilmen">Tillbaka</Link>
-            </div>
+          <div className="btn-prev-div">
+            <Link to="/sefilmen">Tillbaka</Link>
+          </div>
 
-            <div className="btn-next-div">
-              <Button
-                text="Lämna in"
-                className="btn"
-                onClick={this.completeTest}
-              />
-            </div>
+          <div className="btn-next-div">
+            <Button
+              text="Lämna in"
+              className="btn"
+              onClick={this.completeTest}
+            />
+          </div>
         </div>
-
+        <DisplayAllQuickQuestion />
       </div>
     );
   }
