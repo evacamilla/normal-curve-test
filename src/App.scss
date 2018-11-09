@@ -110,6 +110,8 @@ li {
   padding: 10px;
   background: $mainPink;
   color: white;
+  grid-column: 8 / 9;
+  grid-row: 1;
 }
 .btn-prev-div {
   grid-column: 1 / 2;
@@ -118,6 +120,7 @@ li {
 .btn-next-div {
   grid-column: 8 / 9;
   grid-row: 1;
+  padding: 0.5rem;
 }
 
 .btn-prev {
@@ -125,6 +128,11 @@ li {
   border: none;
   color: $linkColor;
   font-size: 1em;
+}
+.btn-disabled {
+  display: disabled;
+  color: pink;
+  background: black;
 }
 
 .next-btn {

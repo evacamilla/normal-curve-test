@@ -6,6 +6,7 @@ import PaginationListItem from './PaginationListItem.js';
 import OneQuestion from './OneQuestion';
 import AnswerAlternative from './AnswerAlternative';
 import ToggleQuestionView from './ToggleQuestionView';
+import BtnSubmitTest from './BtnSubmitTest';
 
 class Question extends Component {
   state = {
@@ -20,8 +21,9 @@ class Question extends Component {
   };
 
   setQuestion = event => {
-    let i = event.target.id;
-
+    console.log(event.target.id);
+    let i = parseInt(event.target.id);
+    console.log(i);
     this.setState({ questionIndex: i });
   };
 
@@ -40,6 +42,10 @@ class Question extends Component {
   };
 
   temporaryAnswer = event => {
+    console.log(
+      'From func temporaryAnswer. questionIndex is ' + this.state.questionIndex
+    );
+    console.log(event.target.id);
     //Store chosen answer(event.target.id) in an allaFragor.chosenAnswer in App.js state using question index as key value
     this.props.allaFragor[this.state.questionIndex].chosenAnswer =
       event.target.id;
@@ -86,11 +92,18 @@ class Question extends Component {
   };
 
   render() {
+    {
+      console.log(
+        'Render questionIndex from Question.js ' + this.state.questionIndex
+      );
+    }
     return (
       <div className="question-wrapper">
         <div className="white-background">
-
-          <ToggleQuestionView toggleView={this.toggleView} toggleBooleon={this.state.detailedView}/>
+          <ToggleQuestionView
+            toggleView={this.toggleView}
+            toggleBooleon={this.state.detailedView}
+          />
 
           <main>
             {this.state.detailedView ? (
@@ -107,13 +120,17 @@ class Question extends Component {
 
                 <div className="question-answers">
                   <ul>
-                    {this.props.allaFragor[this.state.questionIndex].answers.map((answer, i) => {
-                      return <AnswerAlternative
-                      key={i}
-                      index={i}
-                      temporaryAnswer={this.temporaryAnswer}
-                      answer={answer}
-                    />;
+                    {this.props.allaFragor[
+                      this.state.questionIndex
+                    ].answers.map((answer, i) => {
+                      return (
+                        <AnswerAlternative
+                          key={i}
+                          index={i}
+                          temporaryAnswer={this.temporaryAnswer}
+                          answer={answer}
+                        />
+                      );
                     })}
                   </ul>
                 </div>
@@ -122,12 +139,14 @@ class Question extends Component {
               // if detailedView == false show "quick view"
 
               this.props.allaFragor.map((question, i) => {
-                return <DisplayAllQuickQuestion
-                  key={i}
-                  heading={question.heading}
-                  temporaryAnswer={this.temporaryAnswer}
-                  counter={i}
-              />;
+                return (
+                  <DisplayAllQuickQuestion
+                    key={i}
+                    heading={question.heading}
+                    temporaryAnswer={this.temporaryAnswer}
+                    counter={i}
+                  />
+                );
               })
             )}
           </main>
@@ -140,13 +159,17 @@ class Question extends Component {
             <Link to="/sefilmen">Tillbaka</Link>
           </div>
 
-          <div className="btn-next-div">
+          <BtnSubmitTest
+            filledInAllAnswers={this.props.filledInAllAnswers}
+            passedTest={this.props.passedTest}
+          />
+          {/* <div className="btn-next-div">
             <Button
               text="Lämna in"
               className="btn"
               onClick={this.completeTest}
             />
-          </div>
+          </div> */}
         </div>
       </div>
     );
