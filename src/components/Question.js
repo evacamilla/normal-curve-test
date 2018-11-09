@@ -109,6 +109,12 @@ class Question extends Component {
           <main>
             {this.state.detailedView ? (
               <div>
+                {this.props.allaFragor.map((question, i) => {
+                  return (
+                  <QuestionAccordion id={question.id} heading={question.heading} key={i}/>
+                  );
+                })}
+
                 <OneQuestion
                   id={this.props.allaFragor[this.state.questionIndex].id}
                   heading={
