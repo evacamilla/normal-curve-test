@@ -3,6 +3,7 @@ import Button from './Button.js';
 import { Link } from 'react-router-dom';
 import DisplayAllQuickQuestion from './DisplayAllQuickQuestion';
 import PaginationListItem from './PaginationListItem.js';
+import QuestionAccordion from './QuestionAccordion';
 import OneQuestion from './OneQuestion';
 import AnswerAlternative from './AnswerAlternative';
 import ToggleQuestionView from './ToggleQuestionView';
@@ -104,6 +105,8 @@ class Question extends Component {
             toggleView={this.toggleView}
             toggleBooleon={this.state.detailedView}
           />
+          
+          <QuestionAccordion />
 
           <main>
             {this.state.detailedView ? (
