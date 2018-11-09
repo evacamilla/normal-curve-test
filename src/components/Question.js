@@ -105,8 +105,6 @@ class Question extends Component {
             toggleView={this.toggleView}
             toggleBooleon={this.state.detailedView}
           />
-          
-          <QuestionAccordion />
 
           <main>
             {this.state.detailedView ? (
