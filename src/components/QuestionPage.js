@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import DisplayAllQuickQuestion from './DisplayAllQuickQuestion';
 import PaginationListItem from './PaginationListItem.js';
 import QuestionAccordion from './QuestionAccordion';
-import AnswerAlternative from './AnswerAlternative';
 import ToggleQuestionView from './ToggleQuestionView';
 import BtnSubmitTest from './BtnSubmitTest';
 
@@ -90,9 +89,6 @@ class Question extends Component {
   };
 
   render() {
-    {
-      console.log('vad är det som händer med gittan');
-    }
     return (
       <div className="question-wrapper">
         <div className="white-background">
@@ -107,25 +103,10 @@ class Question extends Component {
 
               {this.props.allaFragor.map((question, i) => {
                   return(
-                    <div>
-                    <QuestionAccordion questionIndex={this.state.questionIndex} handleClick={this.setQuestion} id={i} number={question.number} heading={question.heading} question={question.question} key={i}
+                  
+                  <div>
+                    <QuestionAccordion temporaryAnswer={this.temporaryAnswer} allaFragor={this.props.allaFragor} questionIndex={this.state.questionIndex} handleClick={this.setQuestion} id={i} number={question.number} heading={question.heading} question={question.question} key={i}
                     />
-                  <div className="question-answers">
-                    <ul>
-                      {this.props.allaFragor[
-                        this.state.questionIndex
-                      ].answers.map((answer, i) => {
-                        return (
-                          <AnswerAlternative
-                            key={i}
-                            index={i}
-                            temporaryAnswer={this.temporaryAnswer}
-                            answer={answer}
-                          />
-                        );
-                      })}
-                    </ul>
-                  </div>
 
                   </div>
                   );
@@ -160,13 +141,6 @@ class Question extends Component {
             filledInAllAnswers={this.props.filledInAllAnswers}
             passedTest={this.props.passedTest}
           />
-          {/* <div className="btn-next-div">
-            <Button
-              text="Lämna in"
-              className="btn"
-              onClick={this.completeTest}
-            />
-          </div> */}
         </div>
       </div>
     );
