@@ -11,7 +11,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 class App extends Component {
   state = {
     chapter: 'Introduktion',
-    filledInAllAnswers: false,
+    filledInAllAnswers: true,
     passedTest: true,
     allAnswers: [],
     totalPoints: 0,
@@ -103,7 +103,7 @@ class App extends Component {
 
 let allaFragor = [
   {
-    id: 1,
+    number: 1,
     heading: 'Sänkt Grundstämning',
     question:
       'Avser uppgift om sänkt grundstämning oavsett om den tar sig uttryck eller ej.  Omfattar känslor av sorgsenhet, olycklighet, hopplöshet och hjälplöshet.  Bedömningen baseras på intensitet, varaktighet och i  vilken grad sinnesstäm-ningen påverkas av yttre omständigheter. Förhöjd sinnesstämning skattas ”0”',
@@ -118,7 +118,7 @@ let allaFragor = [
     ]
   },
   {
-    id: 2,
+    number: 2,
     heading: 'Nedstämdhet',
     question:
       'Avser uppgift om sänkt grundstämning oavsett om den tar sig uttryck eller ej.Omfattar känslor av sorgsenhet, olycklighet, hopplöshet och hjälplöshet.Bedömningen baseras på intensitet, varaktighet och i vilken grad sinnesstämningenpåverkas av yttre omständigheter. Förhöjd sinnesstämning skattas ”0”',
@@ -133,7 +133,7 @@ let allaFragor = [
     ]
   },
   {
-    id: 3,
+    number: 3,
     heading: 'Ångestkänslor',
     question:
       'Avser känslor av vag psykisk olust, inre oro eller obehaglig inre spänning, ångest eller vånda, som kan stegras till det outhärdliga. Bedömningen baseras på intensitet, frekvens, duration och behov av hjälp. Särhålles från nedstämdhet(1). ',
@@ -148,7 +148,7 @@ let allaFragor = [
     ]
   },
   {
-    id: 4,
+    number: 4,
     heading: 'Minskad nattsömn',
     question:
       'Avser uppgifter om minskad sömntid eller sömndjup i förhållande till de ordinära sömnvanorna. Ökad sömn skattas ”0” på detta item. ',
@@ -163,7 +163,7 @@ let allaFragor = [
     ]
   },
   {
-    id: 5,
+    number: 5,
     heading: 'Minskad aptit',
     question: 'Avser upplevelser av att aptiten är sämre än normalt',
     answers: [
@@ -177,7 +177,7 @@ let allaFragor = [
     ]
   },
   {
-    id: 6,
+    number: 6,
     heading: 'Koncentrationssvårigheter',
     question:
       'Avser svårigheter att samla tankarna eller koncentrera sig. Bedömningen baseras på intensitet, frekvens och i vilken mån olika aktiviteter försvåras.',
@@ -192,7 +192,7 @@ let allaFragor = [
     ]
   },
   {
-    id: 7,
+    number: 7,
     heading: 'Initiativlöshet',
     question:
       'Avser den subjektiva upplevelsen av initiativlöshet, känslan av att behöva ett motstånd, innan en aktivitet kan påbörjas.',
@@ -207,7 +207,7 @@ let allaFragor = [
     ]
   },
   {
-    id: 8,
+    number: 8,
     heading: 'Minskat känslomässigt engagemang',
     question:
       'Avser upplevelser av minskat intresse för omvärlden eller för sådana aktiviteter som vanligen bereder nöje eller glädje. Subjektiv oförmåga att reagera känslomässigt inför människor eller företeelser i omgivningen.',
@@ -222,7 +222,7 @@ let allaFragor = [
     ]
   },
   {
-    id: 9,
+    number: 9,
     heading: 'Depressivt tankeinnehåll',
     question:
       'Avser självförebråelser, självanklagelser, föreställningar om synd och skuld, mindervärdighet och ekonomisk ruin.',
@@ -237,7 +237,7 @@ let allaFragor = [
     ]
   },
   {
-    id: 10,
+    number: 10,
     heading: 'Livsleda och själmordstankar',
     question:
       'Avser upplevelser av livsleda, dödsönskningar och självmordstankar samt förberedelser för självmord. Eventuella självmordsförsök påverkar ej i sig skattningen.',

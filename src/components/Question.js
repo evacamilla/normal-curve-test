@@ -109,8 +109,18 @@ class Question extends Component {
           <main>
             {this.state.detailedView ? (
               <div>
+
+               
+              {/* Should be default view when it has funcionality to show <OneQuestion /> when clicked
+              {this.props.allaFragor.map((question, i) => {
+                return (
+                <QuestionAccordion id={i} number={question.number} heading={question.heading} key={i}/>
+                );
+              })} 
+              */}
+              
                 <OneQuestion
-                  id={this.props.allaFragor[this.state.questionIndex].id}
+                  number={this.props.allaFragor[this.state.questionIndex].number}
                   heading={
                     this.props.allaFragor[this.state.questionIndex].heading
                   }
