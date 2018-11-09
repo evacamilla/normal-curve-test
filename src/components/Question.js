@@ -111,10 +111,10 @@ class Question extends Component {
               <div>
 
                
-              {/* Should be default view when it has funcionality to show <OneQuestion /> when clicked
+              {/* Should be default view
               {this.props.allaFragor.map((question, i) => {
                 return (
-                <QuestionAccordion id={i} number={question.number} heading={question.heading} key={i}/>
+                <QuestionAccordion handleClick={this.setQuestion} id={i} number={question.number} heading={question.heading} key={i}/>
                 );
               })} 
               */}
