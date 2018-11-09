@@ -20,7 +20,7 @@ function QuestionAccordion(props) {
               return (
                 <AnswerAlternative
                   key={i}
-                  index={i}
+                  id={i}
                   temporaryAnswer={props.temporaryAnswer}
                   answer={answer}
                 />

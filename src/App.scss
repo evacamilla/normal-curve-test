@@ -153,6 +153,7 @@ li {
 
 /*General design for accordion in Question.js and Result.j*/
 .accordion {
+  cursor: pointer;
   border: 2px solid $greyBackground;
   width: 90%;
   position: relative;

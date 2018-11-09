@@ -20,12 +20,14 @@ class Question extends Component {
   };
 
   setQuestion = event => {
+    console.log('setquestion körs');
     let i = parseInt(event.target.id);
 
     this.setState({ questionIndex: i });
   };
 
   handleIncrement() {
+    console.log(this.state.questionIndex);
     this.setState((prevState, props) => ({
       questionIndex: prevState.questionIndex + 1
     }));
@@ -103,12 +105,8 @@ class Question extends Component {
 
               {this.props.allaFragor.map((question, i) => {
                   return(
-                  
-                  <div>
                     <QuestionAccordion temporaryAnswer={this.temporaryAnswer} allaFragor={this.props.allaFragor} questionIndex={this.state.questionIndex} handleClick={this.setQuestion} id={i} number={question.number} heading={question.heading} question={question.question} key={i}
                     />
-
-                  </div>
                   );
               })} 
 
