@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import DisplayAllQuickQuestion from './DisplayAllQuickQuestion';
 import PaginationListItem from './PaginationListItem.js';
 import QuestionAccordion from './QuestionAccordion';
-import OneQuestion from './OneQuestion';
 import AnswerAlternative from './AnswerAlternative';
 import ToggleQuestionView from './ToggleQuestionView';
 import BtnSubmitTest from './BtnSubmitTest';
@@ -107,39 +106,31 @@ class Question extends Component {
               <div>
 
               {this.props.allaFragor.map((question, i) => {
-                return (
-                <QuestionAccordion handleClick={this.setQuestion} id={i} number={question.number} heading={question.heading} key={i}/>
-                );
+                  return(
+                    <div>
+                    <QuestionAccordion questionIndex={this.state.questionIndex} handleClick={this.setQuestion} id={i} number={question.number} heading={question.heading} question={question.question} key={i}
+                    />
+                  <div className="question-answers">
+                    <ul>
+                      {this.props.allaFragor[
+                        this.state.questionIndex
+                      ].answers.map((answer, i) => {
+                        return (
+                          <AnswerAlternative
+                            key={i}
+                            index={i}
+                            temporaryAnswer={this.temporaryAnswer}
+                            answer={answer}
+                          />
+                        );
+                      })}
+                    </ul>
+                  </div>
+
+                  </div>
+                  );
               })} 
 
-                <OneQuestion
-                  number={
-                    this.props.allaFragor[this.state.questionIndex].number
-                  }
-                  heading={
-                    this.props.allaFragor[this.state.questionIndex].heading
-                  }
-                  question={
-                    this.props.allaFragor[this.state.questionIndex].question
-                  }
-                />
-
-                <div className="question-answers">
-                  <ul>
-                    {this.props.allaFragor[
-                      this.state.questionIndex
-                    ].answers.map((answer, i) => {
-                      return (
-                        <AnswerAlternative
-                          key={i}
-                          index={i}
-                          temporaryAnswer={this.temporaryAnswer}
-                          answer={answer}
-                        />
-                      );
-                    })}
-                  </ul>
-                </div>
               </div>
             ) : (
               // if detailedView == false show "quick view"

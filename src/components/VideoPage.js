@@ -3,7 +3,7 @@ import NextButton from './NextButton.js';
 import { NavLink } from 'react-router-dom';
 import VideoImage from '../images/Skärmavbild 2018-10-01 kl. 09.53.29.png';
 
-class Video extends Component {
+class VideoPage extends Component {
   state = {
     chapter: 'Se filmen'
   };
@@ -41,4 +41,4 @@ class Video extends Component {
   }
 }
 
-export default Video;
+export default VideoPage;

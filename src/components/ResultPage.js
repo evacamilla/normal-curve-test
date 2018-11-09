@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Button from './Button.js';
 import ResultDiv from './ResultDiv.js';
 
-class Result extends Component {
+class ResultPage extends Component {
   state = {
     chapter: 'Resultat'
   };
@@ -80,4 +80,4 @@ class Result extends Component {
   }
 }
 
-export default Result;
+export default ResultPage;

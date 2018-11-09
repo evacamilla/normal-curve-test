@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import './App.scss';
 import Header from './components/Header.js';
 import Footer from './components/Footer.js';
-import Introduction from './components/Introduction.js';
-import Question from './components/Question.js';
-import Result from './components/Result.js';
-import Video from './components/Video.js';
+import IntroductionPage from './components/IntroductionPage.js';
+import QuestionPage from './components/QuestionPage.js';
+import ResultPage from './components/ResultPage.js';
+import VideoPage from './components/VideoPage.js';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 class App extends Component {
   state = {
     chapter: 'Introduktion',
-    filledInAllAnswers: true,
+    filledInAllAnswers: false,
     passedTest: true,
     allAnswers: [],
     totalPoints: 0,
@@ -48,28 +48,28 @@ class App extends Component {
             exact
             path="/"
             component={props => (
-              <Introduction {...props} changeChapter={this.changeChapter} />
+              <IntroductionPage {...props} changeChapter={this.changeChapter} />
             )}
           />
           <Route
             exact
             path="/introduktion"
             component={props => (
-              <Introduction {...props} changeChapter={this.changeChapter} />
+              <IntroductionPage {...props} changeChapter={this.changeChapter} />
             )}
           />
           <Route
             exact
             path="/sefilmen"
             component={props => (
-              <Video {...props} changeChapter={this.changeChapter} />
+              <VideoPage {...props} changeChapter={this.changeChapter} />
             )}
           />
           <Route
             exact
             path="/fyllidinasvar"
             component={props => (
-              <Question
+              <QuestionPage
                 {...props}
                 passedTest={this.state.passedTest}
                 filledInAllAnswers={this.state.filledInAllAnswers}
@@ -84,7 +84,7 @@ class App extends Component {
             exact
             path="/resultat"
             component={props => (
-              <Result
+              <ResultPage
                 {...props}
                 passedTest={this.state.passedTest}
                 filledInAllAnswers={this.state.filledInAllAnswers}

@@ -3,7 +3,7 @@ import Button from './Button.js';
 import pdfIcon from '../images/pdf.svg';
 import { NavLink } from 'react-router-dom';
 
-class Introduction extends Component {
+class IntroductionPage extends Component {
   state = {
     chapter: 'Introduktion'
   };
@@ -66,4 +66,4 @@ class Introduction extends Component {
   }
 }
 
-export default Introduction;
+export default IntroductionPage;

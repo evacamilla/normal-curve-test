@@ -155,7 +155,6 @@ li {
 .accordion {
   border: 2px solid $greyBackground;
   width: 90%;
-  height: 40px;
   position: relative;
   padding: 0.5em;
   margin-bottom: 1em;
@@ -387,6 +386,7 @@ main {
   }
   .result-accordion {
     border: 2px solid $darkGreen;
+    height: 40px;
     h3 {
       display: inline;
       position: absolute;
