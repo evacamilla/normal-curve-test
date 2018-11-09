@@ -92,7 +92,7 @@ class Question extends Component {
 
   render() {
     {
-      console.log();
+      console.log('vad är det som händer med gittan');
     }
     return (
       <div className="question-wrapper">
@@ -105,18 +105,18 @@ class Question extends Component {
           <main>
             {this.state.detailedView ? (
               <div>
-
-               
-              {/* Should be default view when it has funcionality to show <OneQuestion /> when clicked
+                {/* Should be default view when it has funcionality to show <OneQuestion /> when clicked
               {this.props.allaFragor.map((question, i) => {
                 return (
                 <QuestionAccordion id={i} number={question.number} heading={question.heading} key={i}/>
                 );
               })} 
               */}
-              
+
                 <OneQuestion
-                  number={this.props.allaFragor[this.state.questionIndex].number}
+                  number={
+                    this.props.allaFragor[this.state.questionIndex].number
+                  }
                   heading={
                     this.props.allaFragor[this.state.questionIndex].heading
                   }
