@@ -21,9 +21,8 @@ class Question extends Component {
   };
 
   setQuestion = event => {
-    console.log(event.target.id);
     let i = parseInt(event.target.id);
-    console.log(i);
+
     this.setState({ questionIndex: i });
   };
 
@@ -42,20 +41,19 @@ class Question extends Component {
   };
 
   temporaryAnswer = event => {
-    console.log(
-      'From func temporaryAnswer. questionIndex is ' + this.state.questionIndex
-    );
-    console.log(event.target.id);
     //Store chosen answer(event.target.id) in an allaFragor.chosenAnswer in App.js state using question index as key value
     this.props.allaFragor[this.state.questionIndex].chosenAnswer =
       event.target.id;
     //old solution storing chosen answer
     this.props.allAnswers[this.state.questionIndex] = event.target.id;
 
-    //set state for the next question
-    this.handleIncrement();
-
-    //fäll ut nästa fråga i accordion här
+    if (this.props.filledInAllAnswers || this.state.questionIndex == 9) {
+      null;
+    } else {
+      //set state for the next question
+      this.handleIncrement();
+      //fäll ut nästa fråga i accordion här
+    }
   };
 
   toggleView = event => {
@@ -93,9 +91,7 @@ class Question extends Component {
 
   render() {
     {
-      console.log(
-        'Render questionIndex from Question.js ' + this.state.questionIndex
-      );
+      console.log();
     }
     return (
       <div className="question-wrapper">
