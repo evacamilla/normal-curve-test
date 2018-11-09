@@ -2,7 +2,7 @@ import React from 'react';
 
 function OneQuestion(props) {
   return (  
-    <div className="question">
+    <div className="one-question">
         <h1>
         {props.id +
             '. ' +

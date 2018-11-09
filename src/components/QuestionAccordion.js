@@ -2,7 +2,7 @@ import React from 'react';
 
 function QuestionAccordion(props) {
   return (  
-    <div className="question-accordion">
+    <div className="accordion">
       <h3>{props.id + " " + props.heading}</h3>
     </div>
   );

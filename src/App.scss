@@ -151,6 +151,19 @@ li {
   }
 }
 
+/*General design for accordion in Question.js and Result.j*/
+.accordion {
+  border: 2px solid $greyBackground;
+  width: 90%;
+  height: 40px;
+  position: relative;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border-radius: 4px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
 header {
   height: 60px;
   background: white;
@@ -233,7 +246,7 @@ main {
   h1 {
     font-size: 1.2rem;
   }
-  .question {
+  .one-question {
     margin-bottom: 1em;
     p {
       font-size: 0.8rem;
@@ -372,15 +385,8 @@ main {
       margin: auto;
     }
   }
-  .result-question-div {
+  .result-accordion {
     border: 2px solid $darkGreen;
-    width: 90%;
-    height: 40px;
-    position: relative;
-    padding: 0.5em;
-    margin-bottom: 1em;
-    border-radius: 4px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     h3 {
       display: inline;
       position: absolute;
