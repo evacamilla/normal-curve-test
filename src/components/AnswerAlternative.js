@@ -3,7 +3,7 @@ import React from 'react';
 function AnswerAlternative(props) {
   return (
     <li
-      className="question-point-li"
+      className={"question-point-li " + props.specialClassName}
       id={props.id}
       onClick={props.temporaryAnswer}
     >

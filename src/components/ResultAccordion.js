@@ -9,9 +9,6 @@ function ResultAccordion(props) {
         <div>
             <div key={props.i} id={props.i} className="accordion">
             <h3 id={props.i}>{props.number + ". " + props.heading}</h3>
-            {/* <div id={props.i} className="result-number-div">
-                <span className="chosen-answer">{props.chosenAnswer}</span> | <span className="normal-answer">3</span>
-            </div> */}
 
             <div className="one-question">
             <p>
