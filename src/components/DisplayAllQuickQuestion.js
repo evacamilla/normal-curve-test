@@ -4,7 +4,6 @@ function DisplayAllQuickQuestion(props) {
   return (
     <div>
       <select
-        className="question-point-li"
         key={props.counter}
         id={props.counter}
         onClick={props.temporaryAnswer}

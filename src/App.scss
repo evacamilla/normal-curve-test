@@ -241,6 +241,21 @@ main {
   }
 }
 
+.question-wrapper{
+  .question-point-li {
+    &:hover {
+      transform: scale(1.03);
+      z-index: 2;
+      position: relative;
+      cursor: pointer;
+      color: $activeColor;
+    }
+    &:hover .question-point {
+      background: $activeColor;
+      color: white;
+    }
+}
+}
 /****QUESTION*****/
 //ska va nästlat i en klass
   h1 {
@@ -257,18 +272,6 @@ main {
     grid-gap: 5px;
     grid-template-columns: repeat(8, 1fr);
     padding: 5px;
-    //ska göras hover bara i question page
-    &:hover {
-      transform: scale(1.03);
-      z-index: 2;
-      position: relative;
-      cursor: pointer;
-      color: $activeColor;
-    }
-    &:hover .question-point {
-      background: $activeColor;
-      color: white;
-    }
     .question-point {
       grid-column: 1 / 2;
       width: 40px;

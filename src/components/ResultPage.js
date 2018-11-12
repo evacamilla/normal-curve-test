@@ -5,7 +5,7 @@ import ResultAccordion from './ResultAccordion.js';
 class ResultPage extends Component {
   state = {
     chapter: 'Resultat',
-    questionIndex: 0
+    questionIndex: null
   };
 
   componentDidMount = () => {

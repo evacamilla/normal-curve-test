@@ -44,25 +44,19 @@ class Question extends Component {
   }
 
   temporaryAnswer = event => {
-    console.log('temporary');
     //Store chosen answer(event.target.id) in an allaFragor.chosenAnswer in App.js state using question index as key value
     this.props.allaFragor[this.state.questionIndex].chosenAnswer =
       event.target.id;
-    //old solution storing chosen answer
+      
     this.props.allAnswers[this.state.questionIndex] = event.target.id;
 
     if(this.props.allAnswers.length >= 9){
-      console.log('temporary1');
       this.props.setFilledInAllAnswers();
     }
-    else if (this.props.filledInAllAnswers || this.state.questionIndex == 9) {
-      console.log('temporary2');
+    else if (this.props.filledInAllAnswers || this.state.questionIndex == 10) {
       null;
     } else {
-      console.log('temporary3');
-      //set state for the next question
       this.handleIncrement();
-      //fäll ut nästa fråga i accordion här
     }
   };
 

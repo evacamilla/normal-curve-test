@@ -6,7 +6,7 @@ function BtnSubmitTest(props) {
     ? (btnDisabled = '')
     : (btnDisabled = 'btn-disabled');
 
-  return <button className={'btn' + ' ' + btnDisabled}>Lämna in test</button>;
+  return <button className={'btn' + ' ' + btnDisabled} onClick={props.sumAllAnswers}>Lämna in test</button>;
 }
 
 export default BtnSubmitTest;
