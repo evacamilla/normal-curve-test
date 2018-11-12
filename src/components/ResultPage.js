@@ -19,8 +19,11 @@ class ResultPage extends Component {
     this.setState({ questionIndex: i });
   };
 
+  hideQuestion= () => {
+    this.setState({questionIndex: null});
+  }
+
   render() {
-    console.log(this.props.allaFragor);
     return (
       <div className="result-wrapper">
         <div className="white-background">
@@ -34,7 +37,7 @@ class ResultPage extends Component {
                   //if user did pass the test
                   <div>
 
-                      <h1>Du är godkänd!</h1>
+                      <h1>Total {this.props.totalPoints}</h1>
                       <div className="graph-div">
                         <img
                           src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Standard_deviation_diagram.svg/400px-Standard_deviation_diagram.svg.png"
@@ -48,7 +51,7 @@ class ResultPage extends Component {
                       <h2>Jämför dina resultat</h2>
                       {
                         this.props.allaFragor.map((question, i) => {
-                          return <ResultAccordion allaFragor={this.props.allaFragor} chosenAnswer={question.chosenAnswer} questionIndex={this.state.questionIndex} key={i} i={i} setQuestion={this.setQuestion} question={question.question} number={question.number} heading={question.heading}/>;
+                          return <ResultAccordion hideQuestion={this.hideQuestion} allaFragor={this.props.allaFragor} chosenAnswer={question.chosenAnswer} questionIndex={this.state.questionIndex} key={i} i={i} setQuestion={this.setQuestion} question={question.question} number={question.number} heading={question.heading}/>;
                         })
                       }
                   </div>
@@ -70,11 +73,6 @@ class ResultPage extends Component {
               //ska vara switch-länk till /introduktion ist för button?
               <div>
                 Du måste göra klart kursen för att kunna se dina resultat
-                <Button
-                  text={'Gå till kursen'}
-                  onClick={this.answersOverview}
-                  className={'big-btn'}
-                />
               </div>
             )}
           </main>

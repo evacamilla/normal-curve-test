@@ -10,7 +10,7 @@ import BtnSubmitTest from './BtnSubmitTest';
 class Question extends Component {
   state = {
     chapter: 'Fyll i dina svar',
-    questionIndex: 0,
+    questionIndex: null,
     totalPoints: 0,
     detailedView: true
   };
@@ -20,14 +20,12 @@ class Question extends Component {
   };
 
   setQuestion = event => {
-    console.log('setquestion körs');
     let i = parseInt(event.target.id);
 
     this.setState({ questionIndex: i });
   };
 
   handleIncrement() {
-    console.log(this.state.questionIndex);
     this.setState((prevState, props) => ({
       questionIndex: prevState.questionIndex + 1
     }));
@@ -41,16 +39,27 @@ class Question extends Component {
     }
   };
 
+  hideQuestion = () => {
+    this.setState({questionIndex: null});
+  }
+
   temporaryAnswer = event => {
+    console.log('temporary');
     //Store chosen answer(event.target.id) in an allaFragor.chosenAnswer in App.js state using question index as key value
     this.props.allaFragor[this.state.questionIndex].chosenAnswer =
       event.target.id;
     //old solution storing chosen answer
     this.props.allAnswers[this.state.questionIndex] = event.target.id;
 
-    if (this.props.filledInAllAnswers || this.state.questionIndex == 9) {
+    if(this.props.allAnswers.length >= 9){
+      console.log('temporary1');
+      this.props.setFilledInAllAnswers();
+    }
+    else if (this.props.filledInAllAnswers || this.state.questionIndex == 9) {
+      console.log('temporary2');
       null;
     } else {
+      console.log('temporary3');
       //set state for the next question
       this.handleIncrement();
       //fäll ut nästa fråga i accordion här
@@ -91,6 +100,7 @@ class Question extends Component {
   };
 
   render() {
+
     return (
       <div className="question-wrapper">
         <div className="white-background">
@@ -105,7 +115,7 @@ class Question extends Component {
 
               {this.props.allaFragor.map((question, i) => {
                   return(
-                    <QuestionAccordion temporaryAnswer={this.temporaryAnswer} allaFragor={this.props.allaFragor} questionIndex={this.state.questionIndex} handleClick={this.setQuestion} id={i} number={question.number} heading={question.heading} question={question.question} key={i}
+                    <QuestionAccordion hideQuestion={this.hideQuestion} temporaryAnswer={this.temporaryAnswer} allaFragor={this.props.allaFragor} chosenAnswer={question.chosenAnswer} questionIndex={this.state.questionIndex} handleClick={this.setQuestion} id={i} number={question.number} heading={question.heading} question={question.question} key={i}
                     />
                   );
               })} 
@@ -139,6 +149,7 @@ class Question extends Component {
           <BtnSubmitTest
             filledInAllAnswers={this.props.filledInAllAnswers}
             passedTest={this.props.passedTest}
+            sumAllAnswers={this.props.sumAllAnswers}
           />
         </div>
       </div>

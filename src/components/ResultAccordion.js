@@ -7,8 +7,10 @@ function ResultAccordion(props) {
     return (  
 
         <div>
-            <div key={props.i} id={props.i} className="accordion">
-            <h3 id={props.i}>{props.number + ". " + props.heading}</h3>
+            <div onClick={props.hideQuestion}>
+                <div key={props.i} id={props.i} className="accordion">
+                <h3 id={props.i}>{props.number + ". " + props.heading}</h3>
+            </div>
 
             <div className="one-question">
             <p>

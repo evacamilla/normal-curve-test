@@ -5,7 +5,9 @@ function QuestionAccordion(props) {
   if(props.questionIndex == props.id ){
     return (  
       <div className="accordion">
+      <div onClick={props.hideQuestion}>
         <h1 id={props.id}>{props.number + ". " + props.heading}</h1>
+      </div>
 
         <div className="one-question">
           <p>
@@ -16,14 +18,21 @@ function QuestionAccordion(props) {
             {props.allaFragor[
               props.questionIndex
             ].answers.map((answer, i) => {
-              return (
-                <AnswerAlternative
-                  key={i}
-                  id={i}
-                  temporaryAnswer={props.temporaryAnswer}
-                  answer={answer}
-                />
-              );
+              let specialClassName = '';
+              if(props.chosenAnswer == i){
+                  specialClassName = 'chosen';
+              } else if(props.normalAnswer == i) {
+                      specialClassName = 'normal';
+              }
+                  return (
+                      <AnswerAlternative
+                      key={i}
+                      id={i}
+                      answer={answer}
+                      temporaryAnswer={props.temporaryAnswer}
+                      specialClassName={specialClassName}
+                      />
+                  );
             })}
           </ul>
           </div>
