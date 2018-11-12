@@ -1,19 +1,27 @@
 import React, { Component } from 'react';
 import Button from './Button.js';
 import ResultDiv from './ResultDiv.js';
+import ResultAccordion from './ResultAccordion.js';
 
 class ResultPage extends Component {
   state = {
-    chapter: 'Resultat'
+    chapter: 'Resultat',
+    questionIndex: 0
   };
 
   componentDidMount = () => {
     this.props.changeChapter(this.state.chapter);
   };
 
+  setQuestion = event => {
+    let i = parseInt(event.target.id);
+    console.log(i);
+
+    this.setState({ questionIndex: i });
+  };
 
   render() {
-    
+    console.log(this.props.allaFragor);
     return (
       <div className="result-wrapper">
         <div className="white-background">
@@ -39,12 +47,20 @@ class ResultPage extends Component {
                       <p>För att bli godkäns krävs att du har en diff på mindre eller lika med 2 mer eller mindre än normalvärdet.</p>
 
                       <h2>Jämför dina resultat</h2>
-
+                      {
+                        this.props.allaFragor.map((question, i) => {
+                          return <ResultAccordion allaFragor={this.props.allaFragor} questionIndex={this.state.questionIndex} key={i} i={i} setQuestion={this.setQuestion} question={question.question} number={question.number} heading={question.heading}/>;
+                        })
+                      }
+                      
+{/* 
                       {
                       this.props.allaFragor.map((question, i) => {
-                        return <ResultDiv key={i} i={i} chosenAnswer={question.chosenAnswer} heading={question.heading}/>;
+                        return <ResultDiv key={i} i={i} setQuestion={this.setQuestion} chosenAnswer={question.chosenAnswer} number={question.number} heading={question.heading}/>;
                       })
-                    }
+
+
+                    } */}
 
                   
                   </div>

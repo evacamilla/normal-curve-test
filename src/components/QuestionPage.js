@@ -119,6 +119,7 @@ class Question extends Component {
                   <DisplayAllQuickQuestion
                     key={i}
                     heading={question.heading}
+                    number={question.number}
                     temporaryAnswer={this.temporaryAnswer}
                     counter={i}
                   />

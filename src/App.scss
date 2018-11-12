@@ -161,6 +161,7 @@ li {
   margin-bottom: 1em;
   border-radius: 4px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 0.9em;
 }
 
 
@@ -241,8 +242,7 @@ main {
 }
 
 /****QUESTION*****/
-
-.question-wrapper {
+//ska va nästlat i en klass
   h1 {
     font-size: 1.2rem;
   }
@@ -257,6 +257,7 @@ main {
     grid-gap: 5px;
     grid-template-columns: repeat(8, 1fr);
     padding: 5px;
+    //ska göras hover bara i question page
     &:hover {
       transform: scale(1.03);
       z-index: 2;
@@ -291,7 +292,7 @@ main {
       }
     }
   }
-}
+
 
 .toggle-div {
   cursor: pointer;
@@ -394,7 +395,6 @@ main {
       top: 50%;
       transform: translate(0, -50%);
       max-width: 70%;
-      font-size: 0.8rem;
     }
     .result-number-div {
       display: inline;
