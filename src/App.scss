@@ -407,14 +407,6 @@ main {
   }
 }
 
-.passed {
-  border: 2px solid $red;
-}
-
-.not-passed {
-  border: 2px solid $lightGreen;
-}
-
 .chosen-answer {
   color: $activeColor;
 }
@@ -423,17 +415,18 @@ main {
   color: $lightGreen;
 }
 
-footer {
-  background-color: $darkBlue;
-  h1 {
+.chosen {
+  color: $activeColor;
+  .question-point{
+    background: $activeColor;
     color: white;
   }
 }
 
-.chosen {
-  border: 1px solid blue;
-}
-
 .normal {
-  border: 1px solid green;
+  color: $lightGreen;
+  .question-point{
+    background: $lightGreen;
+    color: white;
+  }
 }

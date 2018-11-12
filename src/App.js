@@ -11,7 +11,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 class App extends Component {
   state = {
     chapter: 'Introduktion',
-    filledInAllAnswers: true,
+    filledInAllAnswers: false,
     passedTest: true,
     allAnswers: [],
     totalPoints: 0,
@@ -36,8 +36,14 @@ class App extends Component {
     });
 
     this.setState({ totalPoints: sum });
+
+    console.log('summan ' + sum);
     return <Redirect to="/resultat" from="/" />;
   };
+
+  setFilledInAllAnswers = () => {
+      this.setState({ filledInAllAnswers: true });
+  }
 
   render() {
     return (
@@ -77,6 +83,7 @@ class App extends Component {
                 changeChapter={this.changeChapter}
                 sumAllAnswers={this.sumAllAnswers}
                 allaFragor={this.state.allaFragor}
+                setFilledInAllAnswers={this.setFilledInAllAnswers}
               />
             )}
           />

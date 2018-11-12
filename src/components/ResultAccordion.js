@@ -5,10 +5,8 @@ function ResultAccordion(props) {
   if(props.questionIndex == props.i ){
     console.log('första');
     return (  
-
-        <div>
+        <div key={props.i} id={props.i} className="accordion">
             <div onClick={props.hideQuestion}>
-                <div key={props.i} id={props.i} className="accordion">
                 <h3 id={props.i}>{props.number + ". " + props.heading}</h3>
             </div>
 
@@ -40,7 +38,6 @@ function ResultAccordion(props) {
             </div>
             </div>
         </div>
-      </div>
   );
   } else {
     console.log('andra');
