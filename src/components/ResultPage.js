@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Button from './Button.js';
-import ResultDiv from './ResultDiv.js';
 import ResultAccordion from './ResultAccordion.js';
 
 class ResultPage extends Component {
@@ -49,20 +48,9 @@ class ResultPage extends Component {
                       <h2>Jämför dina resultat</h2>
                       {
                         this.props.allaFragor.map((question, i) => {
-                          return <ResultAccordion allaFragor={this.props.allaFragor} questionIndex={this.state.questionIndex} key={i} i={i} setQuestion={this.setQuestion} question={question.question} number={question.number} heading={question.heading}/>;
+                          return <ResultAccordion allaFragor={this.props.allaFragor} chosenAnswer={question.chosenAnswer} questionIndex={this.state.questionIndex} key={i} i={i} setQuestion={this.setQuestion} question={question.question} number={question.number} heading={question.heading}/>;
                         })
                       }
-                      
-{/* 
-                      {
-                      this.props.allaFragor.map((question, i) => {
-                        return <ResultDiv key={i} i={i} setQuestion={this.setQuestion} chosenAnswer={question.chosenAnswer} number={question.number} heading={question.heading}/>;
-                      })
-
-
-                    } */}
-
-                  
                   </div>
                 ) : (
                   //if user did not pass

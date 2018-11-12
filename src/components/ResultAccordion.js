@@ -7,7 +7,7 @@ function ResultAccordion(props) {
     return (  
 
         <div>
-            <div onClick={props.setQuestion} key={props.i} id={props.i} className="accordion">
+            <div key={props.i} id={props.i} className="accordion">
             <h3 id={props.i}>{props.number + ". " + props.heading}</h3>
             {/* <div id={props.i} className="result-number-div">
                 <span className="chosen-answer">{props.chosenAnswer}</span> | <span className="normal-answer">3</span>
@@ -22,13 +22,20 @@ function ResultAccordion(props) {
                     {props.allaFragor[
                     props.questionIndex
                     ].answers.map((answer, i) => {
-                    return (
-                        <AnswerAlternative
-                        key={i}
-                        id={i}
-                        answer={answer}
-                        />
-                    );
+                        let specialClassName = '';
+                        if(props.chosenAnswer == i){
+                            specialClassName = 'chosen';
+                        } else if(props.normalAnswer == i) {
+                                specialClassName = 'normal';
+                        }
+                            return (
+                                <AnswerAlternative
+                                key={i}
+                                id={i}
+                                answer={answer}
+                                specialClassName={specialClassName}
+                                />
+                            );
                     })}
                 </ul>
             </div>
@@ -39,7 +46,7 @@ function ResultAccordion(props) {
   } else {
     console.log('andra');
     return (  
-        <div onClick={props.setQuestion} id={props.i} key={props.i} className="accordion result-accordion passed">
+        <div onClick={props.setQuestion} id={props.i} key={props.i} className="accordion result-accordion">
           <h3 id={props.i}>{props.number + ". " + props.heading}</h3>
           <div id={props.i} className="result-number-div">
             <span className="chosen-answer">{props.chosenAnswer}</span> | <span className="normal-answer">3</span>

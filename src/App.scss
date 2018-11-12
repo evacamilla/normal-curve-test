@@ -387,7 +387,7 @@ main {
     }
   }
   .result-accordion {
-    border: 2px solid $darkGreen;
+    border: 2px solid $greyBackground;
     height: 40px;
     h3 {
       display: inline;
@@ -428,4 +428,12 @@ footer {
   h1 {
     color: white;
   }
+}
+
+.chosen {
+  border: 1px solid blue;
+}
+
+.normal {
+  border: 1px solid green;
 }
