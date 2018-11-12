@@ -11,7 +11,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 class App extends Component {
   state = {
     chapter: 'Introduktion',
-    filledInAllAnswers: false,
+    filledInAllAnswers: true,
     passedTest: true,
     allAnswers: [],
     totalPoints: 0,
