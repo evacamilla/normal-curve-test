@@ -36,8 +36,6 @@ class App extends Component {
     });
 
     this.setState({ totalPoints: sum });
-
-    console.log('summan ' + sum);
     return <Redirect to="/resultat" from="/" />;
   };
 

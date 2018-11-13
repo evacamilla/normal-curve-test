@@ -50,7 +50,7 @@ class Question extends Component {
       
     this.props.allAnswers[this.state.questionIndex] = event.target.id;
 
-    if(this.props.allAnswers.length >= 9){
+    if(this.props.allAnswers.length >= 10){
       this.props.setFilledInAllAnswers();
     }
     else if (this.props.filledInAllAnswers || this.state.questionIndex == 10) {

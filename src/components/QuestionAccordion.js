@@ -1,5 +1,5 @@
 import React from 'react';
-import AnswerAlternative from './AnswerAlternative.js';
+import AnswerAlternativeListItem from './AnswerAlternativeListItem.js';
 
 function QuestionAccordion(props) {
   if(props.questionIndex == props.id ){
@@ -25,7 +25,7 @@ function QuestionAccordion(props) {
                       specialClassName = 'normal';
               }
                   return (
-                      <AnswerAlternative
+                      <AnswerAlternativeListItem
                       key={i}
                       id={i}
                       answer={answer}

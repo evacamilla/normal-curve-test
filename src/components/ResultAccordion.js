@@ -1,5 +1,5 @@
 import React from 'react';
-import AnswerAlternative from './AnswerAlternative.js';
+import AnswerAlternativeListItem from './AnswerAlternativeListItem.js';
 
 function ResultAccordion(props) {
   if(props.questionIndex == props.i ){
@@ -16,9 +16,7 @@ function ResultAccordion(props) {
             </p>
             <div className="question-answers">
                 <ul>
-                    {props.allaFragor[
-                    props.questionIndex
-                    ].answers.map((answer, i) => {
+                    {props.allaFragor[props.questionIndex].answers.map((answer, i) => {
                         let specialClassName = '';
                         if(props.chosenAnswer == i){
                             specialClassName = 'chosen';
@@ -26,7 +24,7 @@ function ResultAccordion(props) {
                                 specialClassName = 'normal';
                         }
                             return (
-                                <AnswerAlternative
+                                <AnswerAlternativeListItem
                                 key={i}
                                 id={i}
                                 answer={answer}

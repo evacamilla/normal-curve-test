@@ -242,7 +242,7 @@ main {
 }
 
 .question-wrapper{
-  .question-point-li {
+  .answer-alternative-li {
     &:hover {
       transform: scale(1.03);
       z-index: 2;
@@ -267,12 +267,12 @@ main {
       font-size: 0.8rem;
     }
   }
-  .question-point-li {
+  .answer-alternative-li {
     display: grid;
     grid-gap: 5px;
     grid-template-columns: repeat(8, 1fr);
     padding: 5px;
-    .question-point {
+    .answer-alternative-circle {
       grid-column: 1 / 2;
       width: 40px;
       height: 40px;
@@ -282,7 +282,7 @@ main {
       border: 2px solid $greyBackground;
       font-size: 16px;
     }
-    .question-answers-text {
+    .answer-alternative-text {
       grid-column: 2 / 8;
       height: 50px;
       position: relative;
@@ -420,7 +420,7 @@ main {
 
 .chosen {
   color: $activeColor;
-  .question-point{
+  .answer-alternative-circle{
     background: $activeColor;
     color: white;
   }
@@ -428,7 +428,7 @@ main {
 
 .normal {
   color: $lightGreen;
-  .question-point{
+  .answer-alternative-circle{
     background: $lightGreen;
     color: white;
   }
