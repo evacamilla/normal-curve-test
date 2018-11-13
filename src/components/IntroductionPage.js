@@ -3,28 +3,7 @@ import Button from './Button.js';
 import pdfIcon from '../images/pdf.svg';
 import { NavLink } from 'react-router-dom';
 
-class IntroductionPage extends Component {
-  state = {
-    chapter: 'Introduktion'
-  };
-
-  componentDidMount = () => {
-    this.props.changeChapter(this.state.chapter);
-  };
-
-  render() {
-    // let something = {};
-    // if(window.innerWidth < 968) {
-    //    something = (
-    //     <div>under 768</div>
-    //   );
-    // }
-    // else {
-    //     something = (<div>över 768</div>);
-    // }
-
-    // return something;
-
+function IntroductionPage() {
     return (
       <div className="introduction-wrapper">
         <div className="white-background">
@@ -51,7 +30,7 @@ class IntroductionPage extends Component {
               <br />
             </p>
 
-            <div className="pdf-div">
+            <div className="pdf-wrapper">
               <img className="pdf-icon" src={pdfIcon} />
               <a href="#">Skriv ut pdf</a>
             </div>
@@ -63,7 +42,6 @@ class IntroductionPage extends Component {
         </div>
       </div>
     );
-  }
 }
 
 export default IntroductionPage;

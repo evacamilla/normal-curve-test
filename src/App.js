@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.scss';
 import Header from './components/Header.js';
-import Footer from './components/Footer.js';
 import IntroductionPage from './components/IntroductionPage.js';
 import QuestionPage from './components/QuestionPage.js';
 import ResultPage from './components/ResultPage.js';
@@ -100,7 +99,6 @@ class App extends Component {
             )}
           />
         </Switch>
-        <Footer />
       </div>
     );
   }
