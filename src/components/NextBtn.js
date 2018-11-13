@@ -1,7 +1,7 @@
 import React from 'react';
 import RightArrow from '../images/right-arrow.svg';
 
-function NextButton(props) {
+function NextBtn(props) {
   return (
     <div>
       <button className="btn next-btn">
@@ -14,4 +14,4 @@ function NextButton(props) {
   );
 }
 
-export default NextButton;
+export default NextBtn;

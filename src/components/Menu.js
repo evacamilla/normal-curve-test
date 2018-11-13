@@ -25,7 +25,6 @@ function Menu(props) {
         </li>
         <li>
           <NavLink
-            onClick={props.toggleMenu}
             activeClassName="link-is-active"
             to="/fyllidinasvar"
           >

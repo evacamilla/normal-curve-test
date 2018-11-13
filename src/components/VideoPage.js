@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NextButton from './NextButton.js';
+import NextBtn from './NextBtn.js';
 import { NavLink } from 'react-router-dom';
 import VideoImage from '../images/Skärmavbild 2018-10-01 kl. 09.53.29.png';
 
@@ -32,7 +32,7 @@ class VideoPage extends Component {
 
           <div className="btn-next-div">
             <NavLink exact to="/fyllidinasvar">
-              <NextButton />
+              <NextBtn />
             </NavLink>
           </div>
         </div>

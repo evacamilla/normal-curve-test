@@ -67,15 +67,15 @@ class Question extends Component {
   displayPagination = () => {
     let paginationUl = [];
     let number = 1;
-    let className1 = '';
+    let underline = '';
 
     for (let i = 0; i <= 9; i++) {
       let li = '';
 
       if (i == this.state.questionIndex) {
-        className1 = 'underline2';
+        underline = 'underline';
       } else {
-        className1 = '';
+        underline = '';
       }
       li = (
         <PaginationListItem
@@ -83,7 +83,7 @@ class Question extends Component {
           counter={i}
           setQuestion={this.setQuestion}
           number={number}
-          className={className1}
+          underline={underline}
         />
       );
 

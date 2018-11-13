@@ -2,7 +2,7 @@ import React from 'react';
 function PaginationListItem(props) {
 
   return (
-      <div className={props.className}>
+      <div className={props.underline}>
         <li id={props.counter} onClick={props.setQuestion}>
           <div id={props.counter} className="number-div">
             {props.number}

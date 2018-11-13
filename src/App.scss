@@ -338,10 +338,7 @@ main {
   font-size: 0.8em;
   position: relative;
   .underline {
-    border: 1px solid $activeColor;
-    width: 20px;
-    position: absolute;
-    bottom: 0;
+    border-bottom: 2px solid red;
   }
   li {
     cursor: pointer;
@@ -362,10 +359,6 @@ main {
   }
 }
 
-.underline2 {
-  border-bottom: 2px solid red;
-  // padding: 5px;
-}
 
 /******RESULT******/
 
