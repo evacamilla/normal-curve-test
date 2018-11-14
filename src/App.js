@@ -60,7 +60,6 @@ class App extends Component {
       this.setState({ filledInAllAnswers: true });
   }
 
-
   temporaryAnswer = event => {
     //Store chosen answer(event.target.id) in an allaFragor.chosenAnswer in App.js state using question index as key value
     this.state.allaFragor[this.state.questionIndex].chosenAnswer =
@@ -101,7 +100,8 @@ class App extends Component {
             exact
             path="/sefilmen"
             component={props => (
-              <VideoPage {...props} changeChapter={this.changeChapter} />
+              <VideoPage {...props} 
+              {...this} {...this.state} changeChapter={this.changeChapter} />
             )}
           />
           <Route
@@ -110,14 +110,8 @@ class App extends Component {
             component={props => (
               <QuestionPage
                 {...props}
+                {...this}
                 {...this.state}
-                changeChapter={this.changeChapter}
-                sumAllAnswers={this.sumAllAnswers}
-                setFilledInAllAnswers={this.setFilledInAllAnswers}
-                setQuestion={this.setQuestion}
-                hideQuestion={this.hideQuestion}
-                handleIncrement={this.handleIncrement}
-                temporaryAnswer={this.temporaryAnswer}
               />
             )}
           />
@@ -126,13 +120,8 @@ class App extends Component {
             path="/fyllidinasvarsnabb"
             component={props => (
               <QuickQuestion
+                {...this}
                 {...this.state}
-                sumAllAnswers={this.sumAllAnswers}
-                setFilledInAllAnswers={this.setFilledInAllAnswers}
-                setQuestion={this.setQuestion}
-                hideQuestion={this.hideQuestion}
-                handleIncrement={this.handleIncrement}
-                temporaryAnswer={this.temporaryAnswer}
               />
             )}
           />
@@ -142,7 +131,7 @@ class App extends Component {
             component={props => (
               <ResultPage
                 {...props}
-                {...this.state}
+                {...this}
                 changeChapter={this.changeChapter}
               />
             )}
