@@ -6,7 +6,7 @@ function DisplayAllQuickQuestion(props) {
       <select
         key={props.counter}
         id={props.counter}
-        onClick={props.temporaryAnswer}
+        onClick={props.setQuestion}
       >
         <option>{props.heading}</option>
         <option id="0">0</option>

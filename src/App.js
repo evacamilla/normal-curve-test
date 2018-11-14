@@ -51,14 +51,14 @@ class App extends Component {
             exact
             path="/"
             component={props => (
-              <IntroductionPage {...props} changeChapter={this.changeChapter} />
+              <IntroductionPage />
             )}
           />
           <Route
             exact
             path="/introduktion"
             component={props => (
-              <IntroductionPage {...props} changeChapter={this.changeChapter} />
+              <IntroductionPage />
             )}
           />
           <Route
@@ -74,12 +74,9 @@ class App extends Component {
             component={props => (
               <QuestionPage
                 {...props}
-                passedTest={this.state.passedTest}
-                filledInAllAnswers={this.state.filledInAllAnswers}
-                allAnswers={this.state.allAnswers}
+                {...this.state}
                 changeChapter={this.changeChapter}
                 sumAllAnswers={this.sumAllAnswers}
-                allaFragor={this.state.allaFragor}
                 setFilledInAllAnswers={this.setFilledInAllAnswers}
               />
             )}
@@ -90,11 +87,8 @@ class App extends Component {
             component={props => (
               <ResultPage
                 {...props}
-                passedTest={this.state.passedTest}
-                filledInAllAnswers={this.state.filledInAllAnswers}
+                {...this.state}
                 changeChapter={this.changeChapter}
-                totalPoints={this.state.totalPoints}
-                allaFragor={this.state.allaFragor}
               />
             )}
           />

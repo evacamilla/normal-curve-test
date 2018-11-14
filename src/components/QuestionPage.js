@@ -124,7 +124,7 @@ class Question extends Component {
                     key={i}
                     heading={question.heading}
                     number={question.number}
-                    temporaryAnswer={this.temporaryAnswer}
+                    setQuestion={this.setQuestion}
                     counter={i}
                   />
                 );
