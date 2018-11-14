@@ -15,8 +15,25 @@ class App extends Component {
     passedTest: true,
     allAnswers: [],
     totalPoints: 0,
-    allaFragor: allaFragor
+    allaFragor: allaFragor,
+    questionIndex: null
   };
+
+  setQuestion = event => {
+    let i = parseInt(event.target.id);
+
+    this.setState({ questionIndex: i });
+  };
+
+  hideQuestion = () => {
+    this.setState({questionIndex: null});
+  }
+
+  handleIncrement() {
+    this.setState((prevState, props) => ({
+      questionIndex: prevState.questionIndex + 1
+    }));
+  }
 
   changeChapter = chapterName => {
     //this is for only setting state once
@@ -42,6 +59,24 @@ class App extends Component {
   setFilledInAllAnswers = () => {
       this.setState({ filledInAllAnswers: true });
   }
+
+
+  temporaryAnswer = event => {
+    //Store chosen answer(event.target.id) in an allaFragor.chosenAnswer in App.js state using question index as key value
+    this.state.allaFragor[this.state.questionIndex].chosenAnswer =
+      event.target.id;
+      
+    this.state.allAnswers[this.state.questionIndex] = event.target.id;
+
+    if(this.state.allAnswers.length >= 10){
+      this.setFilledInAllAnswers();
+    }
+    else if (this.state.filledInAllAnswers || this.state.questionIndex == 10) {
+      null;
+    } else {
+      this.handleIncrement();
+    }
+  };
 
   render() {
     return (
@@ -79,6 +114,10 @@ class App extends Component {
                 changeChapter={this.changeChapter}
                 sumAllAnswers={this.sumAllAnswers}
                 setFilledInAllAnswers={this.setFilledInAllAnswers}
+                setQuestion={this.setQuestion}
+                hideQuestion={this.hideQuestion}
+                handleIncrement={this.handleIncrement}
+                temporaryAnswer={this.temporaryAnswer}
               />
             )}
           />
@@ -87,11 +126,13 @@ class App extends Component {
             path="/fyllidinasvarsnabb"
             component={props => (
               <QuickQuestion
-                {...props}
                 {...this.state}
-                changeChapter={this.changeChapter}
                 sumAllAnswers={this.sumAllAnswers}
                 setFilledInAllAnswers={this.setFilledInAllAnswers}
+                setQuestion={this.setQuestion}
+                hideQuestion={this.hideQuestion}
+                handleIncrement={this.handleIncrement}
+                temporaryAnswer={this.temporaryAnswer}
               />
             )}
           />

@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-import Button from './Button.js';
 import { Link } from 'react-router-dom';
-import DisplayAllQuickQuestion from './DisplayAllQuickQuestion';
-import PaginationListItem from './PaginationListItem.js';
-import QuestionAccordion from './QuestionAccordion';
 import ToggleQuestionView from './ToggleQuestionView';
 import BtnSubmitTest from './BtnSubmitTest';
 
@@ -12,15 +8,8 @@ class QuickQuestion extends Component {
     questionIndex: null
   };
 
-  setQuestion = event => {
-    let i = parseInt(event.target.id);
-
-    this.setState({ questionIndex: i });
-    console.log(this.state.questionIndex);
-  };
-
   completeTest = () => {
-    if (this.props.allAnswers.length == 10) {
+    if (this.props.allAnswers.length === 10) {
       this.props.sumAllAnswers();
     } else {
       console.log('Alla frågor är ej ifyllda');
@@ -31,22 +20,18 @@ class QuickQuestion extends Component {
     //Store chosen answer(event.target.id) in an allaFragor.chosenAnswer in App.js state using question index as key value
     this.props.allaFragor[this.state.questionIndex].chosenAnswer =
       event.target.value;
-      
-    this.props.allAnswers[this.state.questionIndex] = event.target.value;
+      //
+    //this.props.allAnswers[this.state.questionIndex] = event.target.value;
 
     if(this.props.allAnswers.length >= 10){
       this.props.setFilledInAllAnswers();
     }
   };
 
-  handleChange = event => {
-    console.log(event.target.value);
-  }
-
   render() {
     let optionItems = [];
     for (let i=0; i<=6; i++){
-      optionItems.push(<option value={i}>{i}</option>);
+      optionItems.push(<option key={i} value={i}>{i}</option>);
     }
 
     return (
@@ -65,9 +50,8 @@ class QuickQuestion extends Component {
             <form onChange={this.temporaryAnswerQuick}>
               {this.props.allaFragor.map((question, i) => {
                   return (
-                    <div>
+                    <div key={i}>
                       <select
-                        key={i}
                         id={i}
                         onClick={this.setQuestion}
                       >
