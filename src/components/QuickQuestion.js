@@ -7,11 +7,10 @@ import QuestionAccordion from './QuestionAccordion';
 import ToggleQuestionView from './ToggleQuestionView';
 import BtnSubmitTest from './BtnSubmitTest';
 
-class Question extends Component {
+class QuickQuestion extends Component {
   state = {
     chapter: 'Fyll i dina svar',
-    questionIndex: null,
-    detailedView: true
+    questionIndex: null
   };
 
   componentDidMount = () => {
@@ -93,42 +92,39 @@ class Question extends Component {
   };
 
   render() {
+    let optionItems = [];
+    for (let i=0; i<=6; i++){
+      optionItems.push(<option id={i}>{i}</option>);
+    }
 
     return (
       <div className="question-wrapper">
         <div className="white-background">
+          <Link
+            to="/fyllidinasvar"
+          >
           <ToggleQuestionView
-            toggleView={this.toggleView}
-            toggleBooleon={this.state.detailedView}
+            toggleBooleon={false}
           />
+          </Link>
 
           <main>
-            {this.state.detailedView ? (
-              <div>
-
+            <form>
               {this.props.allaFragor.map((question, i) => {
-                  return(
-                    <QuestionAccordion hideQuestion={this.hideQuestion} temporaryAnswer={this.temporaryAnswer} allaFragor={this.props.allaFragor} chosenAnswer={question.chosenAnswer} questionIndex={this.state.questionIndex} handleClick={this.setQuestion} id={i} number={question.number} heading={question.heading} question={question.question} key={i}
-                    />
+                  return (
+                    <div>
+                      <select
+                        key={i}
+                        id={i}
+                        onClick={this.setQuestion}
+                      >
+                        <option value="" hidden>{question.heading}</option>
+                        {optionItems}
+                      </select>
+                    </div>
                   );
-              })} 
-
-              </div>
-            ) : (
-              // if detailedView == false show "quick view"
-
-              this.props.allaFragor.map((question, i) => {
-                return (
-                  <DisplayAllQuickQuestion
-                    key={i}
-                    heading={question.heading}
-                    number={question.number}
-                    setQuestion={this.setQuestion}
-                    counter={i}
-                  />
-                );
-              })
-            )}
+                })}
+              </form>
           </main>
         </div>
 
@@ -150,4 +146,4 @@ class Question extends Component {
   }
 }
 
-export default Question;
+export default QuickQuestion;

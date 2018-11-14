@@ -8,7 +8,7 @@ function DisplayAllQuickQuestion(props) {
         id={props.counter}
         onClick={props.setQuestion}
       >
-        <option>{props.heading}</option>
+        <option value="" hidden>{props.heading}</option>
         <option id="0">0</option>
         <option id="1">1</option>
         <option id="2">2</option>

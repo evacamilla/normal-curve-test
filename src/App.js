@@ -3,6 +3,7 @@ import './App.scss';
 import Header from './components/Header.js';
 import IntroductionPage from './components/IntroductionPage.js';
 import QuestionPage from './components/QuestionPage.js';
+import QuickQuestion from './components/QuickQuestion.js';
 import ResultPage from './components/ResultPage.js';
 import VideoPage from './components/VideoPage.js';
 import { Route, Switch, Redirect } from 'react-router-dom';
@@ -73,6 +74,19 @@ class App extends Component {
             path="/fyllidinasvar"
             component={props => (
               <QuestionPage
+                {...props}
+                {...this.state}
+                changeChapter={this.changeChapter}
+                sumAllAnswers={this.sumAllAnswers}
+                setFilledInAllAnswers={this.setFilledInAllAnswers}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/fyllidinasvarsnabb"
+            component={props => (
+              <QuickQuestion
                 {...props}
                 {...this.state}
                 changeChapter={this.changeChapter}
