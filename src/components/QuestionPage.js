@@ -15,14 +15,6 @@ class Question extends Component {
     this.props.changeChapter(this.state.chapter);
   };
 
-  completeTest = () => {
-    if (this.props.allAnswers.length == 10) {
-      this.props.sumAllAnswers();
-    } else {
-      console.log('Alla frågor är ej ifyllda');
-    }
-  };
-
   displayPagination = () => {
     let paginationUl = [];
     let number = 1;
@@ -70,7 +62,7 @@ class Question extends Component {
               {this.props.allaFragor.map((question, i) => {
                 if(this.props.questionIndex == i ){
                   return (  
-                    <div className="accordion">
+                    <div className="accordion" key={i}>
                       <div onClick={this.props.hideQuestion}>
                         <h1 id={i}>{question.number + ". " + question.heading}</h1>
                       </div>
@@ -105,7 +97,7 @@ class Question extends Component {
                 );
                 } else {
                   return (  
-                    <div onClick={this.props.setQuestion} id={i} className="accordion">
+                    <div onClick={this.props.setQuestion} key={i} id={i} className="accordion">
                       <h1 id={i}>{question.number + ". " + question.heading}</h1>
                     </div>
                   );

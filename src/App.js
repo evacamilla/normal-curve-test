@@ -29,6 +29,23 @@ class App extends Component {
     this.setState({questionIndex: null});
   }
 
+  temporaryAnswer = event => {
+    //Store chosen answer(event.target.id) in an allaFragor.chosenAnswer in App.js state using question index as key value
+    this.state.allaFragor[this.state.questionIndex].chosenAnswer =
+      event.target.id;
+      
+    this.state.allAnswers[this.state.questionIndex] = event.target.id;
+
+    if(this.state.allAnswers.length >= 10){
+      this.setFilledInAllAnswers();
+    }
+    else if (this.state.filledInAllAnswers || this.state.questionIndex == 10) {
+      null;
+    } else {
+      this.handleIncrement();
+    }
+  };
+
   handleIncrement() {
     this.setState((prevState, props) => ({
       questionIndex: prevState.questionIndex + 1
@@ -60,20 +77,11 @@ class App extends Component {
       this.setState({ filledInAllAnswers: true });
   }
 
-  temporaryAnswer = event => {
-    //Store chosen answer(event.target.id) in an allaFragor.chosenAnswer in App.js state using question index as key value
-    this.state.allaFragor[this.state.questionIndex].chosenAnswer =
-      event.target.id;
-      
-    this.state.allAnswers[this.state.questionIndex] = event.target.id;
-
-    if(this.state.allAnswers.length >= 10){
-      this.setFilledInAllAnswers();
-    }
-    else if (this.state.filledInAllAnswers || this.state.questionIndex == 10) {
-      null;
+  completeTest = () => {
+    if (this.props.allAnswers.length === 10) {
+      this.props.sumAllAnswers();
     } else {
-      this.handleIncrement();
+      console.log('Alla frågor är ej ifyllda');
     }
   };
 

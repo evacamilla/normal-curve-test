@@ -8,23 +8,21 @@ class QuickQuestion extends Component {
     questionIndex: null
   };
 
-  completeTest = () => {
-    if (this.props.allAnswers.length === 10) {
-      this.props.sumAllAnswers();
-    } else {
-      console.log('Alla frågor är ej ifyllda');
-    }
+
+  setQuestion = event => {
+    let i = parseInt(event.target.id);
+
+    this.setState({ questionIndex: i });
   };
 
   temporaryAnswerQuick = event => {
     //Store chosen answer(event.target.id) in an allaFragor.chosenAnswer in App.js state using question index as key value
     this.props.allaFragor[this.state.questionIndex].chosenAnswer =
       event.target.value;
-      //
     //this.props.allAnswers[this.state.questionIndex] = event.target.value;
 
-    if(this.props.allAnswers.length >= 10){
-      this.props.setFilledInAllAnswers();
+    if(this.state.allAnswers.length >= 10){
+      this.setFilledInAllAnswers();
     }
   };
 
@@ -71,8 +69,8 @@ class QuickQuestion extends Component {
           </div>
 
           <BtnSubmitTest
-            filledInAllAnswers={this.props.filledInAllAnswers}
-            passedTest={this.props.passedTest}
+            filledInAllAnswers={this.state.filledInAllAnswers}
+            passedTest={this.state.passedTest}
             sumAllAnswers={this.props.sumAllAnswers}
           />
         </div>
