@@ -9,25 +9,15 @@ import BtnSubmitTest from './BtnSubmitTest';
 
 class QuickQuestion extends Component {
   state = {
-    chapter: 'Fyll i dina svar',
     questionIndex: null
-  };
-
-  componentDidMount = () => {
-    this.props.changeChapter(this.state.chapter);
   };
 
   setQuestion = event => {
     let i = parseInt(event.target.id);
 
     this.setState({ questionIndex: i });
+    console.log(this.state.questionIndex);
   };
-
-  handleIncrement() {
-    this.setState((prevState, props) => ({
-      questionIndex: prevState.questionIndex + 1
-    }));
-  }
 
   completeTest = () => {
     if (this.props.allAnswers.length == 10) {
@@ -37,69 +27,32 @@ class QuickQuestion extends Component {
     }
   };
 
-  hideQuestion = () => {
-    this.setState({questionIndex: null});
-  }
-
-  temporaryAnswer = event => {
+  temporaryAnswerQuick = event => {
     //Store chosen answer(event.target.id) in an allaFragor.chosenAnswer in App.js state using question index as key value
     this.props.allaFragor[this.state.questionIndex].chosenAnswer =
-      event.target.id;
+      event.target.value;
       
-    this.props.allAnswers[this.state.questionIndex] = event.target.id;
+    this.props.allAnswers[this.state.questionIndex] = event.target.value;
 
     if(this.props.allAnswers.length >= 10){
       this.props.setFilledInAllAnswers();
     }
-    else if (this.props.filledInAllAnswers || this.state.questionIndex == 10) {
-      null;
-    } else {
-      this.handleIncrement();
-    }
   };
 
-  toggleView = event => {
-    this.setState({ detailedView: !this.state.detailedView });
-  };
-
-  displayPagination = () => {
-    let paginationUl = [];
-    let number = 1;
-    let underline = '';
-
-    for (let i = 0; i <= 9; i++) {
-      let li = '';
-
-      if (i == this.state.questionIndex) {
-        underline = 'underline';
-      } else {
-        underline = '';
-      }
-      li = (
-        <PaginationListItem
-          key={i}
-          counter={i}
-          setQuestion={this.setQuestion}
-          number={number}
-          underline={underline}
-        />
-      );
-
-      number++;
-      paginationUl.push(li);
-    }
-    return paginationUl;
-  };
+  handleChange = event => {
+    console.log(event.target.value);
+  }
 
   render() {
     let optionItems = [];
     for (let i=0; i<=6; i++){
-      optionItems.push(<option id={i}>{i}</option>);
+      optionItems.push(<option value={i}>{i}</option>);
     }
 
     return (
       <div className="question-wrapper">
         <div className="white-background">
+        {this.state.questionIndex}
           <Link
             to="/fyllidinasvar"
           >
@@ -109,7 +62,7 @@ class QuickQuestion extends Component {
           </Link>
 
           <main>
-            <form>
+            <form onChange={this.temporaryAnswerQuick}>
               {this.props.allaFragor.map((question, i) => {
                   return (
                     <div>
@@ -127,8 +80,6 @@ class QuickQuestion extends Component {
               </form>
           </main>
         </div>
-
-        <ul className="pagination-wrapper">{this.displayPagination()}</ul>
 
         <div className="btn-wrapper">
           <div className="btn-prev-div">
