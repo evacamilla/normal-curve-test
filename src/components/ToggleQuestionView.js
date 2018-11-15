@@ -8,11 +8,11 @@ function ToggleQuestionView(props) {
       : (animateToggle = 'animate-toggle-right');
 
   return (
-    <div onClick={props.toggleView} className="toggle-div">
-      <div className="toggle-background">
-        <div className={'toggle-circle ' + animateToggle} />
+      <div className="toggle-div">
+        <div className="toggle-background">
+          <div className={'toggle-circle ' + animateToggle} />
+        </div>
       </div>
-    </div>
   );
 }
 

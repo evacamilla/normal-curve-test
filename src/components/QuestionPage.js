@@ -53,18 +53,24 @@ class Question extends Component {
       <div className="question-wrapper">
         <div className="white-background">
           <main>
-            <Link
-              to="/fyllidinasvarsnabb"
-            >
-            <ToggleQuestionView
-              toggleBooleon={true}
-            />
-            </Link>
 
               <div className="flex-wrapper">
                 <Video />
                 
-                <div className="test">
+              <div className="test">
+
+              <div className="toggle-flex">
+                <div className="toggle-link-wrapper">
+                  <Link
+                    to="/fyllidinasvarsnabb"
+                  >
+                  <ToggleQuestionView
+                    toggleBooleon={false}
+                  />
+                  </Link>
+                  </div>
+                </div>
+
                   {this.props.allaFragor.map((question, i) => {
                     if(this.props.questionIndex == i ){
                       return (  

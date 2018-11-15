@@ -39,18 +39,25 @@ class QuickQuestion extends Component {
         {this.state.questionIndex}
 
           <main>
-            <Link
-              to="/fyllidinasvar"
-            >
-            <ToggleQuestionView
-              toggleBooleon={false}
-            />
-            </Link>
             <div className="flex-wrapper">
 
               <Video />
 
               <div className="test">
+              
+              
+              <div className="toggle-flex">
+                <div className="toggle-link-wrapper">
+                  <Link
+                    to="/fyllidinasvar"
+                  >
+                  <ToggleQuestionView
+                    toggleBooleon={true}
+                  />
+                  </Link>
+                  </div>
+                </div>
+
                 <form onChange={this.temporaryAnswerQuick}>
                   {this.props.allaFragor.map((question, i) => {
                       return (

@@ -155,13 +155,12 @@ li {
 .accordion {
   cursor: pointer;
   border: 2px solid $greyBackground;
-  width: 90%;
   position: relative;
   padding: 0.5em;
   margin-bottom: 1em;
   border-radius: 4px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 0.9em;
+  font-size: 0.8em;
 }
 
 
@@ -299,8 +298,12 @@ main {
     }
   }
 
-
-.toggle-div {
+.toggle-flex {
+  display:flex;
+}
+.toggle-link-wrapper {
+  margin-left: auto;
+  padding: 10px 0;
   cursor: pointer;
   .toggle-background {
     width: 50px;
