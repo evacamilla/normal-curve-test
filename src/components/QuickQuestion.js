@@ -9,9 +9,8 @@ class QuickQuestion extends Component {
     questionIndex: null
   };
 
-
   setQuestion = event => {
-    let i = parseInt(event.target.id);
+    let i = parseInt(event.target.id, 10);
 
     this.setState({ questionIndex: i });
   };
@@ -22,58 +21,54 @@ class QuickQuestion extends Component {
       event.target.value;
     //this.props.allAnswers[this.state.questionIndex] = event.target.value;
 
-    if(this.props.allAnswers.length >= 10){
+    if (this.props.allAnswers.length >= 10) {
       this.setFilledInAllAnswers();
     }
   };
 
   render() {
     let optionItems = [];
-    for (let i=0; i<=6; i++){
-      optionItems.push(<option key={i} value={i}>{i}</option>);
+    for (let i = 0; i <= 6; i++) {
+      optionItems.push(
+        <option key={i} value={i}>
+          {i}
+        </option>
+      );
     }
 
     return (
       <div className="question-wrapper">
         <div className="white-background">
-        {this.state.questionIndex}
+          {this.state.questionIndex}
 
           <main>
             <div className="flex-wrapper">
-
               <Video />
 
               <div className="test">
-              
-              
-              <div className="toggle-flex">
-                <div className="toggle-link-wrapper">
-                  <Link
-                    to="/fyllidinasvar"
-                  >
-                  <ToggleQuestionView
-                    toggleBooleon={true}
-                  />
-                  </Link>
+                <div className="toggle-flex">
+                  <div className="toggle-link-wrapper">
+                    <Link to="/fyllidinasvar">
+                      <ToggleQuestionView toggleBooleon={true} />
+                    </Link>
                   </div>
                 </div>
 
                 <form onChange={this.temporaryAnswerQuick}>
                   {this.props.allaFragor.map((question, i) => {
-                      return (
-                        <div key={i}>
-                          <select
-                            id={i}
-                            onClick={this.setQuestion}
-                          >
-                            <option value="" hidden>{question.heading}</option>
-                            {optionItems}
-                          </select>
-                        </div>
-                      );
-                    })}
-                  </form>
-                </div>
+                    return (
+                      <div key={i}>
+                        <select id={i} onClick={this.setQuestion}>
+                          <option value="" hidden>
+                            {question.heading}
+                          </option>
+                          {optionItems}
+                        </select>
+                      </div>
+                    );
+                  })}
+                </form>
+              </div>
             </div>
           </main>
         </div>
