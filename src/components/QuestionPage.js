@@ -4,6 +4,7 @@ import PaginationListItem from './PaginationListItem.js';
 import QuestionAccordion from './QuestionAccordion';
 import ToggleQuestionView from './ToggleQuestionView';
 import BtnSubmitTest from './BtnSubmitTest';
+import Video from './Video';
 import AnswerAlternativeListItem from './AnswerAlternativeListItem.js';
 
 class Question extends Component {
@@ -12,7 +13,8 @@ class Question extends Component {
   };
   
   componentDidMount = () => {
-    this.props.changeChapter(this.state.chapter);
+    // this.props.changeChapter(this.state.chapter);
+    window.addEventListener('onclick', this.handleResize);
   };
 
   displayPagination = () => {
@@ -44,77 +46,72 @@ class Question extends Component {
     return paginationUl;
   };
 
+
   render() {
 
     return (
       <div className="question-wrapper">
         <div className="white-background">
-          <Link
-            to="/fyllidinasvarsnabb"
-          >
-          <ToggleQuestionView
-            toggleBooleon={true}
-          />
-          </Link>
-
           <main>
-              <div>
-              {this.props.allaFragor.map((question, i) => {
-                if(this.props.questionIndex == i ){
-                  return (  
-                    <div className="accordion" key={i}>
-                      <div onClick={this.props.hideQuestion}>
+            <Link
+              to="/fyllidinasvarsnabb"
+            >
+            <ToggleQuestionView
+              toggleBooleon={true}
+            />
+            </Link>
+
+              <div className="flex-wrapper">
+                <Video />
+                
+                <div className="test">
+                  {this.props.allaFragor.map((question, i) => {
+                    if(this.props.questionIndex == i ){
+                      return (  
+                        <div className="accordion" key={i}>
+                          <div onClick={this.props.hideQuestion}>
+                            <h1 id={i}>{question.number + ". " + question.heading}</h1>
+                          </div>
+                    
+                          <div className="one-question">
+                            <p>
+                              {question.question}
+                            </p>
+                          <div className="question-answers">
+                            <ul>
+                              {question.answers.map((answer, i) => {
+                                let specialClassName = '';
+                                if(question.chosenAnswer == i){
+                                    specialClassName = 'chosen';
+                                } else if(question.normalAnswer == i) {
+                                        specialClassName = 'normal';
+                                }
+                                    return (
+                                        <AnswerAlternativeListItem
+                                        key={i}
+                                        id={i}
+                                        answer={answer}
+                                        temporaryAnswer={this.props.temporaryAnswer}
+                                        specialClassName={specialClassName}
+                                        />
+                                    );
+                              })}
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                  );
+                  } else {
+                    return (  
+                      <div onClick={this.props.setQuestion} key={i} id={i} className="accordion">
                         <h1 id={i}>{question.number + ". " + question.heading}</h1>
                       </div>
-                
-                      <div className="one-question">
-                        <p>
-                          {question.question}
-                        </p>
-                      <div className="question-answers">
-                        <ul>
-                          {question.answers.map((answer, i) => {
-                            let specialClassName = '';
-                            if(question.chosenAnswer == i){
-                                specialClassName = 'chosen';
-                            } else if(question.normalAnswer == i) {
-                                    specialClassName = 'normal';
-                            }
-                                return (
-                                    <AnswerAlternativeListItem
-                                    key={i}
-                                    id={i}
-                                    answer={answer}
-                                    temporaryAnswer={this.props.temporaryAnswer}
-                                    specialClassName={specialClassName}
-                                    />
-                                );
-                          })}
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                );
-                } else {
-                  return (  
-                    <div onClick={this.props.setQuestion} key={i} id={i} className="accordion">
-                      <h1 id={i}>{question.number + ". " + question.heading}</h1>
-                    </div>
-                  );
-                }
-                
-
-
-
-
-
-                  // return(  
-                  //   <QuestionAccordion hideQuestion={this.hideQuestion} temporaryAnswer={this.temporaryAnswer} allaFragor={this.props.allaFragor} chosenAnswer={question.chosenAnswer} questionIndex={this.state.questionIndex} handleClick={this.setQuestion} id={i} number={question.number} heading={question.heading} question={question.question} key={i}
-                  //   />
-                  // );
-              })} 
-
+                    );
+                  }
+                })} 
               </div>
+
+            </div>
           </main>
         </div>
 

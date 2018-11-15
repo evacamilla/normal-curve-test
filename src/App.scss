@@ -212,6 +212,7 @@ header {
 
 main {
   padding: 35px 30px;
+  position: relative;
 }
 
 /****INTRODUCTION****/
@@ -232,14 +233,16 @@ main {
 }
 
 /**Video.js**/
-.video-wrapper {
   .video-div {
-    margin: auto;
     img {
       width: 100%;
     }
   }
-}
+
+  .video-fixed {
+    position: fixed;
+    z-index: 1;
+  }
 
 .question-wrapper{
   .answer-alternative-li {
@@ -299,7 +302,6 @@ main {
 
 .toggle-div {
   cursor: pointer;
-  margin: right;
   .toggle-background {
     width: 50px;
     height: 23px;
@@ -425,4 +427,22 @@ main {
     background: $lightGreen;
     color: white;
   }
+}
+
+
+@media (min-width: 860px) {
+  .white-background, nav {
+    width: 90%
+  }
+  .flex-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  .video-div {
+    width: 60%;
+  }
+  .test .accordion{
+    max-width: 340px;
+  }
+
 }
