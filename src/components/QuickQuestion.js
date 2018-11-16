@@ -52,7 +52,7 @@ class QuickQuestion extends Component {
                     to="/fyllidinasvar"
                   >
                   <ToggleQuestionView
-                    toggleBooleon={true}
+                    toggleBooleon={false}
                   />
                   </Link>
                   </div>
@@ -80,7 +80,7 @@ class QuickQuestion extends Component {
 
         <div className="btn-wrapper">
           <div className="btn-prev-div">
-            <Link to="/sefilmen">Tillbaka</Link>
+            <Link to="/introduktion">Tillbaka</Link>
           </div>
 
           <BtnSubmitTest

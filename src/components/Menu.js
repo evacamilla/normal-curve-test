@@ -14,21 +14,12 @@ function Menu(props) {
             <hr />
           </NavLink>
         </li>
-        <li className="two">
-          <NavLink
-            activeClassName="link-is-active"
-            to="/sefilmen"
-          >
-            Se filmen
-            <hr />
-          </NavLink>
-        </li>
         <li>
           <NavLink
             activeClassName="link-is-active"
             to="/fyllidinasvar"
           >
-            Fyll i dina svar
+            Gör testet
             <hr />
           </NavLink>
         </li>

@@ -34,12 +34,14 @@ function IntroductionPage() {
               <img className="pdf-icon" src={pdfIcon} />
               <a href="#">Skriv ut pdf</a>
             </div>
-
-            <NavLink to="/sefilmen">
-              <Button text="Starta" className="btn btn-next" />
-            </NavLink>
           </main>
         </div>
+
+          <div className="btn-center-wrapper">
+              <NavLink to="/fyllidinasvar">
+                <Button text="Starta" className="btn btn-next" />
+              </NavLink>
+            </div>
       </div>
     );
 }

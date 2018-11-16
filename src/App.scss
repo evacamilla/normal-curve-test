@@ -89,8 +89,6 @@ li {
 /*** BUTTONS ***/
 .btn-wrapper {
   padding-top: 20px;
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
   width: 360px;
   margin: auto;
 }
@@ -110,45 +108,18 @@ li {
   padding: 10px;
   background: $mainPink;
   color: white;
-  grid-column: 8 / 9;
-  grid-row: 1;
-}
-.btn-prev-div {
-  grid-column: 1 / 2;
-  grid-row: 1;
-}
-.btn-next-div {
-  grid-column: 8 / 9;
-  grid-row: 1;
-  padding: 0.5rem;
 }
 
-.btn-prev {
-  background: none;
-  border: none;
-  color: $linkColor;
-  font-size: 1em;
-}
 .btn-disabled {
   display: disabled;
   color: pink;
   background: black;
 }
 
-.next-btn {
-  .arrow-div {
-    display: inline;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    line-height: 30px;
-    background: white;
-  }
-  img {
-    width: 20px;
-    margin: auto;
-    vertical-align: middle;
-  }
+
+.btn-center-wrapper {
+  width: fit-content;
+  margin: auto;
 }
 
 /*General design for accordion in Question.js and Result.j*/
@@ -175,7 +146,7 @@ header {
     margin: auto;
     ul {
       li {
-        font-size: 12px;
+        font-size: 14px;
         display: inline;
         font-family: Verdana, Tahoma, sans-serif;
         text-align: center;
@@ -191,7 +162,7 @@ header {
         a {
           text-decoration: none;
           display: inline-block;
-          width: 25%;
+          width: 33.3%;
         }
         .link-is-active hr {
           opacity: 1;
@@ -434,7 +405,7 @@ main {
 
 
 @media (min-width: 860px) {
-  .white-background, nav {
+  .white-background, nav, .btn-wrapper {
     width: 90%
   }
   .flex-wrapper {
@@ -446,6 +417,9 @@ main {
   }
   .test .accordion{
     max-width: 340px;
+  }
+  .toggle-link-wrapper {
+    padding-top:0px;
   }
 
 }

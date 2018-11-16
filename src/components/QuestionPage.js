@@ -65,7 +65,7 @@ class Question extends Component {
                     to="/fyllidinasvarsnabb"
                   >
                   <ToggleQuestionView
-                    toggleBooleon={false}
+                    toggleBooleon={true}
                   />
                   </Link>
                   </div>
@@ -125,16 +125,18 @@ class Question extends Component {
 
         <div className="btn-wrapper">
           <div className="btn-prev-div">
-            <Link to="/sefilmen">Tillbaka</Link>
+            <Link to="/introduktion">Tillbaka</Link>
           </div>
-
-          <BtnSubmitTest
-            filledInAllAnswers={this.props.filledInAllAnswers}
-            passedTest={this.props.passedTest}
-            sumAllAnswers={this.props.sumAllAnswers}
-          />
+            
+            <div className="btn-center-wrapper">
+              <BtnSubmitTest
+                filledInAllAnswers={this.props.filledInAllAnswers}
+                passedTest={this.props.passedTest}
+                sumAllAnswers={this.props.sumAllAnswers}
+              />
+          </div>
+          </div>
         </div>
-      </div>
     );
   }
 }

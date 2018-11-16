@@ -70,7 +70,9 @@ class App extends Component {
     });
 
     this.setState({ totalPoints: sum });
-    return <Redirect to="/resultat" from="/" />;
+    
+    //användaren har tryckt på lämna in svar och totalpoängen har beräknats
+    //då ska användaren skickas till resultatsidan, Redirect?
   };
 
   setFilledInAllAnswers = () => {

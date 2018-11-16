@@ -17,9 +17,6 @@ class VideoPage extends Component {
       <div className="video-wrapper">
         <div className="white-background">
           <main>
-            <div className="video-div">
-              <img src={VideoImage} alt="" />
-            </div>
           </main>
         </div>
 
