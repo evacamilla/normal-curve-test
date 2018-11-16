@@ -134,7 +134,6 @@ li {
   font-size: 0.8em;
 }
 
-
 header {
   height: 60px;
   background: white;
@@ -186,35 +185,44 @@ main {
 }
 
 /****INTRODUCTION****/
-.introduction-wrapper {
-  p {
-  }
-  .blue-background {
-    background: $activeColor;
-    border-radius: 4px;
-    padding: 1rem;
+.instructions-wrapper {
+  margin-top: 1rem;
+  display: flex;
+  .instructions-text {
+    p {
+    }
   }
   .pdf-wrapper {
-    width: 60px;
-    a {
-      font-size: 0.7rem;
-    }
+    margin-left: auto;
+    margin-top: auto;
+  }
+}
+
+.blue-background {
+  background: $activeColor;
+  border-radius: 4px;
+  padding: 1rem;
+}
+.pdf-wrapper {
+  width: 60px;
+  a {
+    font-size: 0.7rem;
   }
 }
 
 /**Video.js**/
-  .video-div {
-    img {
-      width: 100%;
-    }
+.video-div {
+  img {
+    width: 100%;
   }
+}
 
-  .video-fixed {
-    position: fixed;
-    z-index: 1;
-  }
+.video-fixed {
+  position: fixed;
+  z-index: 1;
+}
 
-.question-wrapper{
+.question-wrapper {
   .answer-alternative-li {
     &:hover {
       transform: scale(1.03);
@@ -227,50 +235,50 @@ main {
       background: $activeColor;
       color: white;
     }
-}
+  }
 }
 /****QUESTION*****/
 //ska va nästlat i en klass
-  h1 {
-    font-size: 1.2rem;
+h1 {
+  font-size: 1.2rem;
+}
+.one-question {
+  margin-bottom: 1em;
+  p {
+    font-size: 0.8rem;
   }
-  .one-question {
-    margin-bottom: 1em;
+}
+.answer-alternative-li {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(8, 1fr);
+  padding: 5px;
+  .answer-alternative-circle {
+    grid-column: 1 / 2;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    border: 2px solid $greyBackground;
+    font-size: 16px;
+  }
+  .answer-alternative-text {
+    grid-column: 2 / 8;
+    height: 50px;
+    position: relative;
+    margin-left: 0.5rem;
     p {
-      font-size: 0.8rem;
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      font-size: 11px;
     }
   }
-  .answer-alternative-li {
-    display: grid;
-    grid-gap: 5px;
-    grid-template-columns: repeat(8, 1fr);
-    padding: 5px;
-    .answer-alternative-circle {
-      grid-column: 1 / 2;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      text-align: center;
-      line-height: 40px;
-      border: 2px solid $greyBackground;
-      font-size: 16px;
-    }
-    .answer-alternative-text {
-      grid-column: 2 / 8;
-      height: 50px;
-      position: relative;
-      margin-left: 0.5rem;
-      p {
-        position: absolute;
-        top: 50%;
-        transform: translate(0, -50%);
-        font-size: 11px;
-      }
-    }
-  }
+}
 
 .toggle-flex {
-  display:flex;
+  display: flex;
 }
 .toggle-link-wrapper {
   margin-left: auto;
@@ -335,7 +343,6 @@ main {
   }
 }
 
-
 /******RESULT******/
 
 .result-wrapper {
@@ -389,7 +396,7 @@ main {
 
 .chosen {
   color: $activeColor;
-  .answer-alternative-circle{
+  .answer-alternative-circle {
     background: $activeColor;
     color: white;
   }
@@ -397,16 +404,16 @@ main {
 
 .normal {
   color: $lightGreen;
-  .answer-alternative-circle{
+  .answer-alternative-circle {
     background: $lightGreen;
     color: white;
   }
 }
 
-
 @media (min-width: 860px) {
-  .white-background, nav, .btn-wrapper {
-    width: 90%
+  .white-background,
+  nav {
+    width: 90%;
   }
   .flex-wrapper {
     display: flex;
@@ -415,7 +422,7 @@ main {
   .video-div {
     width: 60%;
   }
-  .test .accordion{
+  .test .accordion {
     max-width: 340px;
   }
   .toggle-link-wrapper {
