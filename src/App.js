@@ -39,11 +39,7 @@ class App extends Component {
     if(this.state.allAnswers.length >= 10){
       this.setFilledInAllAnswers();
     }
-    else if (this.state.filledInAllAnswers || this.state.questionIndex == 10) {
-      null;
-    } else {
       this.handleIncrement();
-    }
   };
 
   handleIncrement() {
@@ -52,6 +48,7 @@ class App extends Component {
     }));
   }
 
+  //curently not using this function.. ta bort?
   changeChapter = chapterName => {
     //this is for only setting state once
     if (chapterName === this.state.chapter) {

@@ -6,7 +6,7 @@ function QuestionAccordion(props) {
     return (  
       <div className="accordion">
       <div onClick={props.hideQuestion}>
-        <h1 id={props.id}>{props.number + ". " + props.heading}</h1>
+        <h3 id={props.id}>{props.number + ". " + props.heading}</h3>
       </div>
 
         <div className="one-question">
@@ -42,7 +42,7 @@ function QuestionAccordion(props) {
   } else {
     return (  
       <div onClick={props.handleClick} id={props.id} className="accordion">
-        <h1 id={props.id}>{props.number + ". " + props.heading}</h1>
+        <h3 id={props.id}>{props.number + ". " + props.heading}</h3>
       </div>
     );
   }

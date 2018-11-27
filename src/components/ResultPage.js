@@ -73,20 +73,14 @@ class ResultPage extends Component {
                   </div>
                 ) : (
                   //if user did not pass
-                  //ska vara switch-länk till /introduktion ist för button?
                   <div>
                     <p>Du är inte godkänd</p>
-                    <Button
-                      text={'Gör om kursen'}
-                      onClick={this.answersOverview}
-                      className={'big-btn'}
-                    />
                   </div>
                 )}
               </div>
             ) : (
               //if user didnt fill out all the answers(came in to page with URL, deny access?)
-              //ska vara switch-länk till /introduktion ist för button?
+              //länk tillbaka till kursen
               <div>
                 Du måste göra klart kursen för att kunna se dina resultat
               </div>

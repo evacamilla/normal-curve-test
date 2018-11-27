@@ -76,7 +76,7 @@ class Question extends Component {
                       return (  
                         <div className="accordion" key={i}>
                           <div onClick={this.props.hideQuestion}>
-                            <h1 id={i}>{question.number + ". " + question.heading}</h1>
+                            <h3 id={i}>{question.number + ". " + question.heading}</h3>
                           </div>
                     
                           <div className="one-question">
@@ -110,7 +110,7 @@ class Question extends Component {
                   } else {
                     return (  
                       <div onClick={this.props.setQuestion} key={i} id={i} className="accordion">
-                        <h1 id={i}>{question.number + ". " + question.heading}</h1>
+                        <h3 id={i}>{question.number + ". " + question.heading}</h3>
                       </div>
                     );
                   }
