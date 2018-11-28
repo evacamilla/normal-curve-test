@@ -406,22 +406,22 @@ main {
 }
 
 @media (min-width: 860px) {
-  .white-background,
-  nav {
+  .white-background{
     width: 90%;
   }
   .flex-wrapper {
     display: flex;
     justify-content: space-between;
   }
+  //px parameter should depend on accordion width
   .video-div {
-    width: 60%;
+    width: calc(100% - 360px);
   }
   .test .accordion {
     max-width: 360px;
+    margin-left: 10px;
   }
   .toggle-link-wrapper {
     padding-top:0px;
   }
-
 }
