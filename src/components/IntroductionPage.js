@@ -42,12 +42,14 @@ function IntroductionPage() {
         
       </div>
       
-      <div className="btn-center-wrapper">
-          <NavLink to="/fyllidinasvar">
-            <div className="btn btn-next">
-              Starta
-            </div>
-          </NavLink>
+      <div class="btn-wrapper">
+        <div className="btn-center-wrapper">
+            <NavLink to="/fyllidinasvar">
+              <div className="btn btn-next">
+                Starta
+              </div>
+            </NavLink>
+        </div>
       </div>
     </div>
   );

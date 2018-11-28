@@ -58,7 +58,6 @@ class Question extends Component {
                 <Video />
                 
               <div className="test">
-
               <div className="toggle-flex">
                 <div className="toggle-link-wrapper">
                   <Link
@@ -76,7 +75,7 @@ class Question extends Component {
                       return (  
                         <div className="accordion" key={i}>
                           <div onClick={this.props.hideQuestion}>
-                            <h3 id={i}>{question.number + ". " + question.heading}</h3>
+                            <h1 class="accordion-heading" id={i}>{question.number + ". " + question.heading}</h1>
                           </div>
                     
                           <div className="one-question">
@@ -110,7 +109,7 @@ class Question extends Component {
                   } else {
                     return (  
                       <div onClick={this.props.setQuestion} key={i} id={i} className="accordion">
-                        <h3 id={i}>{question.number + ". " + question.heading}</h3>
+                        <h1 class="accordion-heading" id={i}>{question.number + ". " + question.heading}</h1>
                       </div>
                     );
                   }

@@ -7,7 +7,7 @@ function ResultAccordion(props) {
     return (  
         <div key={props.i} id={props.i} className="accordion">
             <div onClick={props.hideQuestion}>
-                <h3 id={props.i}>{props.number + ". " + props.heading}</h3>
+                <h3 class="accordion-heading" id={props.i}>{props.number + ". " + props.heading}</h3>
             </div>
 
             <div className="one-question">
@@ -41,7 +41,7 @@ function ResultAccordion(props) {
     console.log('andra');
     return (  
         <div onClick={props.setQuestion} id={props.i} key={props.i} className="accordion result-accordion">
-          <h3 id={props.i}>{props.number + ". " + props.heading}</h3>
+          <h3 class="accordion-heading" id={props.i}>{props.number + ". " + props.heading}</h3>
           <div id={props.i} className="result-number-div">
             <span className="chosen-answer">{props.chosenAnswer}</span> | <span className="normal-answer">3</span>
           </div>
