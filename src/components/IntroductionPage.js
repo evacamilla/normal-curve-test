@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Button from './Button.js';
 import pdfIcon from '../images/pdf.svg';
 import { NavLink } from 'react-router-dom';
 

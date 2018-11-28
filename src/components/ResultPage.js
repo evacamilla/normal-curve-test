@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Button from './Button.js';
 import ResultAccordion from './ResultAccordion.js';
 
 class ResultPage extends Component {

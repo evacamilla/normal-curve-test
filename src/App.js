@@ -5,13 +5,12 @@ import IntroductionPage from './components/IntroductionPage.js';
 import QuestionPage from './components/QuestionPage.js';
 import QuickQuestion from './components/QuickQuestion.js';
 import ResultPage from './components/ResultPage.js';
-import VideoPage from './components/VideoPage.js';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 class App extends Component {
   state = {
     chapter: 'Introduktion',
-    filledInAllAnswers: true,
+    filledInAllAnswers: false,
     passedTest: true,
     allAnswers: [],
     totalPoints: 0,
@@ -101,14 +100,6 @@ class App extends Component {
             path="/introduktion"
             component={props => (
               <IntroductionPage />
-            )}
-          />
-          <Route
-            exact
-            path="/sefilmen"
-            component={props => (
-              <VideoPage {...props} 
-              {...this} {...this.state} changeChapter={this.changeChapter} />
             )}
           />
           <Route

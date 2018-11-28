@@ -5,7 +5,6 @@ function Header(props) {
   return (
     <header>
     <Menu
-      //changeChapter={this.changeChapter}
     />
     </header>
   );
