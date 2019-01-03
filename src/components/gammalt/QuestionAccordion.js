@@ -46,7 +46,6 @@ function QuestionAccordion(props) {
       </div>
     );
   }
-  
 
 }
 

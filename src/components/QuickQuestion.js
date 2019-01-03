@@ -20,10 +20,6 @@ class QuickQuestion extends Component {
     this.props.allaFragor[this.state.questionIndex].chosenAnswer =
       event.target.value;
     //this.props.allAnswers[this.state.questionIndex] = event.target.value;
-
-    if (this.props.allAnswers.length >= 10) {
-      this.setFilledInAllAnswers();
-    }
   };
 
   render() {
@@ -39,26 +35,22 @@ class QuickQuestion extends Component {
     return (
       <div className="question-wrapper">
         <div className="white-background">
-          {this.state.questionIndex}
-
           <main>
             <div className="flex-wrapper">
               <Video />
 
-              <div className="test">
-              
-              
-              <div className="toggle-flex">
-                <div className="toggle-link-wrapper">
-                  <Link
-                    to="/fyllidinasvar"
-                  >
-                  <ToggleQuestionView
-                    toggleBooleon={false}
-                  />
-                  </Link>
+              <div>
+                <div className="toggle-flex">
+                  <div className="toggle-link-wrapper">
+                    <Link
+                      to="/fyllidinasvar"
+                    >
+                    <ToggleQuestionView
+                      toggleBooleon={false}
+                    />
+                    </Link>
+                    </div>
                   </div>
-                </div>
 
                 <form onChange={this.temporaryAnswerQuick}>
                   {this.props.allaFragor.map((question, i) => {
@@ -86,8 +78,8 @@ class QuickQuestion extends Component {
 
           <div className="btn-center-wrapper">
             <BtnSubmitTest
-              filledInAllAnswers={this.state.filledInAllAnswers}
-              passedTest={this.state.passedTest}
+              filledInAllAnswers={this.props.filledInAllAnswers}
+              passedTest={this.props.passedTest}
               sumAllAnswers={this.props.sumAllAnswers}
             />
           </div>

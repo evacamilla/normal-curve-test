@@ -1,19 +1,13 @@
 import React, { Component } from 'react';
-import ResultAccordion from './ResultAccordion.js';
+import ResultAccordion from '../components/ResultAccordion.js';
 
 class ResultPage extends Component {
   state = {
-    chapter: 'Resultat',
     questionIndex: null
   };
 
-  componentDidMount = () => {
-    this.props.changeChapter(this.state.chapter);
-  };
-
-  setQuestion = event => {
+  setQuestionIndex = event => {
     let i = parseInt(event.target.id, 10);
-    console.log(i);
 
     this.setState({ questionIndex: i });
   };
@@ -31,7 +25,6 @@ class ResultPage extends Component {
               //if user filled out all the answers
 
               <div>
-                {this.props.totalPoints}
                 {this.props.passedTest ? (
                   //if user did pass the test
                   <div>
@@ -52,7 +45,15 @@ class ResultPage extends Component {
                       eller lika med 2 mer eller mindre än normalvärdet.
                     </p>
 
+                    <hr className="divider" />
+
                     <h2>Jämför dina resultat</h2>
+
+                    <div className="color-description">
+                      <p>Blå siffra = din skattning</p>
+                      <p>Grön siffra = normalvärdet</p>
+                    </div>
+
                     {this.props.allaFragor.map((question, i) => {
                       return (
                         <ResultAccordion
@@ -62,7 +63,7 @@ class ResultPage extends Component {
                           questionIndex={this.state.questionIndex}
                           key={i}
                           i={i}
-                          setQuestion={this.setQuestion}
+                          setQuestionIndex={this.setQuestionIndex}
                           question={question.question}
                           number={question.number}
                           heading={question.heading}
@@ -71,20 +72,21 @@ class ResultPage extends Component {
                     })}
                   </div>
                 ) : (
-                  //if user did not pass
-                  <div>
-                    <p>Du är inte godkänd</p>
-                  </div>
-                )}
+                    //if user did not pass
+                    <div>
+                      <p>Du är inte godkänd</p>
+                    </div>
+                  )}
               </div>
             ) : (
-              //if user didnt fill out all the answers(came in to page with URL, deny access?)
-              //länk tillbaka till kursen
-              <div>
-                Du måste göra klart kursen för att kunna se dina resultat
+                //if user didnt fill out all the answers(came in to page with URL, deny access?)
+                //länk tillbaka till kursen
+                <div>
+                  Du måste göra klart kursen för att kunna se dina resultat
               </div>
-            )}
+              )}
           </main>
+          <div className="pink-circle"></div>
         </div>
       </div>
     );

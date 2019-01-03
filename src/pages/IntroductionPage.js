@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import pdfIcon from '../images/pdf.svg';
+import introImg from '../images/intro_img.svg.png';
 import { NavLink } from 'react-router-dom';
 
 function IntroductionPage() {
@@ -18,16 +19,23 @@ function IntroductionPage() {
               målgruppen eller ej?
               <br />
             </p>
+
+
+            <div className="img-wrapper">
+              <img className="intro-img" src={introImg} />
+            </div>
           </div>
+
+          <hr />
 
           <div className="instructions-wrapper">
             <div className="instructions-text">
               <h2>Instruktioner</h2>
               <p>
-                användaren ska skriva ut pdf
+                Användaren ska skriva ut pdf
                 <br />
-                video kommer visas <br />
-                användaren ska under tiden fylla i frågorna i sitt papper.
+                Video kommer visas <br />
+                Användaren ska under tiden fylla i frågorna i sitt papper.
                 <br />
               </p>
             </div>
@@ -37,17 +45,19 @@ function IntroductionPage() {
               <a href="#">Skriv ut pdf</a>
             </div>
           </div>
+
         </main>
-        
+
+        <div className="pink-circle"></div>
       </div>
-      
-      <div class="btn-wrapper">
+
+      <div className="btn-wrapper">
         <div className="btn-center-wrapper">
-            <NavLink to="/fyllidinasvar">
-              <div className="btn btn-next">
-                Starta
-              </div>
-            </NavLink>
+          <NavLink to="/fyllidinasvar">
+            <div className="btn btn-next">
+              Starta
+            </div>
+          </NavLink>
         </div>
       </div>
     </div>

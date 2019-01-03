@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import './App.scss';
 import Header from './components/Header.js';
-import IntroductionPage from './components/IntroductionPage.js';
-import QuestionPage from './components/QuestionPage.js';
+import IntroductionPage from './pages/IntroductionPage.js';
+import QuestionPage from './pages/QuestionPage.js';
 import QuickQuestion from './components/QuickQuestion.js';
-import ResultPage from './components/ResultPage.js';
+import ResultPage from './pages/ResultPage.js';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 class App extends Component {
   state = {
-    chapter: 'Introduktion',
-    filledInAllAnswers: false,
+    filledInAllAnswers: true,
     passedTest: true,
     allAnswers: [],
     totalPoints: 0,
@@ -18,7 +17,8 @@ class App extends Component {
     questionIndex: null
   };
 
-  setQuestion = event => {
+  
+  setQuestionIndex = event => {
     let i = parseInt(event.target.id);
 
     this.setState({ questionIndex: i });
@@ -46,16 +46,6 @@ class App extends Component {
       questionIndex: prevState.questionIndex + 1
     }));
   }
-
-  //curently not using this function.. ta bort?
-  changeChapter = chapterName => {
-    //this is for only setting state once
-    if (chapterName === this.state.chapter) {
-      return;
-    } else {
-      this.setState({ chapter: chapterName });
-    }
-  };
 
   sumAllAnswers = () => {
     let sum = 0;
@@ -86,7 +76,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header chapter={this.state.chapter} />
+        <Header />
         <Switch>
           <Route
             exact
