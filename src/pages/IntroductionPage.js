@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import pdfIcon from '../images/pdf.svg';
 import introImg from '../images/intro_img.svg.png';
 import { NavLink } from 'react-router-dom';

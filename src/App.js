@@ -5,7 +5,7 @@ import IntroductionPage from './pages/IntroductionPage.js';
 import QuestionPage from './pages/QuestionPage.js';
 import QuickQuestion from './components/QuickQuestion.js';
 import ResultPage from './pages/ResultPage.js';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 class App extends Component {
   state = {

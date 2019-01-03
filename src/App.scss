@@ -51,6 +51,8 @@ p {
   line-height: 120%;
   text-align: left;
   max-width: 65ch;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 /*
 Paragraph = 
@@ -74,16 +76,16 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Verdana, Tahoma, sans-serif;
 }
 
 h1 {
-  font-size: 1.6em;
-  margin: 0.5em 0;
+  font-size: 1.25rem;
+  margin: 1em 0;
 }
 
 h2 {
-  font-size: 1.4em;
+  font-size: 1.15384615rem;
   margin: 0.5em 0;
 }
 
@@ -135,10 +137,12 @@ li {
   background-color: #e1056d;
   background-size: cover;
   font-family: Verdana;
-  font-size: 0.8em;
+  font-size: 0.8rem;
   font-weight: 400;
   line-height: 11px;
+  letter-spacing: 1px;
   filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.2));
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
   cursor: pointer;
   padding: 15px;
   background: $mainPink;
@@ -151,11 +155,12 @@ li {
   background: grey;
 }
 
+
+
 /*General design for accordion in Question.js and Result.j*/
 .accordion {
   cursor: pointer;
   border: 2px solid $greyBackground;
-  padding: 20px;
   margin-bottom: 1em;
   border-radius: 4px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -171,6 +176,7 @@ li {
   @extend .accordion;
   display: flex;
   justify-content: space-between;
+  padding: 20px;
   .accordion-heading {
     margin: 0px;
   }
@@ -186,11 +192,8 @@ li {
   @extend .accordion;
   padding: 0 15px 20px 15px;
   .accordion-heading{
-    font-size: 1.1em;
-    padding: 0.7em 0 0.2em 0;
-  }
-  p {
-    font-size: 0.8rem;
+    padding: 1.3em 0 0.3em 0;
+    margin: 0;
   }
 }
 
@@ -224,7 +227,7 @@ header {
     margin: auto;
     ul {
       li {
-        font-size: 14px;
+        font-size: 1rem;
         display: inline;
         font-family: Verdana, Tahoma, sans-serif;
         text-align: center;
@@ -294,7 +297,7 @@ main {
   padding: 15px 20px;
   margin: auto;
   h2 {
-    font-size: 1.2em;
+    font-size: 1.2rem;
   }
   .pdf-wrapper {
     width: 50px;
@@ -342,6 +345,10 @@ main {
   grid-gap: 5px;
   grid-template-columns: repeat(8, 1fr);
   padding: 5px 0;
+  margin: 0.3em 0;
+  p {
+    margin: 0;
+  }
   .answer-alternative-circle {
     grid-column: 1 / 2;
     width: 40px;
@@ -395,39 +402,6 @@ main {
     //toggle between views
     .animate-toggle-right {
       right: 0;
-    }
-  }
-}
-
-/*****PAGINTION-WRAPPER IN QUESTION******/
-
-.pagination-wrapper {
-  margin: auto;
-  margin-top: 1em;
-  width: 300px;
-  display: flex;
-  justify-content: space-around;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 0.8em;
-  position: relative;
-  .underline {
-    border-bottom: 2px solid red;
-  }
-  li {
-    cursor: pointer;
-    width: 20px;
-    height: 20px;
-    border: 1px solid $activeColor;
-    color: $activeColor;
-    position: relative;
-    border-radius: 50%;
-    margin-bottom: 5px;
-    .number-div {
-      position: absolute;
-      text-align: center;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
     }
   }
 }
