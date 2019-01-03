@@ -16,6 +16,15 @@ $lightGrey: #e0ded9;
 $mediumGrey: #a79d96;
 $darkGrey: #685c53;
 
+
+//screen sizes
+$xsmall: "min-width: 480px";
+$small: "min-width: 640px";
+$medium: "min-width: 768px";
+//860?
+$large: "min-width: 1024px";
+$xlarge: "min-width: 1440px";
+
 /*** Rules ***/
 /*
 På webben använder vi Georgia, Frutiger (inte
@@ -66,11 +75,16 @@ h2,
 h3,
 h4 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  margin-bottom: 0.8rem;
 }
 
 h1 {
-  font-size: 1.2rem;
+  font-size: 1.6em;
+  margin: 0.5em 0;
+}
+
+h2 {
+  font-size: 1.4em;
+  margin: 0.5em 0;
 }
 
 a {
@@ -86,9 +100,25 @@ li {
   list-style: none;
 }
 
+.divider {
+  background: $lightGrey;
+  height: 2px;
+  margin: 20px 0;
+}
+
+.pink-circle {
+  background: $mainPink;
+  border-radius: 50px 0px 0px 0px;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
 /*** BUTTONS ***/
 .btn-wrapper {
-  padding: 20px;
+  padding: 30px 20px;
   width: 90%;
   margin: auto;
 }
@@ -99,50 +129,98 @@ li {
 }
 
 .btn {
-  padding: 0px 10px;
+  text-transform: uppercase;
   border: 1px solid transparent;
   border-radius: 4px;
   background-color: #e1056d;
   background-size: cover;
   font-family: Verdana;
-  font-size: 11px;
+  font-size: 0.8em;
   font-weight: 400;
   line-height: 11px;
   filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.2));
   cursor: pointer;
-  padding: 10px;
+  padding: 15px;
   background: $mainPink;
   color: white;
 }
 
 .btn-disabled {
   display: disabled;
-  color: pink;
-  background: black;
+  color: black;
+  background: grey;
 }
 
 /*General design for accordion in Question.js and Result.j*/
 .accordion {
-  .accordion-heading{
-    font-size: 0.9rem;
-  }
   cursor: pointer;
   border: 2px solid $greyBackground;
-  position: relative;
-  padding: 0.5em;
+  padding: 20px;
   margin-bottom: 1em;
   border-radius: 4px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  .accordion-heading{
+    font-size: 0.9rem;
+    overflow-wrap: break-word;
+    @media (#{$small}){
+      font-size: 1.1rem;
+    }
+  }
+}
+.accordion-small {
+  @extend .accordion;
+  display: flex;
+  justify-content: space-between;
+  .accordion-heading {
+    margin: 0px;
+  }
+  .result-number-div {
+    white-space: nowrap;
+  }
+  .chosen-answer {
+    color: $activeColor;
+  }
+}
+
+.accordion-full {
+  @extend .accordion;
+  padding: 0 15px 20px 15px;
+  .accordion-heading{
+    font-size: 1.1em;
+    padding: 0.7em 0 0.2em 0;
+  }
+  p {
+    font-size: 0.8rem;
+  }
+}
+
+.normal-answer {
+  color: $lightGreen;
+}
+
+.chosen {
+  color: $activeColor;
+  .answer-alternative-circle {
+    background: $activeColor;
+    color: white;
+  }
+}
+
+.normal {
+  color: $lightGreen;
+  .answer-alternative-circle {
+    background: $lightGreen;
+    color: white;
+  }
 }
 
 header {
-  height: 60px;
+  padding: 20px 0;
   background: white;
   border-bottom: 6px solid $mainPink;
   margin: auto;
-  line-height: 60px;
   nav {
-    width: 300px;
+    width: 90%;
     margin: auto;
     ul {
       li {
@@ -178,6 +256,7 @@ header {
   background: white;
   margin: auto;
   margin-top: 20px !important;
+  position: relative;
 }
 
 main {
@@ -186,25 +265,43 @@ main {
 }
 
 /****INTRODUCTION****/
-.instructions-wrapper {
-  margin-top: 1rem;
-  display: flex;
-  .pdf-wrapper {
-    margin-left: auto;
-    margin-top: auto;
+.introduction-wrapper {
+  .white-background {
+    overflow: auto;
+    padding-bottom: 2em;
+  }
+  .blue-background {
+    background: rgba(0,170,239, .15);
+    border-radius: 4px;
+    padding: 15px 20px;
+    margin: auto;
+  }
+  .img-wrapper {
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+    img {
+      width: 100%;
+    }
+  }
+  .btn-wrapper {
+    clear: both;
   }
 }
 
-.blue-background {
-  background: rgba(0,170,239, .15);
-  border-radius: 4px;
-  padding: 1rem;
-  width: fit-content;
-}
-.pdf-wrapper {
-  width: 60px;
-  a {
-    font-size: 0.7rem;
+.instructions-wrapper {
+  margin-top: 1rem;
+  padding: 15px 20px;
+  margin: auto;
+  h2 {
+    font-size: 1.2em;
+  }
+  .pdf-wrapper {
+    width: 50px;
+    margin: 10px;
+    a {
+      font-size: 0.7rem;
+    }
   }
 }
 
@@ -234,20 +331,17 @@ main {
       color: white;
     }
   }
+  .question-answers {
+    margin-top: 30px;
+  }
 }
 /****QUESTION*****/
 //ska va nästlat i en klass
-.one-question {
-  margin-bottom: 1em;
-  p {
-    font-size: 0.8rem;
-  }
-}
 .answer-alternative-li {
   display: grid;
   grid-gap: 5px;
   grid-template-columns: repeat(8, 1fr);
-  padding: 5px;
+  padding: 5px 0;
   .answer-alternative-circle {
     grid-column: 1 / 2;
     width: 40px;
@@ -341,11 +435,8 @@ main {
 /******RESULT******/
 
 .result-wrapper {
-  h1 {
+  h1, h2 {
     text-align: center;
-  }
-  p {
-    font-size: 0.8rem;
   }
   .graph-div {
     width: 100%;
@@ -360,50 +451,13 @@ main {
       margin: auto;
     }
   }
-  .result-accordion {
-    border: 2px solid $greyBackground;
-    height: 40px;
-    h3 {
-      display: inline;
-      position: absolute;
-      top: 50%;
-      transform: translate(0, -50%);
-      max-width: 70%;
-    }
-    .result-number-div {
-      display: inline;
-      position: absolute;
-      right: 0.5em;
-      top: 50%;
-      transform: translate(0, -50%);
-      font-size: 1.1rem;
-    }
+  .color-description {
+    width: fit-content;
+    margin: auto;
+    margin-bottom: 20px;
   }
 }
 
-.chosen-answer {
-  color: $activeColor;
-}
-
-.normal-answer {
-  color: $lightGreen;
-}
-
-.chosen {
-  color: $activeColor;
-  .answer-alternative-circle {
-    background: $activeColor;
-    color: white;
-  }
-}
-
-.normal {
-  color: $lightGreen;
-  .answer-alternative-circle {
-    background: $lightGreen;
-    color: white;
-  }
-}
 
 @media (min-width: 860px) {
   .white-background{
@@ -417,9 +471,9 @@ main {
   .video-div {
     width: calc(100% - 360px);
   }
-  .test .accordion {
+  .accordion-wrapper {
     max-width: 360px;
-    margin-left: 10px;
+    margin-left: 20px;
   }
   .toggle-link-wrapper {
     padding-top:0px;
