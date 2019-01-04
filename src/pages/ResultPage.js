@@ -27,55 +27,58 @@ class ResultPage extends Component {
               <div>
                 {this.props.passedTest ? (
                   //if user did pass the test
-                  <div>
-                    <h1>Total {this.props.totalPoints}</h1>
-                    <div className="graph-div">
-                      <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Standard_deviation_diagram.svg/400px-Standard_deviation_diagram.svg.png"
-                        alt="ditt resultat visat i en normalfördelningskurva"
-                      />
-                      <p>
-                        Ovan ser du dina resultat jämfört med normalvärdet av
+                  <div className="flex-wrapper">
+                    <div className="flex-left">
+                      <h1>Rubrik</h1>
+                      <div className="graph-div">
+                        <img
+                          src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Standard_deviation_diagram.svg/400px-Standard_deviation_diagram.svg.png"
+                          alt="ditt resultat visat i en normalfördelningskurva"
+                        />
+                        <p>
+                          Ovan ser du dina resultat jämfört med normalvärdet av
                         vad andra skattat.
                       </p>
-                    </div>
+                      </div>
 
-                    <p>
-                      För att bli godkäns krävs att du har en diff på mindre
+                      <p>
+                        För att bli godkäns krävs att du har en diff på mindre
                       eller lika med 2 mer eller mindre än normalvärdet.
                     </p>
 
-                    <hr className="divider" />
+                      <hr className="divider" />
+                      <h2>Jämför dina resultat</h2>
 
-                    <h2>Jämför dina resultat</h2>
-
-                    <div className="color-description-wrapper">
-                      <div className="color-description-div">
-                        <div className="small-circle"></div>
-                        <p>Blå siffra = din skattning</p>
-                      </div>
-                      <div className="color-description-div">
-                        <div className="small-circle-green"></div>
-                        <p>Grön siffra = normalvärdet</p>
+                      <div className="color-description-wrapper">
+                        <div className="color-description-div">
+                          <div className="small-circle"></div>
+                          <p>Blå siffra = din skattning</p>
+                        </div>
+                        <div className="color-description-div">
+                          <div className="small-circle-green"></div>
+                          <p>Grön siffra = normalvärdet</p>
+                        </div>
                       </div>
                     </div>
 
-                    {this.props.allaFragor.map((question, i) => {
-                      return (
-                        <ResultAccordion
-                          hideQuestion={this.hideQuestion}
-                          allaFragor={this.props.allaFragor}
-                          chosenAnswer={question.chosenAnswer}
-                          questionIndex={this.state.questionIndex}
-                          key={i}
-                          i={i}
-                          setQuestionIndex={this.setQuestionIndex}
-                          question={question.question}
-                          number={question.number}
-                          heading={question.heading}
-                        />
-                      );
-                    })}
+                    <div className="flex-right">
+                      {this.props.questions.map((question, i) => {
+                        return (
+                          <ResultAccordion
+                            hideQuestion={this.hideQuestion}
+                            questions={this.props.questions}
+                            chosenAnswer={question.chosenAnswer}
+                            questionIndex={this.state.questionIndex}
+                            key={i}
+                            i={i}
+                            setQuestionIndex={this.setQuestionIndex}
+                            question={question.question}
+                            number={question.number}
+                            heading={question.heading}
+                          />
+                        );
+                      })}
+                    </div>
                   </div>
                 ) : (
                     //if user did not pass

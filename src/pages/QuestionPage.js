@@ -18,9 +18,11 @@ class Question extends Component {
           <main>
 
             <div className="flex-wrapper">
-              <Video />
-
-              <div className="accordion-wrapper">
+              <div className="flex-left">
+                <Video />
+              </div>
+              
+              <div className="flex-right">
                 <div className="toggle-flex">
                   <div className="toggle-link-wrapper">
                     <Link
@@ -33,7 +35,7 @@ class Question extends Component {
                   </div>
                 </div>
 
-                {this.props.allaFragor.map((question, i) => {
+                {this.props.questions.map((question, i) => {
                   if (this.props.questionIndex == i) {
                     return (
                       <div className="accordion-full" key={i}>

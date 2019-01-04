@@ -13,7 +13,7 @@ class App extends Component {
     passedTest: true,
     allAnswers: [],
     totalPoints: 0,
-    allaFragor: allaFragor,
+    questions: questions,
     questionIndex: null
   };
 
@@ -29,8 +29,7 @@ class App extends Component {
   }
 
   temporaryAnswer = event => {
-    //Store chosen answer(event.target.id) in an allaFragor.chosenAnswer in App.js state using question index as key value
-    this.state.allaFragor[this.state.questionIndex].chosenAnswer =
+    this.state.questions[this.state.questionIndex].chosenAnswer =
       event.target.id;
 
     this.state.allAnswers[this.state.questionIndex] = event.target.id;
@@ -131,7 +130,7 @@ class App extends Component {
   }
 }
 
-let allaFragor = [
+let questions = [
   {
     number: 1,
     heading: 'Sänkt Grundstämning',

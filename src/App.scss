@@ -168,7 +168,7 @@ li {
     font-size: 0.9rem;
     overflow-wrap: break-word;
     @media (#{$small}){
-      font-size: 1.1rem;
+      font-size: 1rem;
     }
   }
 }
@@ -190,9 +190,10 @@ li {
 
 .accordion-full {
   @extend .accordion;
-  padding: 0 15px 20px 15px;
+  padding: 0 8% 6% 8%;
   .accordion-heading{
     padding: 1.3em 0 0.3em 0;
+    padding: 10% 0 0 0;
     margin: 0;
   }
 }
@@ -254,12 +255,15 @@ header {
 }
 
 .white-background {
-  width: 90%;
   border-radius: 4px;
   background: white;
   margin: auto;
-  margin-top: 20px !important;
   position: relative;
+
+  @media (#{$small}){
+    width: 90%;
+    margin-top: 20px !important;
+  }
 }
 
 main {
@@ -309,7 +313,7 @@ main {
 }
 
 /**Video.js**/
-.video-div {
+.video-wrapper {
   img {
     width: 100%;
   }
@@ -418,8 +422,7 @@ main {
     margin: auto;
     margin-bottom: 2em;
     img {
-      width: 70%;
-      margin: auto;
+      width: 100%;
     }
     p {
       font-size: 0.7rem;
@@ -428,7 +431,6 @@ main {
     }
   }
   .color-description-wrapper {
-    margin: auto;
     margin-bottom: 20px;
     width: fit-content;
   }
@@ -452,18 +454,15 @@ main {
 
 
 @media (min-width: 860px) {
-  .white-background{
-    width: 90%;
-  }
   .flex-wrapper {
     display: flex;
     justify-content: space-between;
   }
   //px parameter should depend on accordion width
-  .video-div {
+  .flex-left {
     width: calc(100% - 360px);
   }
-  .accordion-wrapper {
+  .flex-right {
     max-width: 360px;
     margin-left: 20px;
   }

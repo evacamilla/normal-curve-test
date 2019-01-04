@@ -16,8 +16,8 @@ class QuickQuestionsPage extends Component {
   };
 
   temporaryAnswerQuick = event => {
-    //Store chosen answer(event.target.id) in an allaFragor.chosenAnswer in App.js state using question index as key value
-    this.props.allaFragor[this.state.questionIndex].chosenAnswer =
+    //Store chosen answer(event.target.id) in an questions.chosenAnswer in App.js state using question index as key value
+    this.props.questions[this.state.questionIndex].chosenAnswer =
       event.target.value;
     //this.props.allAnswers[this.state.questionIndex] = event.target.value;
   };
@@ -37,7 +37,9 @@ class QuickQuestionsPage extends Component {
         <div className="white-background">
           <main>
             <div className="flex-wrapper">
+            <div className="flex-left">
               <Video />
+            </div>
 
               <div>
                 <div className="toggle-flex">
@@ -53,7 +55,7 @@ class QuickQuestionsPage extends Component {
                   </div>
 
                 <form onChange={this.temporaryAnswerQuick}>
-                  {this.props.allaFragor.map((question, i) => {
+                  {this.props.questions.map((question, i) => {
                     return (
                       <div key={i}>
                         <select id={i} onClick={this.setQuestion}>

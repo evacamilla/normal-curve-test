@@ -15,7 +15,7 @@ function QuestionAccordion(props) {
           </p>
         <div className="question-answers">
           <ul>
-            {props.allaFragor[
+            {props.questions[
               props.questionIndex
             ].answers.map((answer, i) => {
               let specialClassName = '';

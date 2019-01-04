@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 const QuestionsContext = React.createContext();
 
 const QuestionsContextProvider = (props) => {
-    const [questions, setQuestions] = useState(questionsArray);
+    const [questions, setQuestions] = useState(questionsObject);
     const [questionIndex, setQuestionIndex] = useState();
 
     const storeTemporaryAnswer = event => {
@@ -25,7 +25,7 @@ const QuestionsContextConsumer = QuestionsContext.Consumer;
 export { QuestionsContext, QuestionsContextProvider, QuestionsContextConsumer };
 
 //ska hämtas med api
-let questionsArray = [
+let questionsObject = [
     {
         number: 1,
         heading: 'Sänkt Grundstämning',

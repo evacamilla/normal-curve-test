@@ -13,7 +13,7 @@ function ResultAccordion(props) {
                     <div className="one-question">
                         <div className="question-answers">
                             <ul>
-                                {props.allaFragor[props.questionIndex].answers.map((answer, i) => {
+                                {props.questions[props.questionIndex].answers.map((answer, i) => {
                                     let specialClassName = '';
                                     if (props.chosenAnswer == i) {
                                         specialClassName = 'chosen';
