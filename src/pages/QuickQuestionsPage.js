@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import ToggleQuestionView from './ToggleQuestionView';
-import BtnSubmitTest from './BtnSubmitTest';
-import Video from './Video';
+import ToggleQuestionView from '../components/ToggleQuestionView';
+import BtnSubmitTest from '../components/BtnSubmitTest';
+import Video from '../components/Video';
 
-class QuickQuestion extends Component {
+class QuickQuestionsPage extends Component {
   state = {
     questionIndex: null
   };
@@ -89,4 +89,4 @@ class QuickQuestion extends Component {
   }
 }
 
-export default QuickQuestion;
+export default QuickQuestionsPage;

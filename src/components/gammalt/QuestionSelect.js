@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-function DisplayAllQuickQuestion(props) {
+function QuestionSelect(props) {
   return (
     <div>
       <select
@@ -20,4 +20,4 @@ function DisplayAllQuickQuestion(props) {
     </div>
   );
 }
-export default DisplayAllQuickQuestion;
+export default QuestionSelect;

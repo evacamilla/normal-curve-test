@@ -3,7 +3,7 @@ import './App.scss';
 import Header from './components/Header.js';
 import IntroductionPage from './pages/IntroductionPage.js';
 import QuestionPage from './pages/QuestionPage.js';
-import QuickQuestion from './components/QuickQuestion.js';
+import QuickQuestionsPage from './pages/QuickQuestionsPage.js';
 import ResultPage from './pages/ResultPage.js';
 import { Route, Switch } from 'react-router-dom';
 
@@ -17,7 +17,7 @@ class App extends Component {
     questionIndex: null
   };
 
-  
+
   setQuestionIndex = event => {
     let i = parseInt(event.target.id);
 
@@ -25,20 +25,20 @@ class App extends Component {
   };
 
   hideQuestion = () => {
-    this.setState({questionIndex: null});
+    this.setState({ questionIndex: null });
   }
 
   temporaryAnswer = event => {
     //Store chosen answer(event.target.id) in an allaFragor.chosenAnswer in App.js state using question index as key value
     this.state.allaFragor[this.state.questionIndex].chosenAnswer =
       event.target.id;
-      
+
     this.state.allAnswers[this.state.questionIndex] = event.target.id;
 
-    if(this.state.allAnswers.length >= 10){
+    if (this.state.allAnswers.length >= 10) {
       this.setFilledInAllAnswers();
     }
-      this.handleIncrement();
+    this.handleIncrement();
   };
 
   handleIncrement() {
@@ -50,19 +50,19 @@ class App extends Component {
   sumAllAnswers = () => {
     let sum = 0;
 
-    this.state.allAnswers.forEach(function(answer) {
+    this.state.allAnswers.forEach(function (answer) {
       answer = parseInt(answer, 10);
       sum += answer;
     });
 
     this.setState({ totalPoints: sum });
-    
+
     //användaren har tryckt på lämna in svar och totalpoängen har beräknats
     //då ska användaren skickas till resultatsidan, Redirect?
   };
 
   setFilledInAllAnswers = () => {
-      this.setState({ filledInAllAnswers: true });
+    this.setState({ filledInAllAnswers: true });
   }
 
   completeTest = () => {
@@ -78,53 +78,53 @@ class App extends Component {
       <div>
         <Header />
         <Switch>
-          <Route
-            exact
-            path="/"
-            component={props => (
-              <IntroductionPage />
-            )}
-          />
-          <Route
-            exact
-            path="/introduktion"
-            component={props => (
-              <IntroductionPage />
-            )}
-          />
-          <Route
-            exact
-            path="/fyllidinasvar"
-            component={props => (
-              <QuestionPage
-                {...props}
-                {...this}
-                {...this.state}
-              />
-            )}
-          />
-          <Route
-            exact
-            path="/fyllidinasvarsnabb"
-            component={props => (
-              <QuickQuestion
-                {...this}
-                {...this.state}
-              />
-            )}
-          />
-          <Route
-            exact
-            path="/resultat"
-            component={props => (
-              <ResultPage
-                {...props}
-                {...this}
-                {...this.state}
-                changeChapter={this.changeChapter}
-              />
-            )}
-          />
+            <Route
+              exact
+              path="/"
+              component={props => (
+                <IntroductionPage />
+              )}
+            />
+            <Route
+              exact
+              path="/introduktion"
+              component={props => (
+                <IntroductionPage />
+              )}
+            />
+            <Route
+              exact
+              path="/fyllidinasvar"
+              component={props => (
+                <QuestionPage
+                  {...props}
+                  {...this}
+                  {...this.state}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/fyllidinasvarsnabb"
+              component={props => (
+                <QuickQuestionsPage
+                  {...this}
+                  {...this.state}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/resultat"
+              component={props => (
+                <ResultPage
+                  {...props}
+                  {...this}
+                  {...this.state}
+                  changeChapter={this.changeChapter}
+                />
+              )}
+            />
         </Switch>
       </div>
     );
