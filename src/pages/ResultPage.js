@@ -49,9 +49,15 @@ class ResultPage extends Component {
 
                     <h2>Jämför dina resultat</h2>
 
-                    <div className="color-description">
-                      <p>Blå siffra = din skattning</p>
-                      <p>Grön siffra = normalvärdet</p>
+                    <div className="color-description-wrapper">
+                      <div className="color-description-div">
+                        <div className="small-circle"></div>
+                        <p>Blå siffra = din skattning</p>
+                      </div>
+                      <div className="color-description-div">
+                        <div className="small-circle-green"></div>
+                        <p>Grön siffra = normalvärdet</p>
+                      </div>
                     </div>
 
                     {this.props.allaFragor.map((question, i) => {

@@ -338,6 +338,7 @@ main {
     margin-top: 30px;
   }
 }
+
 /****QUESTION*****/
 //ska va nästlat i en klass
 .answer-alternative-li {
@@ -417,18 +418,35 @@ main {
     margin: auto;
     margin-bottom: 2em;
     img {
-      width: 100%;
+      width: 70%;
+      margin: auto;
     }
     p {
       font-size: 0.7rem;
-      width: 80%;
+      width: fit-content;
       margin: auto;
     }
   }
-  .color-description {
-    width: fit-content;
+  .color-description-wrapper {
     margin: auto;
     margin-bottom: 20px;
+    width: fit-content;
+  }
+  .color-description-div {
+    display: flex;
+    align-items: center;
+  }
+  .small-circle {
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    background: $lightBlue;
+    vertical-align: middle;
+    margin-right: 0.5em;
+  }
+  .small-circle-green {
+    @extend .small-circle;
+    background: $lightGreen;
   }
 }
 
