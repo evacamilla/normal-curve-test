@@ -44,6 +44,7 @@ class QuickQuestionsPage extends Component {
               <div>
                 <div className="toggle-flex">
                   <div className="toggle-link-wrapper">
+                  Detaljera vy
                     <Link
                       to="/fyllidinasvar"
                     >

@@ -35,7 +35,9 @@ function IntroductionPage() {
                 Användaren ska skriva ut pdf
                 <br />
                 Video kommer visas <br />
-                Användaren ska under tiden fylla i frågorna i sitt papper.
+                Användaren ska under tiden fylla i frågorna i sitt papper.<br />
+                Därefter fylla i svaren digitalt och få en uträkning. <br/>
+                Alternativt endast digitalt, ingen pdf
                 <br />
               </p>
             </div>

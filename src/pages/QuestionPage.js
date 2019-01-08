@@ -21,10 +21,10 @@ class Question extends Component {
               <div className="flex-left">
                 <Video />
               </div>
-              
               <div className="flex-right">
                 <div className="toggle-flex">
                   <div className="toggle-link-wrapper">
+                    Förenkla vy
                     <Link
                       to="/fyllidinasvarsnabb"
                     >

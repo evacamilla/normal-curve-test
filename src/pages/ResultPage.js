@@ -29,7 +29,7 @@ class ResultPage extends Component {
                   //if user did pass the test
                   <div className="flex-wrapper">
                     <div className="flex-left">
-                      <h1>Rubrik</h1>
+                      <h1>Ditt resultat</h1>
                       <div className="graph-div">
                         <img
                           src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Standard_deviation_diagram.svg/400px-Standard_deviation_diagram.svg.png"
@@ -45,9 +45,12 @@ class ResultPage extends Component {
                         För att bli godkäns krävs att du har en diff på mindre
                       eller lika med 2 mer eller mindre än normalvärdet.
                     </p>
+                    </div>
 
-                      <hr className="divider" />
-                      <h2>Jämför dina resultat</h2>
+                    <hr className="divider" />
+
+                    <div className="flex-right">
+                      <h2>Jämför ditt resultat</h2>
 
                       <div className="color-description-wrapper">
                         <div className="color-description-div">
@@ -59,9 +62,6 @@ class ResultPage extends Component {
                           <p>Grön siffra = normalvärdet</p>
                         </div>
                       </div>
-                    </div>
-
-                    <div className="flex-right">
                       {this.props.questions.map((question, i) => {
                         return (
                           <ResultAccordion
