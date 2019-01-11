@@ -6,6 +6,9 @@ import QuestionPage from './pages/QuestionPage.js';
 import QuickQuestionsPage from './pages/QuickQuestionsPage.js';
 import ResultPage from './pages/ResultPage.js';
 import { Route, Switch } from 'react-router-dom';
+import { QuestionContextProvider } from './context/QuestionContext';
+import { DataContextProvider } from './context/DataContext';
+
 
 class App extends Component {
   state = {
@@ -75,8 +78,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header />
-        <Switch>
+      <DataContextProvider>
+        <QuestionContextProvider>
+          <Header />
+          <Switch>
             <Route
               exact
               path="/"
@@ -124,7 +129,9 @@ class App extends Component {
                 />
               )}
             />
-        </Switch>
+          </Switch>
+        </QuestionContextProvider>
+      </DataContextProvider>
       </div>
     );
   }
