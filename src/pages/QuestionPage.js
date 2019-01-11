@@ -50,19 +50,14 @@ class Question extends Component {
                           <div className="question-answers">
                             <ul>
                               {question.answers.map((answer, i) => {
-                                let specialClassName = '';
-                                if (question.chosenAnswer == i) {
-                                  specialClassName = 'chosen';
-                                } else if (question.normalAnswer == i) {
-                                  specialClassName = 'normal';
-                                }
                                 return (
                                   <AnswerAlternativeListItem
                                     key={i}
                                     id={i}
                                     answer={answer}
                                     temporaryAnswer={this.props.temporaryAnswer}
-                                    specialClassName={specialClassName}
+                                    chosen={question.chosenAnswer == i}
+                                    normal={question.normalAnswer == i}
                                   />
                                 );
                               })}

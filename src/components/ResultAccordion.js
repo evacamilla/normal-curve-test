@@ -6,7 +6,7 @@ function ResultAccordion(props) {
         return (
             <div key={props.i} id={props.i} className="accordion-full">
                 <div onClick={props.hideQuestion}>
-                    <h3 class="accordion-heading" id={props.i}>{props.number + ". " + props.heading}</h3>
+                    <h3 className="accordion-heading" id={props.i}>{props.number + ". " + props.heading}</h3>
                     <p>
                         {props.question}
                     </p>
@@ -14,18 +14,13 @@ function ResultAccordion(props) {
                         <div className="question-answers">
                             <ul>
                                 {props.questions[props.questionIndex].answers.map((answer, i) => {
-                                    let specialClassName = '';
-                                    if (props.chosenAnswer == i) {
-                                        specialClassName = 'chosen';
-                                    } else if (props.normalAnswer == i) {
-                                        specialClassName = 'normal';
-                                    }
                                     return (
                                         <AnswerAlternativeListItem
                                             key={i}
                                             id={i}
                                             answer={answer}
-                                            specialClassName={specialClassName}
+                                            chosen={props.chosenAnswer == i}
+                                            normal={props.normalAnswer == i}
                                         />
                                     );
                                 })}

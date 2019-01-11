@@ -18,19 +18,14 @@ function QuestionAccordion(props) {
             {props.questions[
               props.questionIndex
             ].answers.map((answer, i) => {
-              let specialClassName = '';
-              if(props.chosenAnswer == i){
-                  specialClassName = 'chosen';
-              } else if(props.normalAnswer == i) {
-                      specialClassName = 'normal';
-              }
                   return (
                       <AnswerAlternativeListItem
                       key={i}
                       id={i}
+                      chosen={props.chosenAnswer === i}
+                      normal={props.normalAnswer === i}
                       answer={answer}
                       temporaryAnswer={props.temporaryAnswer}
-                      specialClassName={specialClassName}
                       />
                   );
             })}

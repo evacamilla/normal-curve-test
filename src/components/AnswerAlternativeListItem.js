@@ -1,9 +1,11 @@
 import React from 'react';
 
 function AnswerAlternativeListItem(props) {
+  const classChosen = props.chosen ? "chosen" : "";
+  const classNormal = props.normal ? "mormal" : "";
   return (
     <li
-      className={"answer-alternative-li " + props.specialClassName}
+      className={"answer-alternative-li " + classChosen + " " + classNormal}
       id={props.id}
       onClick={props.temporaryAnswer}
     >
