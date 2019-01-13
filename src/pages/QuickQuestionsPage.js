@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ToggleQuestionView from '../components/ToggleQuestionView';
 import BtnSubmitTest from '../components/BtnSubmitTest';
@@ -10,10 +10,11 @@ const QuickQuestionsPage = props => {
   const setQuestion = event => {
     let i = parseInt(event.target.id, 10);
 
-    this.setState({ questionIndex: i });
+    // this.setState({ questionIndex: i });
+    setQuestionIndex(i);
   };
 
-  const temporaryAnswerQuick = event => {
+  const temporaryAnswerQuick = (event) => {
     //Store chosen answer(event.target.id) in an questions.chosenAnswer in App.js state using question index as key value
     this.props.questions[this.state.questionIndex].chosenAnswer =
       event.target.value;
@@ -53,10 +54,10 @@ const QuickQuestionsPage = props => {
               </div>
 
               <form onChange={this.temporaryAnswerQuick}>
-                {this.props.questions.map((question, i) => {
+                {props.questions.map((question, i) => {
                   return (
                     <div key={i}>
-                      <select id={i} onClick={this.setQuestion}>
+                      <select id={i} onClick={setQuestion}>
                         <option value="" hidden>
                           {question.heading}
                         </option>
@@ -78,9 +79,9 @@ const QuickQuestionsPage = props => {
 
         <div className="btn-center-wrapper">
           <BtnSubmitTest
-            filledInAllAnswers={this.props.filledInAllAnswers}
-            passedTest={this.props.passedTest}
-            sumAllAnswers={this.props.sumAllAnswers}
+            filledInAllAnswers={props.filledInAllAnswers}
+            passedTest={props.passedTest}
+            sumAllAnswers={props.sumAllAnswers}
           />
         </div>
       </div>

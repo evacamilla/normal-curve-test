@@ -8,6 +8,7 @@ const DataContext = React.createContext();
 const DataContextProvider = (props) => {
 
     const getForm = async (formId) => {
+        console.log('getForm, ', form);
         return form;
     }
     const getUser = async (userId) => {
@@ -15,6 +16,10 @@ const DataContextProvider = (props) => {
     }
     const getAnswers = async (formId, userId) => {
         return answers;
+    }
+
+    const updateAnswers = async (userId, formId, answers) => {
+        //
     }
 
     return (

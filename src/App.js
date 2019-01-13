@@ -6,7 +6,6 @@ import QuestionPage from './pages/QuestionPage.js';
 import QuickQuestionsPage from './pages/QuickQuestionsPage.js';
 import ResultPage from './pages/ResultPage.js';
 import { Route, Switch } from 'react-router-dom';
-import { QuestionContextProvider } from './context/QuestionContext';
 import { DataContextProvider } from './context/DataContext';
 
 
@@ -78,60 +77,58 @@ class App extends Component {
   render() {
     return (
       <div>
-      <DataContextProvider>
-        <QuestionContextProvider>
-          <Header />
-          <Switch>
-            <Route
-              exact
-              path="/"
-              component={props => (
-                <IntroductionPage />
-              )}
-            />
-            <Route
-              exact
-              path="/introduktion"
-              component={props => (
-                <IntroductionPage />
-              )}
-            />
-            <Route
-              exact
-              path="/fyllidinasvar"
-              component={props => (
-                <QuestionPage
-                  {...props}
-                  {...this}
-                  {...this.state}
-                />
-              )}
-            />
-            <Route
-              exact
-              path="/fyllidinasvarsnabb"
-              component={props => (
-                <QuickQuestionsPage
-                  {...this}
-                  {...this.state}
-                />
-              )}
-            />
-            <Route
-              exact
-              path="/resultat"
-              component={props => (
-                <ResultPage
-                  {...props}
-                  {...this}
-                  {...this.state}
-                  changeChapter={this.changeChapter}
-                />
-              )}
-            />
-          </Switch>
-        </QuestionContextProvider>
-      </DataContextProvider>
+        <DataContextProvider>
+            <Header />
+            <Switch>
+              <Route
+                exact
+                path="/"
+                component={props => (
+                  <IntroductionPage />
+                )}
+              />
+              <Route
+                exact
+                path="/introduktion"
+                component={props => (
+                  <IntroductionPage />
+                )}
+              />
+              <Route
+                exact
+                path="/fyllidinasvar"
+                component={props => (
+                  <QuestionPage
+                    {...props}
+                    {...this}
+                    {...this.state}
+                  />
+                )}
+              />
+              <Route
+                exact
+                path="/fyllidinasvarsnabb"
+                component={props => (
+                  <QuickQuestionsPage
+                    {...props}
+                    {...this}
+                    {...this.state}
+                  />
+                )}
+              />
+              <Route
+                exact
+                path="/resultat"
+                component={props => (
+                  <ResultPage
+                    {...props}
+                    {...this}
+                    {...this.state}
+                  />
+                )}
+              />
+            </Switch>
+        </DataContextProvider>
       </div>
     );
   }

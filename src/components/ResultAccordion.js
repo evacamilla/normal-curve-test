@@ -32,7 +32,7 @@ function ResultAccordion(props) {
         );
     } else {
         return (
-            <div onClick={props.setQuestionIndex} id={props.i} key={props.i} className="accordion-small">
+            <div onClick={props.showQuestion} id={props.i} key={props.i} className="accordion-small">
                 <h3 className="accordion-heading" id={props.i}>{props.number + ". " + props.heading}</h3>
                 <div id={props.i} className="result-number-div">
                     <span className="chosen-answer">{props.chosenAnswer}</span> | <span className="normal-answer">3</span>
